@@ -1,3 +1,53 @@
 pt-BR:
     attributes:
-      menu: Menu
+      views:
+        menu_left:
+          menu: Menu
+          home: Home
+          hierarchy: Hierarquia
+        body:
+          action: Ação
+      models:
+        hierarchies: Hierarquias
+        hierarchy:
+          name: Nome
+          acronym: Sigla
+          rank: Grau Hierarquico
+          names:
+            cel: Coronel
+            tc: Tenente Coronel
+            maj: Major
+            cap: Capitão
+            ten1: 1º Tenente
+            ten2: 2º Tenente
+            asp: Aspirante
+            cfoa: Aluno CFOA
+            cfo: Aluno CFO
+            sub: Sub Tenente
+            sgt1: 1º Sargento
+            sgt2: 2º Sargento
+            sgt3: 3º Sargento
+            cfs: Aluno CFS
+            cb: Cabo
+            cfc: Aluno CFC
+            sd: Soldado
+            cfsd: Aluno CFSD
+          acronyms:
+            cel: CEL
+            tc: TC
+            maj: MAJ
+            cap: CAP
+            ten1: 1ºTEN
+            ten2: 2ºTEN
+            asp: ASP
+            cfoa: AL CFOA
+            cfo: AL CFO
+            sub: SUB-TEN
+            sgt1: 1ºSGT
+            sgt2: 2ºSGT
+            sgt3: 3ºSGT
+            cfs: AL CFS
+            cb: CB
+            cfc: AL CFC
+            sd: SD
+            cfsd: AL CFSD

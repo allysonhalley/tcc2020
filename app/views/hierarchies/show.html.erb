@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @hierarchy.name %>
+</p>
+
+<p>
+  <strong>Acronym:</strong>
+  <%= @hierarchy.acronym %>
+</p>
+
+<p>
+  <strong>Rank:</strong>
+  <%= @hierarchy.rank %>
+</p>
+
+<%= link_to 'Edit', edit_hierarchy_path(@hierarchy) %> |
+<%= link_to 'Back', hierarchies_path %>

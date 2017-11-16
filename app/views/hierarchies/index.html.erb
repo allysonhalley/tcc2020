@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<div class="col-xs-12">
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title"><%= I18n.t 'attributes.models.hierarchies'%></h3>
+      <%= form_tag hierarchies_path, method: :get do %>
+          <%= text_field_tag :search, "", class: 'col-xs-6' %>
+          <%= submit_tag 'Search' %>
+      <% end %>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th class="col-md-6"><%= I18n.t 'attributes.models.hierarchy.name' %></th>
+          <th class="col-md-4"><%= I18n.t 'attributes.models.hierarchy.acronym' %></th>
+          <th  class="col-md-2"><%= I18n.t 'attributes.views.body.action' %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @hierarchies.each do |hierarchy| %>
+            <tr>
+              <td><%= hierarchy.name %></td>
+              <td><%= hierarchy.acronym %></td>
+              <td>
+                <%= hidden_field(@hierarchy, hierarchy) %>
+                <%= link_to "Edit", edit_hierarchy_path(hierarchy.id) %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

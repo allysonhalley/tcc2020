@@ -17,6 +17,12 @@ gem 'will_paginate', '>= 3.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'font-awesome-rails', '4.7.0.2'
 gem 'sass-rails', '~> 5.0'
+gem 'adminlte-rails', '~> 1.3', '>= 1.3.3'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+#gem 'turbolinks', '~> 5'
+gem 'jquery-turbolinks'
 #I18N
 gem 'rails-i18n'
 # Use Uglifier as compressor for JavaScript assets
@@ -28,8 +34,7 @@ gem 'devise'
 gem 'cancancan'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'coffee-script-source', '1.8.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production

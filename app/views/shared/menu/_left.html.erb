@@ -1,21 +1,23 @@
 <aside class="main-sidebar">
   <!-- sidebar: style can be found in sidebar.less -->
-  <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 307px;">
-    <div class="sidebar" id="scrollspy" style="height: 307px; overflow: hidden; width: auto;">
+  <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 286px;">
+    <!-- <div class="sidebar" id="scrollspy" style="height: 307px; overflow: hidden; width: auto;"> -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="nav sidebar-menu">
-        <li class="header">
-          <%= I18n.t 'helpers.layouts.menu' %>
-        </li>
-        <li class="">
-          <a href="/hierarchies">
-            <i class="fa fa-circle-o"></i>
-            <%= I18n.t 'activerecord.hierarchy' %>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.2); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 152.26px;"></div>
+      <section class="sidebar" style="height: 286px; overflow: hidden; width: auto;">
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="nav sidebar-menu">
+            <li class="header">
+              <%= I18n.t 'helpers.layouts.menu' %>
+            </li>
+            <li class="">
+              <a href="/hierarchies">
+                <i class="fa fa-circle-o"></i>
+                <%= I18n.t 'activerecord.hierarchy' %>
+              </a>
+            </li>
+          </ul>
+      </section>
+    <div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.2); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 79.4136px;"></div>
     <div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
   </div>
   <!-- /.sidebar -->

@@ -3,17 +3,33 @@
   <!-- Logo -->
   <a href="../" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><strong>SGId</strong></span>
+    <span class="logo-mini">
+      <strong>
+        <%= I18n.t 'helpers.layouts.sgid' %>
+      </strong>
+    </span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><strong>SGId</strong></span>
+    <span class="logo-lg">
+      <strong>
+        <%= I18n.t 'helpers.layouts.sgid' %>
+      </strong>
+    </span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top" role="navigation">
     <!-- Navbar Right Menu -->
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <li><a href="http://www.bombeiros.pe.gov.br">Bombeiros</a></li>
-        <li><a href="http://www.bombeiros.pe.gov.br">CBMPE</a></li>
+        <li>
+          <a href="http://www.bombeiros.pe.gov.br">
+            <%= I18n.t 'helpers.layouts.fire_fights' %>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.bombeiros.pe.gov.br">
+            <%= I18n.t 'helpers.layouts.fire_fights_acronym' %>
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

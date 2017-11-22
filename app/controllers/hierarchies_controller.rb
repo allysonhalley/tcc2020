@@ -1,16 +1,19 @@
+# HierarchiesController controlla link com view
 class HierarchiesController < ApplicationController
-  before_action :set_hierarchy, only: [:show, :edit, :update, :destroy]
+  before_action :set_hierarchy, only: %i[show edit update destroy]
 
   # GET /hierarchies
   # GET /hierarchies.json
   def index
-    @hierarchies = Hierarchy.search(params[:search])
+    # @hierarchies = Hierarchy.search(params[:search])
+    @q = Hierarchy.ransack(params[:q])
+
+    @hierarchies = @q.result(distinct: true)
   end
 
   # GET /hierarchies/1
   # GET /hierarchies/1.json
-  def show
-  end
+  def show; end
 
   # GET /hierarchies/new
   def new
@@ -18,21 +21,19 @@ class HierarchiesController < ApplicationController
   end
 
   # GET /hierarchies/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /hierarchies
   # POST /hierarchies.json
   def create
     @hierarchy = Hierarchy.new(hierarchy_params)
-
     respond_to do |format|
       if @hierarchy.save
-        format.html { redirect_to @hierarchy, notice: 'Hierarchy was successfully created.' }
-        format.json { render :show, status: :created, location: @hierarchy }
+        format.html do
+          redirect_to @hierarchy, notice: t('activerecord.success.create')
+        end
       else
         format.html { render :new }
-        format.json { render json: @hierarchy.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +43,11 @@ class HierarchiesController < ApplicationController
   def update
     respond_to do |format|
       if @hierarchy.update(hierarchy_params)
-        format.html { redirect_to @hierarchy, notice: 'Hierarchy was successfully updated.' }
-        format.json { render :show, status: :ok, location: @hierarchy }
+        format.html do
+          redirect_to @hierarchy, notice: t('activerecord.success.update')
+        end
       else
         format.html { render :edit }
-        format.json { render json: @hierarchy.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,19 +57,22 @@ class HierarchiesController < ApplicationController
   def destroy
     @hierarchy.destroy
     respond_to do |format|
-      format.html { redirect_to hierarchies_url, notice: 'Hierarchy was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html do
+        redirect_to hierarchies_url, notice: t('activerecord.success.destroy')
+      end
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hierarchy
-      @hierarchy = Hierarchy.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def hierarchy_params
-      params.require(:hierarchy).permit(:name, :acronym, :rank)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_hierarchy
+    @hierarchy = Hierarchy.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
+  def hierarchy_params
+    params.require(:hierarchy).permit(:name, :acronym, :rank)
+  end
 end

@@ -2,33 +2,36 @@
 <div class="col-xs-12">
   <div class="box">
     <div class="box-header">
-      <h3 class="box-title"><%= I18n.t 'attributes.models.hierarchies'%></h3>
-      <%= form_tag hierarchies_path, method: :get do %>
-          <%= text_field_tag :search, "", class: 'col-xs-6' %>
-          <%= submit_tag 'Search' %>
-      <% end %>
+      <h3 class="box-title"><%= I18n.t 'activerecord.hierarchies'%></h3>
+      
     </div>
     <!-- /.box-header -->
     <div class="box-body table-responsive no-padding">
+      <%= search_form_for @q, html: {class: "navbar-form-custom", role: "search", style: "margin-left:2%"} do |f| %>
+        <%= f.search_field :name_or_acronym_or_rank_cont, class: "form-control", placeholder: "Pesquisar por..." %>
+      <% end %>
       <table class="table table-hover">
         <thead>
-        <tr>
-          <th class="col-md-6"><%= I18n.t 'attributes.models.hierarchy.name' %></th>
-          <th class="col-md-4"><%= I18n.t 'attributes.models.hierarchy.acronym' %></th>
-          <th  class="col-md-2"><%= I18n.t 'attributes.views.body.action' %></th>
-        </tr>
+          <tr>
+            <th class="col-md-4"><%= sort_link(@q, :name, t('activerecord.default.name')) %></th>
+            <th class="col-md-2"><%= sort_link(@q, :acronym, t('activerecord.hierarchy.acronym')) %></th>
+            <th class="col-md-1"><%= sort_link(@q, :rank, t('activerecord.hierarchy.rank')) %></th>
+            <th  class="col-md-3"><%= I18n.t 'helpers.layouts.action' %></th>
+          </tr>
         </thead>
         <tbody>
-        <% @hierarchies.each do |hierarchy| %>
+          <% @hierarchies.each do |hierarchy| %>
             <tr>
               <td><%= hierarchy.name %></td>
               <td><%= hierarchy.acronym %></td>
+              <td><%= hierarchy.rank %></td>
               <td>
                 <%= hidden_field(@hierarchy, hierarchy) %>
-                <%= link_to "Edit", edit_hierarchy_path(hierarchy.id) %>
+                <%= link_to t('helpers.layouts.edit'), edit_hierarchy_path(hierarchy.id) %>
+                <%= link_to t('helpers.layouts.destroy'), hierarchy, method: :delete, data: { confirm: t('helpers.submit.sure') } %>
               </td>
             </tr>
-        <% end %>
+          <% end %>
         </tbody>
       </table>
     </div>

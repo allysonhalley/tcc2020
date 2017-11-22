@@ -5,18 +5,17 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true %>
   </head>
-
   <body class="skin-blue sidebar-mini" style="height: auto;">
-  <div class="wrapper" style="height: auto;">
-    <%= render 'shared/menu/top' %>
-    <%= render 'shared/menu/left' %>
-    <div class="content-wrapper" style="min-height: 946px;">
-      <section class="content">
-        <%= yield %>
-      </section>
+    <div class="wrapper" style="height: auto;">
+      <%= render 'shared/menu/top' %>
+      <%= render 'shared/menu/left' %>
+      <div class="content-wrapper" style="min-height: auto;">
+        <section>
+          <%= yield %>
+        </section>
+      </div>
+      <%= render 'shared/footer' %>
     </div>
-    <%= render 'shared/footer' %>
-  </div>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

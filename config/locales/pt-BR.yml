@@ -5,6 +5,33 @@ pt-BR:
     attributes:
       acronym: Sigla
       rank: Grau Hierarquico
+      identification: RG
+      father_name: Nome do Pai
+      mother_name: Nome da Mãe
+      born_date: Data de Nascimento
+      registration: Matrícula
+      naturalness: Naturalidade
+      vote_number: Título de eleitor
+      vote_zone: Zona
+      vote_section: Seção
+      cpf: CPF
+      digital_factor: Fator Digital
+      blood_type: Tipo Sanguíneo
+      blood_types:
+        undefine_type: INDEFINIDO
+        a: A
+        b: B
+        ab: AB
+        o: O
+      blood_factor: Fator Sanguíneo
+      blood_factors:
+        undefine_factor: INDEFINIDO      
+        positive: POSITIVO
+        negative: NEGATIVO      
+      firearm: Porte de Arma
+      firearms:
+        fit: APTO
+        unfit: INAPTO
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -17,6 +44,8 @@ pt-BR:
       destroy: Excluído com sucesso.
     hierarchies: Hierarquias
     hierarchy: Hierarquia
+    military: Militar
+    militaries: Militares
   date:
     abbr_day_names:
     - Dom
@@ -172,7 +201,10 @@ pt-BR:
       home: Home
       action: Ação
       edit: Editar
+      create: Criar
+      new: Nova
       destroy: Excluir
+      back: Voltar
       search: Pesquisar por...
       version: Versão
       version_number: 3.0.a

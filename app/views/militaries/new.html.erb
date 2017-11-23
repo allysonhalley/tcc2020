@@ -1,0 +1,5 @@
+<h1><%= I18n.t 'helpers.layouts.create'%> </h1>
+
+<%= render 'form', military: @military %>
+
+<%= link_to t('helpers.layouts.back'), militaries_path, class: 'btn btn-default' %>

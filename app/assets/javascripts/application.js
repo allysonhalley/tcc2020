@@ -13,7 +13,10 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery.turbolinks
+//= require jquery.inputmask
+//= require jquery.inputmask.date.extensions
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require adminlte
 //= require_tree .

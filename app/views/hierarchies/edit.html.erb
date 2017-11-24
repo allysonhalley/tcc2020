@@ -1,6 +1,6 @@
-<h1>Editing Hierarchy</h1>
+<h3><%= I18n.t('helpers.layouts.edit') %> <%= I18n.t 'activerecord.hierarchy'%></h3>
 
 <%= render 'form', hierarchy: @hierarchy %>
 
-<%= link_to 'Show', @hierarchy %> |
-<%= link_to 'Back', hierarchies_path %>
+<%= link_to(I18n.t('helpers.layouts.show'), @hierarchy, class:"btn btn-default") %>
+<%= link_to(I18n.t('helpers.layouts.back'), hierarchies_path, class:"btn btn-default") %>

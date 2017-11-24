@@ -1,19 +1,29 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @hierarchy.name %>
-</p>
-
-<p>
-  <strong>Acronym:</strong>
-  <%= @hierarchy.acronym %>
-</p>
-
-<p>
-  <strong>Rank:</strong>
-  <%= @hierarchy.rank %>
-</p>
-
+<div class="box box-info">
+  <%= form_with(model: @hierarchy, local: true, class: 'form-horizontal') do |form| %>
+  <div class="box-body">
+    <div class="form-group">
+      <%= form.label :name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= form.text_field (:name, id: :hierarchy_name, class: "form-control")%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :acronym, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= form.text_field :acronym, id: :hierarchy_acronym, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :rank, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= form.number_field :rank, id: :hierarchy_rank, class: "form-control" %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= form.submit I18n.t('helpers.layouts.create'), class:"btn btn-default" %>
+    </div>
+  </div>
+<% end %>
 <%= link_to 'Edit', edit_hierarchy_path(@hierarchy) %> |
 <%= link_to 'Back', hierarchies_path %>

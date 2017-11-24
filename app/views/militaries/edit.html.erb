@@ -1,6 +1,6 @@
-<h1>Editing Military</h1>
+<h3><%= I18n.t('helpers.layouts.edit') %> <%= I18n.t 'activerecord.military'%></h3>
 
 <%= render 'form', military: @military %>
 
-<%= link_to 'Show', @military %> |
-<%= link_to 'Back', militaries_path %>
+<%= link_to(I18n.t('helpers.layouts.show'), @military, class:"btn btn-default") %>
+<%= link_to(I18n.t('helpers.layouts.back'), militaries_path, class:"btn btn-default") %>

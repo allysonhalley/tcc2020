@@ -1,92 +1,105 @@
-<div class="box">
-  <div class="box-header">
-    <h3 class="box-title">
-      <%= I18n.t 'activerecord.military'%>
-      <p id="notice"><%= notice %></p>
-    </h3>
-  </div>
-  <div class="box-body">
-    <p>  
-      <strong>Name:</strong>
-      <%= @military.name %>
-    </p>
-
-    <p>
-      <strong>Identification:</strong>
-      <%= @military.identification %>
-    </p>
-
-    <p>
-      <strong>Hierarchy:</strong>
-      <%= @military.hierarchy.name %>
-    </p>
-
-    <p>
-      <strong>Father name:</strong>
-      <%= @military.father_name %>
-    </p>
-
-    <p>
-      <strong>Mother name:</strong>
-      <%= @military.mother_name %>
-    </p>
-
-    <p>
-      <strong>Born date:</strong>
-      <%= @military.born_date.strftime("%d/%m/%Y") %>
-    </p>
-
-    <p>
-      <strong>Registration:</strong>
-      <%= @military.registration %>
-    </p>
-
-    <p>
-      <strong>Naturalness:</strong>
-      <%= @military.naturalness %>
-    </p>
-
-    <p>
-      <strong>Vote number:</strong>
-      <%= @military.vote_number %>
-    </p>
-
-    <p>
-      <strong>Vote zone:</strong>
-      <%= @military.vote_zone %>
-    </p>
-
-    <p>
-      <strong>Vote section:</strong>
-      <%= @military.vote_section %>
-    </p>
-
-    <p>
-      <strong>Cpf:</strong>
-      <%= @military.cpf %>
-    </p>
-
-    <p>
-      <strong>Digital factor:</strong>
-      <%= @military.digital_factor %>
-    </p>
-
-    <p>
-      <strong>Blood type:</strong>
-      <%= @military.i18n_blood_type %>
-    </p>
-
-    <p>
-      <strong>Blood factor:</strong>
-      <%= @military.i18n_blood_factor %>
-    </p>
-
-    <p>
-      <strong>Firearm:</strong>
-      <%= @military.i18n_firearm %>
-    </p>
-    <%= link_to t('helpers.layouts.edit'), edit_military_path(@military), class: 'btn btn-default' %>
-    <%= link_to t('helpers.layouts.back'), militaries_path, class: 'btn btn-default' %>
+<p id="notice"><%= notice %></p>
+<div class="box box-info">  
+  <div class="form-horizontal">
+    <div class="box-body">
+      <div class="form-group">
+        <%= label_tag( :name, I18n.t("activerecord.default.name"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:name, @military.name, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :name, I18n.t("activerecord.attributes.identification"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:identification, @military.identification, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :hierarchy, I18n.t("activerecord.hierarchy"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:hierarchy, @military.hierarchy.name, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :father_name, I18n.t("activerecord.attributes.father_name"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:father_name, @military.father_name, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :mother_name, I18n.t("activerecord.attributes.mother_name"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:mother_name, @military.mother_name, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :born_date, I18n.t("activerecord.attributes.born_date"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:born_date, @military.born_date.strftime("%d/%m/%Y"), {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :registration, I18n.t("activerecord.attributes.registration"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:registration, @military.registration, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :naturalness, I18n.t("activerecord.attributes.naturalness"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:naturalness, @military.naturalness, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :vote_number, I18n.t("activerecord.attributes.vote_number"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:vote_number, @military.vote_number, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :vote_zone, I18n.t("activerecord.attributes.vote_zone"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:vote_zone, @military.vote_zone, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :vote_section, I18n.t("activerecord.attributes.vote_section"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:vote_section, @military.vote_section, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :cpf, I18n.t("activerecord.attributes.cpf"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:cpf, @military.cpf, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :digital_factor, I18n.t("activerecord.attributes.digital_factor"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:digital_factor, @military.digital_factor, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :blood_type, I18n.t("activerecord.attributes.blood_type"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:blood_type, @military.i18n_blood_type, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :blood_factor, I18n.t("activerecord.attributes.blood_factor"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:blood_factor, @military.i18n_blood_factor, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :firearm, I18n.t("activerecord.attributes.firearm"), class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:firearm, @military.i18n_firearm, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
+<%= link_to(I18n.t('helpers.layouts.edit'), edit_military_path(@military), class:"btn btn-default") %>
+<%= link_to(I18n.t('helpers.layouts.back'), militaries_path, class:"btn btn-default") %>

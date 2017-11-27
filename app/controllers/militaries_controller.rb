@@ -1,17 +1,17 @@
+# Classe controla funcoes referentes aos militares
 class MilitariesController < ApplicationController
-  before_action :set_military, only: [:show, :edit, :update, :destroy]
+  before_action :set_military, only: %i[show edit update destroy]
 
   # GET /militaries
   # GET /militaries.json
   def index
-    @q = Military.ransack(params[:q])    
+    @q = Military.ransack(params[:q])
     @militaries = @q.result(distinct: true)
   end
 
   # GET /militaries/1
   # GET /militaries/1.json
-  def show
-  end
+  def show; end
 
   # GET /militaries/new
   def new
@@ -19,8 +19,7 @@ class MilitariesController < ApplicationController
   end
 
   # GET /militaries/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /militaries
   # POST /militaries.json
@@ -29,8 +28,10 @@ class MilitariesController < ApplicationController
 
     respond_to do |format|
       if @military.save
-        format.html { redirect_to @military, notice: t('activerecord.success.create')}
-        
+        format.html do
+          redirect_to @military, notice: t('activerecord.success.create')
+        end
+
       else
         format.html { render :new }
       end
@@ -42,7 +43,9 @@ class MilitariesController < ApplicationController
   def update
     respond_to do |format|
       if @military.update(military_params)
-        format.html { redirect_to @military, notice: t('activerecord.success.update')}
+        format.html do
+          redirect_to @military, notice: t('activerecord.success.update')
+        end
       else
         format.html { render :edit }
       end
@@ -54,18 +57,22 @@ class MilitariesController < ApplicationController
   def destroy
     @military.destroy
     respond_to do |format|
-      format.html { redirect_to militaries_url, notice: t('activerecord.success.destroy')}
+      format.html do
+        redirect_to militaries_url, notice: t('activerecord.success.destroy')
+      end
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_military
-      @military = Military.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def military_params
-      params.require(:military).permit(:name, :identification, :hierarchy_id, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :firearm)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_military
+    @military = Military.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
+  def military_params
+    params.require(:military).permit(:name, :identification, :hierarchy_id, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :firearm)
+  end
 end

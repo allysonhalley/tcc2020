@@ -1,34 +1,34 @@
 pt-BR:
   activerecord:
     default:
-      name: Nome
+      name: NOME
     attributes:
-      acronym: Sigla
-      rank: Grau Hierarquico
+      acronym: SIGLA
+      rank: GRAU HIERÁRQUICO
       identification: RG
-      father_name: Nome do Pai
-      mother_name: Nome da Mãe
-      born_date: Data de Nascimento
-      registration: Matrícula
-      naturalness: Naturalidade
-      vote_number: Título de eleitor
-      vote_zone: Zona
-      vote_section: Seção
+      father_name: NOME DO PAI
+      mother_name: NOME DA MÃE
+      born_date: DATA DE NASCIMENTO
+      registration: MATRÍCULA
+      naturalness: NATURALIDADE
+      vote_number: TÍTULO DE ELEITOR
+      vote_zone: ZONA
+      vote_section: SEÇÃO
       cpf: CPF
-      digital_factor: Fator Digital
-      blood_type: Tipo Sanguíneo
+      digital_factor: FATOR DIGITAL
+      blood_type: TIPO SANGUÍNEO
       blood_types:
         undefine_type: INDEFINIDO
         a: A
         b: B
         ab: AB
         o: O
-      blood_factor: Fator Sanguíneo
+      blood_factor: FATOR SANGUÍNEO
       blood_factors:
         undefine_factor: INDEFINIDO      
         positive: POSITIVO
         negative: NEGATIVO      
-      firearm: Porte de Arma
+      firearm: PORTE DE ARMA
       firearms:
         fit: APTO
         unfit: INAPTO
@@ -200,6 +200,7 @@ pt-BR:
       menu: Menu
       home: Home
       action: Ação
+      save: Salvar
       edit: Editar
       create: Criar
       show: Exibir

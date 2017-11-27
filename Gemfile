@@ -17,8 +17,8 @@ gem 'will_paginate', '>= 3.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'font-awesome-rails', '4.7.0.2'
 gem 'sass-rails', '~> 5.0'
-gem 'adminlte-rails', '~> 1.3', '>= 1.3.3'
 gem 'bootstrap-datepicker-rails', '~> 1.4'
+gem 'adminlte-rails', '~> 1.3', '>= 1.3.3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

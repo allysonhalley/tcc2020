@@ -4,7 +4,7 @@ pt-BR:
       name: NOME
     attributes:
       acronym: SIGLA
-      rank: GRAU HIERÁRQUICO
+      rank: RANK
       identification: RG
       father_name: NOME DO PAI
       mother_name: NOME DA MÃE
@@ -199,7 +199,7 @@ pt-BR:
       fire_fights_acronym: CBMPE
       menu: Menu
       home: Home
-      action: Ação
+      action: AÇÃO
       save: Salvar
       edit: Editar
       create: Criar

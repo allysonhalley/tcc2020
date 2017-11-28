@@ -10,20 +10,20 @@
       <thead>
         <tr>
           <th><%= sort_link(@q, :name, t('activerecord.default.name')) %></th>
-          <th><%= sort_link(@q, :identification, t('activerecord.attributes.identification')) %></th>
-          <th><%= sort_link(@q, :registration, t('activerecord.attributes.registration')) %></th>
-          <th><%= sort_link(@q, :cpf, t('activerecord.attributes.cpf')) %></th>          
-          <th><%= I18n.t 'helpers.layouts.action' %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :identification, t('activerecord.attributes.identification')) %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :registration, t('activerecord.attributes.registration')) %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :cpf, t('activerecord.attributes.cpf')) %></th>          
+          <th class="col-sm-1 text-center"><%= I18n.t 'helpers.layouts.action' %></th>
         </tr>
       </thead>
       <tbody>
         <% @militaries.each do |military| %>
           <tr>
             <td><%= military.name %></td>
-            <td><%= military.identification %></td>
-            <td><%= military.registration %></td>
-            <td><%= military.cpf %></td>
-            <td>
+            <td align="center"><%= military.identification %></td>
+            <td align="center"><%= military.registration %></td>
+            <td align="center"><%= military.cpf %></td>
+            <td align="center">
               <%= hidden_field(@military, military) %>
               <%= link_to t('helpers.layouts.edit'), edit_military_path(military.id), class: 'btn btn-default btn-xs' %>
               <%= link_to t('helpers.layouts.destroy'), military, method: :delete, data: { confirm: t('helpers.submit.sure')}, class: 'btn btn-default btn-xs' %>

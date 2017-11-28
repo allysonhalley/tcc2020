@@ -10,18 +10,18 @@
       <thead>
         <tr>
           <th><%= sort_link(@q, :name, t('activerecord.default.name')) %></th>
-          <th><%= sort_link(@q, :acronym, t('activerecord.hierarchy.acronym')) %></th>
-          <th><%= sort_link(@q, :rank, t('activerecord.hierarchy.rank')) %></th>
-          <th><%= I18n.t 'helpers.layouts.action' %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :acronym, t('activerecord.attributes.acronym')) %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :rank, t('activerecord.attributes.rank')) %></th>
+          <th class="col-sm-2 text-center"><%= I18n.t 'helpers.layouts.action' %></th>
         </tr>
       </thead>
       <tbody>
         <% @hierarchies.each do |hierarchy| %>
           <tr>
             <td><%= hierarchy.name %></td>
-            <td><%= hierarchy.acronym %></td>
-            <td><%= hierarchy.rank %></td>
-            <td>
+            <td align="center"><%= hierarchy.acronym %></td>
+            <td align="center"><%= hierarchy.rank %></td>
+            <td align="center">
               <%= hidden_field(@hierarchy, hierarchy) %>
               <%= link_to t('helpers.layouts.edit'), edit_hierarchy_path(hierarchy.id), class: 'btn btn-default btn-xs' %>
               <%= link_to t('helpers.layouts.destroy'), hierarchy, method: :delete, data: { confirm: t('helpers.submit.sure') }, class: 'btn btn-default btn-xs' %>

@@ -130,8 +130,13 @@
             <%= form.select(:firearm, options_for_select(Military.i18n_firearms, @military.firearm), {}, {class: "form-control"}) %>
           </div>
       </div>
-      <div class="actions">
-        <%= form.submit I18n.t('helpers.layouts.save'), class:"btn btn-default" %>
+      <div class="actions">        
+        <%= link_to("", militaries_path, class:"btn btn-default fa fa-long-arrow-left") %>
+        <%= link_to("", @military, class:"btn btn-default fa fa-eye") %> 
+        <div class="box-tools pull-right">
+            <%= form.submit( I18n.t('helpers.layouts.save'), class:"btn btn-success btn-sm" )%>        
+        </div>        
+      </div>
       </div>
     </div>
   <% end %>

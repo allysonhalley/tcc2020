@@ -1,3 +1,4 @@
+<h3><%= I18n.t('helpers.layouts.show') %> <%= I18n.t 'activerecord.military'%></h3>
 <p id="notice"><%= notice %></p>
 <div class="box box-info">  
   <div class="form-horizontal">
@@ -98,8 +99,10 @@
           <%= text_field_tag(:firearm, @military.i18n_firearm, {class: "form-control", disabled: true})%>
         </div>
       </div>
+      <div class="actions">        
+        <%= link_to("", militaries_path, class:"btn btn-default fa fa-long-arrow-left") %>
+        <%= link_to("", edit_military_path(@military), class:"btn btn-info fa fa-edit") %> 
+      </div>
     </div>
   </div>
 </div>
-<%= link_to(I18n.t('helpers.layouts.edit'), edit_military_path(@military), class:"btn btn-default") %>
-<%= link_to(I18n.t('helpers.layouts.back'), militaries_path, class:"btn btn-default") %>

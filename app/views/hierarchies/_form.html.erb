@@ -28,10 +28,14 @@
         <div class="col-sm-6">
           <%= form.number_field( :rank, id: :hierarchy_rank, in: 1...18, class: "form-control") %>
         </div>
-      </div>      
-      <%= form.submit( I18n.t('helpers.layouts.save'), class:"btn btn-app") %>      
-      <%= link_to(I18n.t('helpers.layouts.back'), hierarchies_path, class:"btn btn-app fa fa-long-arrow-left") %>
-      <%= link_to(I18n.t('helpers.layouts.show'), @hierarchy, class:"btn btn-app fa fa-eye") %>
+      </div>
+      <div class="actions">        
+        <%= link_to("", hierarchies_path, class:"btn btn-default fa fa-long-arrow-left") %>
+        <%= link_to("", @hierarchy, class:"btn btn-default fa fa-eye") %> 
+        <div class="box-tools pull-right">
+            <%= form.submit( I18n.t('helpers.layouts.save'), class:"btn btn-success btn-sm" )%>        
+        </div>        
+      </div>
     </div>
   <% end %>
 </div>

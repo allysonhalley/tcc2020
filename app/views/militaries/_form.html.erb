@@ -12,132 +12,130 @@
             <% end %>
         </ul>
       </div>
-    <% end %>
-    <div class="box-body">
-      <div class="form-group">
-        <%= form.label(:name, I18n.t("activerecord.default.name"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :name, id: :military_name, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-        <%= form.label(:identification, I18n.t("activerecord.attributes.identification"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :identification, id: :military_identification, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-        <%= form.label(:hierarchy, I18n.t("activerecord.hierarchy"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.select(:hierarchy_id, Hierarchy.all.map {|hierarchy| [hierarchy.name, hierarchy.id]}, {}, {class: "form-control"}) %>
-          </div>
-      </div>
-
-      <div class="form-group">
-        <%= form.label(:father_name, I18n.t("activerecord.attributes.father_name"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :father_name, id: :military_father_name, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-        <%= form.label(:mother_name, I18n.t("activerecord.attributes.mother_name"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :mother_name, id: :military_mother_name, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-        <%= form.label( :born_date, I18n.t("activerecord.attributes.born_date"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <div class="input-group date">
-              <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
+      <% end %>
+        <div class="box-body">
+          <div class="form-group">
+            <%= form.label(:name, I18n.t("activerecord.default.name"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :name, id: :military_name, class: "form-control" %>
               </div>
-              <%= form.text_field :born_date, id: :military_born_date, class: "form-control pull-right" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label(:identification, I18n.t("activerecord.attributes.identification"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :identification, id: :military_identification, class: "form-control" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label(:hierarchy, I18n.t("activerecord.hierarchy"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.select(:hierarchy_id, Hierarchy.all.map {|hierarchy| [hierarchy.name, hierarchy.id]}, {}, {class: "form-control"}) %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label(:father_name, I18n.t("activerecord.attributes.father_name"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :father_name, id: :military_father_name, class: "form-control" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label(:mother_name, I18n.t("activerecord.attributes.mother_name"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :mother_name, id: :military_mother_name, class: "form-control" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label( :born_date, I18n.t("activerecord.attributes.born_date"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <%= form.text_field :born_date, id: :military_born_date, class: "form-control pull-right" %>
+                </div>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label( :registration, I18n.t("activerecord.attributes.registration"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :registration, id: :military_registration, class: "form-control" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label( :naturalness, I18n.t("activerecord.attributes.naturalness"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :naturalness, id: :military_naturalness, class: "form-control" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label( :vote_number, I18n.t("activerecord.attributes.vote_number"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :vote_number, id: :military_vote_number, class: "form-control" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label( :vote_zone, I18n.t("activerecord.attributes.vote_zone"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :vote_zone, id: :military_vote_zone, class: "form-control" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label( :vote_section, I18n.t("activerecord.attributes.vote_section"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :vote_section, id: :military_vote_section, class: "form-control" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label( :cpf, I18n.t("activerecord.attributes.cpf"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :cpf, id: :military_cpf, class: "form-control" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label( :digital_factor, I18n.t("activerecord.attributes.digital_factor"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.text_field :digital_factor, id: :military_digital_factor, class: "form-control" %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label( :blood_type, I18n.t("activerecord.attributes.blood_type"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.select(:blood_type, options_for_select(Military.i18n_blood_types, @military.blood_type), {}, {class: "form-control"}) %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label( :blood_factor, I18n.t("activerecord.attributes.blood_factor"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.select(:blood_factor, options_for_select(Military.i18n_blood_factors, @military.blood_factor), {}, {class: "form-control"}) %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label( :firearm, I18n.t("activerecord.attributes.firearm"), class: 'col-sm-2 control-label') %>
+              <div class="col-sm-6">
+                <%= form.select(:firearm, options_for_select(Military.i18n_firearms, @military.firearm), {}, {class: "form-control"}) %>
+              </div>
+          </div>
+          <div class="actions">
+            <%= link_to(I18n.t('helpers.layouts.back'), militaries_path, class:"btn btn-default btn-sm") %>
+            <div class="box-tools pull-right">
+              <%= form.submit( I18n.t('helpers.layouts.save'), class:"btn btn-success btn-sm" )%>
             </div>
           </div>
-      </div>
-
-      <div class="form-group">
-          <%= form.label( :registration, I18n.t("activerecord.attributes.registration"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :registration, id: :military_registration, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <%= form.label( :naturalness, I18n.t("activerecord.attributes.naturalness"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :naturalness, id: :military_naturalness, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <%= form.label( :vote_number, I18n.t("activerecord.attributes.vote_number"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :vote_number, id: :military_vote_number, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <%= form.label( :vote_zone, I18n.t("activerecord.attributes.vote_zone"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :vote_zone, id: :military_vote_zone, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <%= form.label( :vote_section, I18n.t("activerecord.attributes.vote_section"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :vote_section, id: :military_vote_section, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <%= form.label( :cpf, I18n.t("activerecord.attributes.cpf"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :cpf, id: :military_cpf, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <%= form.label( :digital_factor, I18n.t("activerecord.attributes.digital_factor"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :digital_factor, id: :military_digital_factor, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <%= form.label( :blood_type, I18n.t("activerecord.attributes.blood_type"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.select(:blood_type, options_for_select(Military.i18n_blood_types, @military.blood_type), {}, {class: "form-control"}) %>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <%= form.label( :blood_factor, I18n.t("activerecord.attributes.blood_factor"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.select(:blood_factor, options_for_select(Military.i18n_blood_factors, @military.blood_factor), {}, {class: "form-control"}) %>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <%= form.label( :firearm, I18n.t("activerecord.attributes.firearm"), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.select(:firearm, options_for_select(Military.i18n_firearms, @military.firearm), {}, {class: "form-control"}) %>
-          </div>
-      </div>
-      <div class="actions">        
-        <%= link_to("", militaries_path, class:"btn btn-default fa fa-long-arrow-left") %>
-        <%= link_to("", @military, class:"btn btn-default fa fa-eye") %> 
-        <div class="box-tools pull-right">
-            <%= form.submit( I18n.t('helpers.layouts.save'), class:"btn btn-success btn-sm" )%>        
-        </div>        
-      </div>
-      </div>
-    </div>
-  <% end %>
+        </div>
+</div>
+<% end %>
 </div>

@@ -30,8 +30,9 @@
             <td align="center"><%= military.cpf %></td>
             <td align="center">
               <%= hidden_field(@military, military) %>
-              <%= link_to "", edit_military_path(military.id), class: 'btn btn-info btn-xs fa fa-edit' %>
-              <%= link_to "", military, method: :delete, data: { confirm: t('helpers.submit.sure')}, class: 'btn btn-danger btn-xs fa fa-remove' %>
+              <%= link_to("", military, class:"btn btn-default btn-xs fa fa-eye") %>
+              <%= link_to("", edit_military_path(military.id), class: 'btn btn-info btn-xs fa fa-edit') %>
+              <%= link_to("", military, method: :delete, data: { confirm: t('helpers.submit.sure')}, class: 'btn btn-danger btn-xs fa fa-remove') %>
             </td>
           </tr>
         <% end %>

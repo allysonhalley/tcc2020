@@ -30,8 +30,7 @@
         </div>
       </div>
       <div class="actions">        
-        <%= link_to("", hierarchies_path, class:"btn btn-default fa fa-long-arrow-left") %>
-        <%= link_to("", @hierarchy, class:"btn btn-default fa fa-eye") %> 
+        <%= link_to(I18n.t('helpers.layouts.back'), hierarchies_path, class:"btn btn-default btn-sm") %>
         <div class="box-tools pull-right">
             <%= form.submit( I18n.t('helpers.layouts.save'), class:"btn btn-success btn-sm" )%>        
         </div>        

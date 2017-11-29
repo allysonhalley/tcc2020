@@ -1,4 +1,9 @@
-<h3><%= I18n.t 'activerecord.militaries'%></h3>
+<h3 class="box-title">
+  <%= I18n.t 'activerecord.militaries'%>
+  <div class="box-tools pull-right">
+    <%= link_to "", new_military_path, class: 'btn btn-success btn-xs fa fa-plus' %>
+  </div>  
+</h3>
 <p id="notice"><%= notice %></p>
 <div class="box">
   <!-- /.box-header -->
@@ -13,7 +18,7 @@
           <th class="col-sm-1 text-center"><%= sort_link(@q, :identification, t('activerecord.attributes.identification')) %></th>
           <th class="col-sm-1 text-center"><%= sort_link(@q, :registration, t('activerecord.attributes.registration')) %></th>
           <th class="col-sm-1 text-center"><%= sort_link(@q, :cpf, t('activerecord.attributes.cpf')) %></th>          
-          <th class="col-sm-1 text-center"><%= I18n.t 'helpers.layouts.action' %></th>
+          <th class="col-sm-2 text-center"><%= I18n.t 'helpers.layouts.action' %></th>
         </tr>
       </thead>
       <tbody>
@@ -25,13 +30,12 @@
             <td align="center"><%= military.cpf %></td>
             <td align="center">
               <%= hidden_field(@military, military) %>
-              <%= link_to t('helpers.layouts.edit'), edit_military_path(military.id), class: 'btn btn-default btn-xs' %>
-              <%= link_to t('helpers.layouts.destroy'), military, method: :delete, data: { confirm: t('helpers.submit.sure')}, class: 'btn btn-default btn-xs' %>
+              <%= link_to "", edit_military_path(military.id), class: 'btn btn-info btn-xs fa fa-edit' %>
+              <%= link_to "", military, method: :delete, data: { confirm: t('helpers.submit.sure')}, class: 'btn btn-danger btn-xs fa fa-remove' %>
             </td>
           </tr>
         <% end %>
       </tbody>
-    </table>
-    <%= link_to t('helpers.layouts.new'), new_military_path, class: 'btn btn-default btn-sm' %>
+    </table>    
   </div>
 </div>

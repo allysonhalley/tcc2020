@@ -6,7 +6,7 @@ class MilitariesController < ApplicationController
   # GET /militaries.json
   def index
     @q = Military.ransack(params[:q])
-    @militaries = @q.result(distinct: true)
+    @militaries = @q.result(distinct: true).order(name: :asc)
   end
 
   # GET /militaries/1

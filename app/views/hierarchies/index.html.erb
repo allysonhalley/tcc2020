@@ -1,7 +1,6 @@
 <h3><%= I18n.t 'activerecord.hierarchies'%></h3>
 <p id="notice"><%= notice %></p>
 <div class="box">  
-  <!-- /.box-header -->
   <div class="box-body">
     <%= search_form_for @q, html: {class: "form-horizontal", role: "search"} do |f| %>
       <%= f.search_field :name_or_acronym_cont, class: "form-control", placeholder: t('helpers.layouts.search') %>
@@ -9,8 +8,8 @@
     <table class="table table-responsive table-hover">
       <thead>
         <tr>
-          <th><%= sort_link(@q, :name, t('activerecord.default.name')) %></th>
-          <th class="col-sm-3 text-center"><%= sort_link(@q, :rank, t('activerecord.attributes.acronym')) %></th>
+          <th><%= I18n.t 'activerecord.default.name' %></th>
+          <th class="col-sm-3 text-center"><%= I18n.t 'activerecord.attributes.acronym' %></th>
           <th class="col-sm-2 text-center"><%= I18n.t 'helpers.layouts.action' %></th>
         </tr>
       </thead>
@@ -21,8 +20,8 @@
             <td align="center"><%= hierarchy.acronym %></td>
             <td align="center">
               <%= hidden_field(@hierarchy, hierarchy) %>
-              <%= link_to "", edit_hierarchy_path(hierarchy.id), class: 'btn btn-info btn-xs fa fa-edit' %>
-              <%= link_to "", hierarchy, method: :delete, data: { confirm: t('helpers.submit.sure') }, class: 'btn btn-danger btn-xs fa fa-remove' %>
+              <%= link_to( "", edit_hierarchy_path(hierarchy.id), class: 'btn btn-info btn-xs fa fa-edit', title: I18n.t('helpers.layouts.edit'), 'data-toggle' => 'tooltip', 'data-placement' => 'left')%>
+              <%= link_to( "", hierarchy, method: :delete, data: { confirm: t('helpers.submit.sure') }, class: 'btn btn-danger btn-xs fa fa-trash-o', title: I18n.t('helpers.layouts.destroy'), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
             </td>
           </tr>
         <% end %>

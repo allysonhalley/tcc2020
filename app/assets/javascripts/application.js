@@ -17,6 +17,11 @@
 //= require jquery.inputmask.date.extensions
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap.min
 //= require bootstrap-datepicker
-//= require adminlte
+//= require bootstrap-datepicker.pt-BR
+//= require adminlte.min
 //= require_tree .
+
+//Date picker
+$('.datepicker').datepicker({autoclose: true});

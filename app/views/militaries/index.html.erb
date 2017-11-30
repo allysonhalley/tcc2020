@@ -1,7 +1,7 @@
 <h3 class="box-title">
   <%= I18n.t 'activerecord.militaries'%>
   <div class="box-tools pull-right">
-    <%= link_to "", new_military_path, class: 'btn btn-success btn-xs fa fa-plus' %>
+    <%= link_to "", new_military_path, class: 'btn btn-success btn-xs fa fa-plus', title: I18n.t('helpers.layouts.new'), 'data-toggle' => 'tooltip', 'data-placement' => 'left' %>
   </div>  
 </h3>
 <p id="notice"><%= notice %></p>
@@ -30,9 +30,9 @@
             <td align="center"><%= military.cpf %></td>
             <td align="center">
               <%= hidden_field(@military, military) %>
-              <%= link_to("", military, class:"btn btn-default btn-xs fa fa-eye") %>
-              <%= link_to("", edit_military_path(military.id), class: 'btn btn-info btn-xs fa fa-edit') %>
-              <%= link_to("", military, method: :delete, data: { confirm: t('helpers.submit.sure')}, class: 'btn btn-danger btn-xs fa fa-remove') %>
+              <%= link_to("", military, class:"btn btn-default btn-xs fa fa-file-o", title: I18n.t('helpers.layouts.show'), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
+              <%= link_to("", edit_military_path(military.id), class: 'btn btn-info btn-xs fa fa-edit', title: I18n.t('helpers.layouts.edit'), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
+              <%= link_to("", military, method: :delete, data: { confirm: t('helpers.submit.sure')}, class: 'btn btn-danger btn-xs fa fa-trash-o', title: I18n.t('helpers.layouts.destroy'), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
             </td>
           </tr>
         <% end %>

@@ -5,10 +5,8 @@ class HierarchiesController < ApplicationController
   # GET /hierarchies
   # GET /hierarchies.json
   def index
-    # @hierarchies = Hierarchy.search(params[:search])
-    @q = Hierarchy.ransack(params[:q])
-
-    @hierarchies = @q.result(distinct: true)
+    @q = Hierarchy.ransack(params[:q])    
+    @hierarchies = @q.result(distinct: true).order(rank: :asc)
   end
 
   # GET /hierarchies/1

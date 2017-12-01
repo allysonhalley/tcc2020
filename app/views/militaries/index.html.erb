@@ -14,10 +14,10 @@
     <table class="table table-responsive table-hover">
       <thead>
         <tr>
-          <th><%= sort_link(@q, :name, t('activerecord.default.name')) %></th>
-          <th class="col-sm-1 text-center"><%= sort_link(@q, :identification, t('activerecord.attributes.identification')) %></th>
-          <th class="col-sm-1 text-center"><%= sort_link(@q, :registration, t('activerecord.attributes.registration')) %></th>
-          <th class="col-sm-1 text-center"><%= sort_link(@q, :cpf, t('activerecord.attributes.cpf')) %></th>          
+          <th><%= sort_link(@q, :name, t('activerecord.attributes.military.name')) %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :identification, t('activerecord.attributes.military.identification')) %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :registration, t('activerecord.attributes.military.registration')) %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :cpf, t('activerecord.attributes.military.cpf')) %></th>          
           <th class="col-sm-2 text-center"><%= I18n.t 'helpers.layouts.action' %></th>
         </tr>
       </thead>

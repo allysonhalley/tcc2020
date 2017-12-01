@@ -40,7 +40,7 @@ class MilitariesController < ApplicationController
 
   # PATCH/PUT /militaries/1
   # PATCH/PUT /militaries/1.json
-  def update
+  def update 
     respond_to do |format|
       if @military.update(military_params)
         format.html do

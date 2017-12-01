@@ -1,37 +1,43 @@
 pt-BR:
-  activerecord:
-    default:
-      name: NOME
+  activerecord:    
+    hierarchies: Hierarquias
+    hierarchy: Hierarquia
+    military: Militar
+    militaries: Militares   
     attributes:
-      acronym: SIGLA
-      rank: RANK
-      identification: RG
-      father_name: NOME DO PAI
-      mother_name: NOME DA MÃE
-      born_date: DATA DE NASCIMENTO
-      registration: MATRÍCULA
-      naturalness: NATURALIDADE
-      vote_number: TÍTULO DE ELEITOR
-      vote_zone: ZONA
-      vote_section: SEÇÃO
-      cpf: CPF
-      digital_factor: FATOR DIGITAL
-      blood_type: TIPO SANGUÍNEO
-      blood_types:
-        undefine_type: INDEFINIDO
-        a: A
-        b: B
-        ab: AB
-        o: O
-      blood_factor: FATOR SANGUÍNEO
-      blood_factors:
-        undefine_factor: INDEFINIDO      
-        positive: POSITIVO
-        negative: NEGATIVO      
-      firearm: PORTE DE ARMA
-      firearms:
-        fit: APTO
-        unfit: INAPTO
+      hierarchy:
+        name: NOME
+        acronym: SIGLA
+        rank: RANK
+      military:
+        name: NOME
+        cpf: CPF
+        identification: RG
+        father_name: NOME DO PAI
+        mother_name: NOME DA MÃE
+        born_date: DATA DE NASCIMENTO
+        registration: MATRÍCULA
+        naturalness: NATURALIDADE
+        vote_number: TÍTULO DE ELEITOR
+        vote_zone: ZONA
+        vote_section: SEÇÃO      
+        digital_factor: FATOR DIGITAL
+        blood_type: TIPO SANGUÍNEO
+        blood_types:
+          undefine_type: INDEFINIDO
+          a: A
+          b: B
+          ab: AB
+          o: O
+        blood_factor: FATOR SANGUÍNEO
+        blood_factors:
+          undefine_factor: INDEFINIDO      
+          positive: POSITIVO
+          negative: NEGATIVO      
+        firearm: PORTE DE ARMA
+        firearms:
+          fit: APTO
+          unfit: INAPTO
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -42,10 +48,6 @@ pt-BR:
       create: Criado com sucesso.
       update: Atualizado com sucesso.
       destroy: Excluído com sucesso.
-    hierarchies: Hierarquias
-    hierarchy: Hierarquia
-    military: Militar
-    militaries: Militares
   date:
     abbr_day_names:
     - Dom

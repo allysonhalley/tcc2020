@@ -4,26 +4,28 @@
   <div class="form-horizontal">
     <div class="box-body">
       <div class="form-group">
-        <%= label_tag( :name, I18n.t("activerecord.default.name"), class: 'col-sm-2 control-label') %>
+        <%= label_tag( :name, I18n.t("activerecord.attributes.hierarchy.name"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:name, @hierarchy.name, {class: "form-control", disabled: true})%>
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :acronym, I18n.t("activerecord.attributes.acronym"), class: 'col-sm-2 control-label') %>
+        <%= label_tag( :acronym, I18n.t("activerecord.attributes.hierarchy.acronym"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag( :acronym, @hierarchy.acronym, {class: "form-control", disabled: true}) %>
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :rank, I18n.t("activerecord.attributes.rank"),class: 'col-sm-2 control-label') %>
+        <%= label_tag( :rank, I18n.t("activerecord.attributes.hierarchy.rank"),class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= number_field_tag(:rank, @hierarchy.rank, {class: "form-control", disabled: true}) %>
         </div>
       </div>
       <div class="actions">        
         <%= link_to(I18n.t('helpers.layouts.back'), hierarchies_path, class:"btn btn-default btn-sm") %>
-        <%= link_to(I18n.t('helpers.layouts.edit'), edit_hierarchy_path(@hierarchy), class:"btn btn-info btn-sm") %> 
+        <div class="box-tools pull-right">
+            <%= link_to(I18n.t('helpers.layouts.edit'), edit_hierarchy_path(@hierarchy), class:"btn btn-info btn-sm") %> 
+        </div>                
       </div>
     </div>
   </div>

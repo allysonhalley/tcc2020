@@ -21,6 +21,7 @@
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker.pt-BR
 //= require adminlte.min
+//= require toastr_rails
 //= require_tree .
 
 //Date picker

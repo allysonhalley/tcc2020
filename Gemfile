@@ -21,10 +21,11 @@ gem 'bootstrap-datepicker-rails', '~> 1.4'
 gem 'adminlte-rails', '~> 1.3', '>= 1.3.3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-#gem 'turbolinks', '~> 5'
+# Turbolinks makes navigating your web application faster.
+# Read more: https://github.com/turbolinks/turbolinks
+# gem 'turbolinks', '~> 5'
 gem 'jquery-turbolinks'
-#I18N
+# I18N
 gem 'rails-i18n'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -59,10 +60,15 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the background.
+  # Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# This is an opninionated toaster asset gem. It sets some defaults,
+# adds support for flash messages and assumes you have a navbar.
+gem 'toastr_rails', '~> 2.1', '>= 2.1.3'

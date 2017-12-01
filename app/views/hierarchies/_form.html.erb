@@ -2,7 +2,9 @@
   <%= form_with(model: hierarchy, local: true, class: 'form-horizontal') do |form| %>
     <% if hierarchy.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(hierarchy.errors.count, "error") %> prohibited this hierarchy from being saved:</h2>
+        <h2>
+          <%= pluralize(hierarchy.errors.count, "ERRO!") %>
+        </h2>
         <ul>
         <% hierarchy.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -12,19 +14,19 @@
     <% end %>
     <div class="box-body">
       <div class="form-group">
-        <%= form.label( :name, I18n.t("activerecord.default.name"), class: 'col-sm-2 control-label') %>
+        <%= form.label( :name, I18n.t("activerecord.attributes.hierarchy.name"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= form.text_field :name, id: :hierarchy_name, class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
-          <%= form.label( :acronym, I18n.t("activerecord.attributes.acronym"), class: 'col-sm-2 control-label') %>
+          <%= form.label( :acronym, I18n.t("activerecord.attributes.hierarchy.acronym"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= form.text_field :acronym, id: :hierarchy_acronym, class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
-          <%= form.label( :rank, I18n.t("activerecord.attributes.rank"), class: 'col-sm-2 control-label') %>
+          <%= form.label( :rank, I18n.t("activerecord.attributes.hierarchy.rank"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= form.number_field( :rank, id: :hierarchy_rank, in: 1...18, class: "form-control") %>
         </div>

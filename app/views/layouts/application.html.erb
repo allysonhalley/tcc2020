@@ -10,7 +10,8 @@
       <%= render 'shared/menu/top' %>
       <%= render 'shared/menu/left' %>
       <div class="content-wrapper" style="min-height: 285px;">
-        <section class="content">
+        <section class="content">	
+          <%= render 'shared/toastr_rails/flash' %>            
           <%= yield %>
         </section>
       </div>

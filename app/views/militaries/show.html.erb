@@ -4,13 +4,13 @@
   <div class="form-horizontal">
     <div class="box-body">
       <div class="form-group">
-        <%= label_tag( :name, I18n.t("activerecord.attributes.military.name").upcase!.upcase!, class: 'col-sm-2 control-label') %>
+        <%= label_tag( :name, I18n.t("activerecord.attributes.military.name").upcase!, class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:name, @military.name, {class: "form-control", disabled: true})%>
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :name, I18n.t("activerecord.attributes.military.identification").upcase!, class: 'col-sm-2 control-label') %>
+        <%= label_tag( :identification, I18n.t("activerecord.attributes.military.identification"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:identification, @military.identification, {class: "form-control", disabled: true})%>
         </div>
@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :mother_name, I18n.t("activerecord.attributes.military.mother_name").upcase!, class: 'col-sm-2 control-label') %>
+        <%= label_tag( :mother_name, StrHelper.upper("activerecord.attributes.military.mother_name"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:mother_name, @military.mother_name, {class: "form-control", disabled: true})%>
         </div>
@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :registration, I18n.t("activerecord.attributes.military.registration").upcase!, class: 'col-sm-2 control-label') %>
+        <%= label_tag( :registration, StrHelper.upper("activerecord.attributes.military.registration"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:registration, @military.registration, {class: "form-control", disabled: true})%>
         </div>
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :vote_number, I18n.t("activerecord.attributes.military.vote_number").upcase!, class: 'col-sm-2 control-label') %>
+        <%= label_tag( :vote_number, StrHelper.upper("activerecord.attributes.military.vote_number"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:vote_number, @military.vote_number, {class: "form-control", disabled: true})%>
         </div>
@@ -64,7 +64,7 @@
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :vote_section, I18n.t("activerecord.attributes.military.vote_section").upcase!, class: 'col-sm-2 control-label') %>
+        <%= label_tag( :vote_section, StrHelper.upper("activerecord.attributes.military.vote_section"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:vote_section, @military.vote_section, {class: "form-control", disabled: true})%>
         </div>
@@ -82,13 +82,13 @@
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :blood_type, I18n.t("activerecord.attributes.military.blood_type").upcase!, class: 'col-sm-2 control-label') %>
+        <%= label_tag( :blood_type, StrHelper.upper("activerecord.attributes.military.blood_type"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:blood_type, @military.i18n_blood_type, {class: "form-control", disabled: true})%>
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :blood_factor, I18n.t("activerecord.attributes.military.blood_factor").upcase!, class: 'col-sm-2 control-label') %>
+        <%= label_tag( :blood_factor, StrHelper.upper("activerecord.attributes.military.blood_factor"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:blood_factor, @military.i18n_blood_factor, {class: "form-control", disabled: true})%>
         </div>

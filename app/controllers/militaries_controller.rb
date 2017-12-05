@@ -31,7 +31,6 @@ class MilitariesController < ApplicationController
         format.html do
           redirect_to @military, notice: t('activerecord.success.create')
         end
-
       else
         format.html { render :new }
       end

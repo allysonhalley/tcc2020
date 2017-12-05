@@ -8,9 +8,9 @@
     <table class="table table-responsive table-hover">
       <thead>
         <tr>
-          <th><%= I18n.t 'activerecord.attributes.hierarchy.name' %></th>
-          <th class="col-sm-3 text-center"><%= I18n.t 'activerecord.attributes.hierarchy.acronym' %></th>
-          <th class="col-sm-2 text-center"><%= I18n.t 'helpers.layouts.action' %></th>
+          <th><%= I18n.t('activerecord.attributes.hierarchy.name').upcase! %></th>
+          <th class="col-sm-3 text-center"><%= I18n.t('activerecord.attributes.hierarchy.acronym').upcase! %></th>
+          <th class="col-sm-2 text-center"><%= StrHelper.upper('helpers.layouts.action') %></th>
         </tr>
       </thead>
       <tbody>

@@ -18,7 +18,7 @@
           <th class="col-sm-1 text-center"><%= sort_link(@q, :identification, t('activerecord.attributes.military.identification').upcase!) %></th>
           <th class="col-sm-1 text-center"><%= sort_link(@q, :registration, t('activerecord.attributes.military.registration').upcase!) %></th>
           <th class="col-sm-1 text-center"><%= sort_link(@q, :cpf, t('activerecord.attributes.military.cpf').upcase!) %></th>          
-          <th class="col-sm-2 text-center"><%= I18n.t 'helpers.layouts.action' %></th>
+          <th class="col-sm-2 text-center"><%= StrHelper.upper('helpers.layouts.action') %></th>
         </tr>
       </thead>
       <tbody>

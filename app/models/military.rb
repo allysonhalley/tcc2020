@@ -6,11 +6,9 @@ class Military < ApplicationRecord
   validates :name, :cpf, :identification, :mother_name, :born_date, :registration, presence: true
   validates :naturalness, :vote_number, :vote_zone, :vote_section, :digital_factor, presence: true
   validates :blood_type, :blood_factor, :firearm, presence: true
-
-
+  
   before_save :uppercase_strings
   before_update :uppercase_strings
-
     
   belongs_to :hierarchy
 
@@ -26,8 +24,12 @@ class Military < ApplicationRecord
     naturalness.upcase!
   end
 
+#  def born_date
+#    self[:born_date].strftime("%d/%m/%Y") 
+#  end
+
   def date_formatted    
-    self.born_date.strftime("%d/%m/%Y")  if self.born_date?    
+    self.born_date.strftime("%d/%m/%Y")  if self.born_date?
   end
 
   # Internationalization (I18n)

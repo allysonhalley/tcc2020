@@ -10,13 +10,15 @@
       <%= render 'shared/menu/top' %>
       <%= render 'shared/menu/left' %>
       <div class="content-wrapper" style="min-height: 285px;">
-        <section class="content">	
-          
+        <section class="content">
           <%= yield %>
         </section>
       </div>
       <%= render 'shared/footer' %>
     </div>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'shared/toastr' %>
+  </script>
   </body>
+  
 </html>

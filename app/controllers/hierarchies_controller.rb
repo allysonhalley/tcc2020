@@ -28,10 +28,10 @@ class HierarchiesController < ApplicationController
     respond_to do |format|
       if @hierarchy.save
         format.html do
-          redirect_to @hierarchy, notice: t('activerecord.success.create')
+          redirect_to @hierarchy, flash: {success: t('activerecord.success.create')}
         end
       else
-        format.html { render :new }
+        redirect_to new_hierarchy_url, flash: {error: @hierarchy.errors.full_messages.first }
       end
     end
   end
@@ -42,10 +42,10 @@ class HierarchiesController < ApplicationController
     respond_to do |format|
       if @hierarchy.update(hierarchy_params)
         format.html do
-          redirect_to @hierarchy, notice: t('activerecord.success.update')
+          redirect_to @hierarchy, flash: {success: t('activerecord.success.update')}
         end
       else
-        format.html { render :edit }
+        redirect_to edit_hierarchy_url, flash: {error: @hierarchy.errors.full_messages.first }
       end
     end
   end
@@ -53,10 +53,15 @@ class HierarchiesController < ApplicationController
   # DELETE /hierarchies/1
   # DELETE /hierarchies/1.json
   def destroy
-    @hierarchy.destroy
     respond_to do |format|
-      format.html do
-        redirect_to hierarchies_url, notice: t('activerecord.success.destroy')
+      if @hierarchy.destroy
+        format.html do
+          redirect_to hierarchies_url, flash: {success: t('activerecord.success.destroy')}
+        end
+      else
+        format.html do
+          redirect_to hierarchies_url, flash: {error: @hierarchy.errors.full_messages.first }
+        end
       end
     end
   end

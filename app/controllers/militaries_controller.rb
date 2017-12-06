@@ -25,14 +25,15 @@ class MilitariesController < ApplicationController
   # POST /militaries.json
   def create
     @military = Military.new(military_params)
-
     respond_to do |format|
       if @military.save
         format.html do
-          redirect_to @military, notice: t('activerecord.success.create')
+          redirect_to @military, flash: {success: t('activerecord.success.create')}
         end
       else
-        format.html { render :new }
+        format.html do          
+          redirect_to new_military_url, flash: {error: @military.errors.full_messages.first }
+        end
       end
     end
   end
@@ -43,10 +44,12 @@ class MilitariesController < ApplicationController
     respond_to do |format|
       if @military.update(military_params)
         format.html do
-          redirect_to @military, notice: t('activerecord.success.update')
+          redirect_to @military, flash: {success: t('activerecord.success.update')}
         end
-      else
-        format.html { render :edit }
+      else        
+        format.html do          
+          redirect_to edit_military_url, flash: {error: @military.errors.full_messages.first }
+        end
       end
     end
   end
@@ -54,10 +57,16 @@ class MilitariesController < ApplicationController
   # DELETE /militaries/1
   # DELETE /militaries/1.json
   def destroy
-    @military.destroy
+    
     respond_to do |format|
-      format.html do
-        redirect_to militaries_url, notice: t('activerecord.success.destroy')
+      if @military.destroy
+        format.html do
+          redirect_to militaries_url, flash: {success: t('activerecord.success.destroy')}
+        end
+      else
+        format.html do
+          redirect_to militaries_url, flash: {error: @military.errors.full_messages.first }
+        end
       end
     end
   end

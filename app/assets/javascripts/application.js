@@ -23,6 +23,3 @@
 //= require toastr_rails
 //= require adminlte.min
 //= require_tree .
-
-//Date picker
-$('.datepicker').datepicker({autoclose: true});

@@ -7,17 +7,17 @@
   </head>
   <body class="skin-blue fixed sidebar-mini sidebar-mini-expand-feature" style="height: auto; min-height: 100%;">
     <div class="wrapper" style="height: auto; min-height: 100%;">
-      <%= render 'shared/menu/top' %>
-      <%= render 'shared/menu/left' %>
+      <%= render 'layouts/menu/top' %>
+      <%= render 'layouts/menu/left' %>
       <div class="content-wrapper" style="min-height: 285px;">
         <section class="content">
           <%= yield %>
         </section>
       </div>
-      <%= render 'shared/footer' %>
+      <%= render 'layouts/footer' %>
     </div>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= render 'shared/toastr' %>
+    <%= render 'helpers/toastr' %>
   </script>
   </body>
   

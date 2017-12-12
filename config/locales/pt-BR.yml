@@ -194,6 +194,7 @@ pt-BR:
       update: Atualizar %{model}
       edit: Editar %{model}
       sure: Confirmar exclusão?
+      confirm: Sim 
     layouts:
       sgid: SGId
       fire_fight: Corpo de Bombeiros Militar de Pernambuco

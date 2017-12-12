@@ -72,4 +72,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # This is an opninionated toaster asset gem. It sets some defaults,
 # adds support for flash messages and assumes you have a navbar.
-gem 'toastr_rails', '~> 2.1', '>= 2.1.3'

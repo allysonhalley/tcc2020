@@ -24,45 +24,33 @@ class HierarchiesController < ApplicationController
   # POST /hierarchies
   # POST /hierarchies.json
   def create
-    @hierarchy = Hierarchy.new(hierarchy_params)
-    respond_to do |format|
-      if @hierarchy.save
-        format.html do
-          redirect_to @hierarchy, flash: {success: t('activerecord.success.create')}
-        end
-      else
-        redirect_to new_hierarchy_url, flash: {error: @hierarchy.errors.full_messages.first }
+    @hierarchy = Hierarchy.new(hierarchy_params)    
+    if @hierarchy.save
+      format.html do
+        redirect_to @hierarchy, flash: {success: t('activerecord.success.create')}
       end
-    end
+    else
+      redirect_to new_hierarchy_url, flash: {error: @hierarchy.errors.full_messages.first }
+    end    
   end
 
   # PATCH/PUT /hierarchies/1
   # PATCH/PUT /hierarchies/1.json
   def update
-    respond_to do |format|
-      if @hierarchy.update(hierarchy_params)
-        format.html do
-          redirect_to @hierarchy, flash: {success: t('activerecord.success.update')}
-        end
-      else
-        redirect_to edit_hierarchy_url, flash: {error: @hierarchy.errors.full_messages.first }
-      end
+    if @hierarchy.update(hierarchy_params)
+      redirect_to @hierarchy, flash: {success: t('activerecord.success.update')}      
+    else
+      redirect_to edit_hierarchy_url, flash: {error: @hierarchy.errors.full_messages.first }
     end
   end
 
   # DELETE /hierarchies/1
   # DELETE /hierarchies/1.json
   def destroy
-    respond_to do |format|
-      if @hierarchy.destroy
-        format.html do
-          redirect_to hierarchies_url, flash: {success: t('activerecord.success.destroy')}
-        end
-      else
-        format.html do
-          redirect_to hierarchies_url, flash: {error: @hierarchy.errors.full_messages.first }
-        end
-      end
+    if @hierarchy.destroy
+      redirect_to hierarchies_url, flash: {success: t('activerecord.success.destroy')}
+    else
+      redirect_to hierarchies_url, flash: {error: @hierarchy.errors.full_messages.first }
     end
   end
 

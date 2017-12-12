@@ -1,0 +1,26 @@
+<div class="modal fade" id='<%="modal-destroy-#{object_destroy.id}"%>' role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <%= I18n.t 'helpers.submit.sure'%>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p><%= "#{object_destroy.name}"%></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
+                    <%= I18n.t 'helpers.layouts.back'%>
+                </button>
+                <%= button_to(I18n.t('helpers.layouts.destroy'), object_destroy, method: :delete, class: 'btn btn-danger btn-xs') %>                
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

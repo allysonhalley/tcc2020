@@ -25,50 +25,31 @@ class MilitariesController < ApplicationController
   # POST /militaries.json
   def create
     @military = Military.new(military_params)
-    respond_to do |format|
-      if @military.save
-        format.html do
-          redirect_to @military, flash: {success: t('activerecord.success.create')}
-        end
-      else
-        format.html do          
-          redirect_to new_military_url, flash: {error: @military.errors.full_messages.first }
-        end
-      end
+    if @military.save
+      redirect_to @military, flash: {success: t('activerecord.success.create')}
+    else                
+      redirect_to new_military_url, flash: {error: @military.errors.full_messages.first }        
     end
   end
 
   # PATCH/PUT /militaries/1
   # PATCH/PUT /militaries/1.json
   def update 
-    respond_to do |format|
-      if @military.update(military_params)
-        format.html do
-          redirect_to @military, flash: {success: t('activerecord.success.update')}
-        end
-      else        
-        format.html do          
-          redirect_to edit_military_url, flash: {error: @military.errors.full_messages.first }
-        end
-      end
+    if @military.update(military_params)
+      redirect_to @military, flash: {success: t('activerecord.success.update')}      
+    else              
+      redirect_to edit_military_url, flash: {error: @military.errors.full_messages.first }      
     end
   end
 
   # DELETE /militaries/1
   # DELETE /militaries/1.json
-  def destroy
-    
-    respond_to do |format|
-      if @military.destroy
-        format.html do
-          redirect_to militaries_url, flash: {success: t('activerecord.success.destroy')}
-        end
-      else
-        format.html do
-          redirect_to militaries_url, flash: {error: @military.errors.full_messages.first }
-        end
-      end
-    end
+  def destroy    
+    if @military.destroy    
+        redirect_to militaries_url, flash: {success: t('activerecord.success.destroy')}    
+    else    
+      redirect_to militaries_url, flash: {error: @military.errors.full_messages.first }    
+    end    
   end
 
   private

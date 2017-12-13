@@ -1,9 +1,12 @@
 pt-BR:
-  activerecord:    
-    hierarchies: Hierarquias
-    hierarchy: Hierarquia
-    military: Militar
-    militaries: Militares   
+  activerecord:
+    models:
+      hierarchy: 
+        one: Hierarquia
+        other: Hierarquias
+      military: 
+        one: Militar
+        other: Militares
     attributes:
       hierarchy:
         name: Nome
@@ -42,8 +45,8 @@ pt-BR:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
-          has_one: Não é possível excluir o registro pois existe um %{record} dependente
-          has_many: Não é possível excluir o registro pois existem %{record} dependentes
+          has_one: Não é possível excluir o registro pois existe um %{model} dependente
+          has_many: Não é possível excluir o registro pois existem %{model} dependentes
     success:
       create: Criado com sucesso.
       update: Atualizado com sucesso.

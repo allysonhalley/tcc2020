@@ -214,6 +214,7 @@ pt-BR:
       destroy: Excluir
       back: Voltar
       search: Pesquisar por...
+      add: Adicionar %{parameter}
       version: Versão
       version_number: 3.0.a
   number:

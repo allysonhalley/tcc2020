@@ -30,10 +30,16 @@
             <td align="center"><%= military.cpf %></td>
             <td align="center">
               <%= hidden_field(@military, military) %>
-              <%= link_to("", military, class:"btn btn-default btn-xs fa fa-file-o", title: I18n.t('helpers.layouts.show'), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
+              <%= link_to("", military, class:"btn btn-default btn-xs fa fa-file-text-o", title: I18n.t('helpers.layouts.show'), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
               <%= link_to("", edit_military_path(military.id), class: 'btn btn-info btn-xs fa fa-edit', title: I18n.t('helpers.layouts.edit'), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
-              <button type="button" class="btn btn-danger btn-xs fa fa-trash" data-toggle="modal" data-target='<%="#modal-destroy-#{military.id}"%>'></button>
+              <button type="button" class="btn btn-danger btn-xs fa " data-toggle="modal" data-target='<%="#modal-destroy-#{military.id}"%>'>
+                  <a class="btn-danger fa fa-trash" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title="Excluir"></a>
+              </button>
               <%= render 'helpers/modal/destroy', :object_destroy => military %>            
+              <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-request-#{military.id}"%>'>
+                  <a class="btn-success fa fa-print" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title="Selecionar"></a>
+              </button>
+              <%= render 'helpers/modal/print_request', :object_request => military %>
             </td>
           </tr>
         <% end %>

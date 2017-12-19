@@ -210,10 +210,11 @@ pt-BR:
       edit: Editar
       create: Criar
       show: Exibir
-      new: Nova
+      new: Novo
       destroy: Excluir
       back: Voltar
       search: Pesquisar por...
+      print_request: Solicitar Impressão
       add: Adicionar %{parameter}
       version: Versão
       version_number: 3.0.a

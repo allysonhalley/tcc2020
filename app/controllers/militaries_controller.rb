@@ -27,8 +27,9 @@ class MilitariesController < ApplicationController
     @military = Military.new(military_params)
     if @military.save
       redirect_to @military, flash: {success: t('activerecord.success.create')}
-    else                
-      redirect_to new_military_url, flash: {error: @military.errors.full_messages.first }        
+    else         
+      flash.now[:error] = @military.errors.full_messages.first       
+      render :new
     end
   end
 
@@ -37,8 +38,9 @@ class MilitariesController < ApplicationController
   def update 
     if @military.update(military_params)
       redirect_to @military, flash: {success: t('activerecord.success.update')}      
-    else              
-      redirect_to edit_military_url, flash: {error: @military.errors.full_messages.first }      
+    else
+      flash.now[:error] = @military.errors.full_messages.first       
+      render :edit
     end
   end
 

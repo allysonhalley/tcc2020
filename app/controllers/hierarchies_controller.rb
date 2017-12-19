@@ -26,11 +26,10 @@ class HierarchiesController < ApplicationController
   def create
     @hierarchy = Hierarchy.new(hierarchy_params)    
     if @hierarchy.save
-      format.html do
-        redirect_to @hierarchy, flash: {success: t('activerecord.success.create')}
-      end
+      redirect_to @hierarchy, flash: {success: t('activerecord.success.create')}
     else
-      redirect_to new_hierarchy_url, flash: {error: @hierarchy.errors.full_messages.first }
+      flash.now[:error] = @hierarchy.errors.full_messages.first       
+      render :new
     end    
   end
 
@@ -40,7 +39,8 @@ class HierarchiesController < ApplicationController
     if @hierarchy.update(hierarchy_params)
       redirect_to @hierarchy, flash: {success: t('activerecord.success.update')}      
     else
-      redirect_to edit_hierarchy_url, flash: {error: @hierarchy.errors.full_messages.first }
+      flash.now[:error] = @hierarchy.errors.full_messages.first       
+      render :edit
     end
   end
 

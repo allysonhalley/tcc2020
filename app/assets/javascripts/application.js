@@ -15,6 +15,7 @@
 //= require jquery.turbolinks
 //= require jquery.inputmask
 //= require jquery.inputmask.date.extensions
+//= require jquery.inputmask.extensions
 //= require bootstrap-sprockets
 //= require bootstrap.min
 //= require bootstrap-datepicker
@@ -23,3 +24,8 @@
 //= require fastclick.min
 //= require adminlte.min
 //= require_tree .
+
+
+$(function () {
+    $('[data-mask]').inputmask()
+})

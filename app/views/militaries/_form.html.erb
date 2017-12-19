@@ -9,16 +9,23 @@
       </div>
 
       <div class="form-group">
+        <%= form.label( :cpf, I18n.t("activerecord.attributes.military.cpf").upcase!, class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field :cpf, id: :military_cpf, data:{ inputmask:'"mask": "999.999.999-99"', mask:""}, class: "form-control" %>
+          </div>
+      </div>
+
+      <div class="form-group">
         <%= form.label(:identification, I18n.t("activerecord.attributes.military.identification").upcase!, class: 'col-sm-2 control-label') %>
           <div class="col-sm-6">
-            <%= form.text_field :identification, id: :military_identification, class: "form-control" %>
+            <%= form.text_field :identification, id: :military_identification, data:{ inputmask:'"mask": "9999999-9"', mask:""}, class: "form-control" %>
           </div>
       </div>
 
       <div class="form-group">
         <%= form.label(:hierarchy, I18n.t("activerecord.models.hierarchy.one").upcase!, class: 'col-sm-2 control-label') %>
           <div class="col-sm-6">
-            <%= form.select(:hierarchy_id, Hierarchy.all.map {|hierarchy| [hierarchy.name, hierarchy.id]}, {}, {class: "form-control"}) %>
+            <%= form.select(:hierarchy_id, Hierarchy.all.order(:rank).map {|hierarchy| [hierarchy.name, hierarchy.id]}, {}, {class: "form-control"}) %>
           </div>
       </div>
 
@@ -50,7 +57,7 @@
       <div class="form-group">
         <%= form.label( :registration, StrHelper.upper("activerecord.attributes.military.registration"), class: 'col-sm-2 control-label') %>
           <div class="col-sm-6">
-            <%= form.text_field :registration, id: :military_registration, class: "form-control" %>
+            <%= form.text_field :registration, id: :military_registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control" %>
           </div>
       </div>
 
@@ -64,35 +71,28 @@
       <div class="form-group">
         <%= form.label( :vote_number, StrHelper.upper("activerecord.attributes.military.vote_number"), class: 'col-sm-2 control-label') %>
           <div class="col-sm-6">
-            <%= form.text_field :vote_number, id: :military_vote_number, class: "form-control" %>
+            <%= form.text_field :vote_number, id: :military_vote_number, data:{ inputmask:'"mask": "999999999999"', mask:""}, class: "form-control" %>            
           </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :vote_zone, I18n.t("activerecord.attributes.military.vote_zone").upcase!, class: 'col-sm-2 control-label') %>
           <div class="col-sm-6">
-            <%= form.text_field :vote_zone, id: :military_vote_zone, class: "form-control" %>
+            <%= form.text_field :vote_zone, id: :military_vote_zone, data:{ inputmask:'"mask": "999"', mask:""}, class: "form-control" %>
           </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :vote_section, StrHelper.upper("activerecord.attributes.military.vote_section"), class: 'col-sm-2 control-label') %>
           <div class="col-sm-6">
-            <%= form.text_field :vote_section, id: :military_vote_section, class: "form-control" %>
-          </div>
-      </div>
-
-      <div class="form-group">
-        <%= form.label( :cpf, I18n.t("activerecord.attributes.military.cpf").upcase!, class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.text_field :cpf, id: :military_cpf, class: "form-control" %>
+            <%= form.text_field :vote_section, id: :military_vote_section, data:{ inputmask:'"mask": "999"', mask:""}, class: "form-control" %>
           </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :digital_factor, I18n.t("activerecord.attributes.military.digital_factor").upcase!, class: 'col-sm-2 control-label') %>
           <div class="col-sm-6">
-            <%= form.text_field :digital_factor, id: :military_digital_factor, class: "form-control" %>
+            <%= form.text_field :digital_factor, id: :military_digital_factor, data:{ inputmask:'"mask": "A-9999/A-9999"', mask:""}, class: "form-control" %>
           </div>
       </div>
 

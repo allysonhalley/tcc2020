@@ -1,10 +1,22 @@
 # Classe responsavel por representar Militar
 class Military < ApplicationRecord
-  validates :cpf, uniqueness: true
-
-  validates :name, :cpf, :identification, :mother_name, :born_date, :registration, presence: true
-  validates :naturalness, :vote_number, :vote_zone, :vote_section, :digital_factor, presence: true
-  validates :blood_type, :blood_factor, :firearm, presence: true
+  
+  # Validações
+  validates :name, presence: true, length: {minimum:3}
+  validates :cpf, presence: true, uniqueness: true, length: {is: 11}
+  validates :identification, presence: true
+  validates :father_name, length: {minimum:3}
+  validates :mother_name, length: {minimum:3}
+  validates :born_date, presence: true
+  validates :registration, presence: true
+  validates :naturalness, presence: true, length: {minimum:3}
+  validates :vote_number, presence: true
+  validates :vote_zone, presence: true
+  validates :vote_section, presence: true
+  validates :digital_factor, presence: true
+  validates :blood_type, presence: true
+  validates :blood_factor, presence: true
+  validates :firearm, presence: true
 
   before_save :uppercase_strings
   before_update :uppercase_strings

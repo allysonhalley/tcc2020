@@ -10,6 +10,12 @@
         </div>
       </div>
       <div class="form-group">
+        <%= label_tag( :cpf, I18n.t("activerecord.attributes.military.cpf").upcase!, class: 'col-sm-2 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:cpf, @military.cpf, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
         <%= label_tag( :identification, I18n.t("activerecord.attributes.military.identification"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:identification, @military.identification, {class: "form-control", disabled: true})%>
@@ -67,12 +73,6 @@
         <%= label_tag( :vote_section, StrHelper.upper("activerecord.attributes.military.vote_section"), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
           <%= text_field_tag(:vote_section, @military.vote_section, {class: "form-control", disabled: true})%>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= label_tag( :cpf, I18n.t("activerecord.attributes.military.cpf").upcase!, class: 'col-sm-2 control-label') %>
-        <div class="col-sm-6">
-          <%= text_field_tag(:cpf, @military.cpf, {class: "form-control", disabled: true})%>
         </div>
       </div>
       <div class="form-group">

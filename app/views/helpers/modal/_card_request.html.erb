@@ -1,0 +1,26 @@
+<div class="modal fade" id='<%="modal-request-#{object_request.id}"%>' role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <%= I18n.t 'helpers.submit.sure'%>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <%= label_tag( :name, I18n.t("activerecord.attributes.military.name").upcase!, class: 'col-sm-2 control-label') %>
+                <div class="col-sm-6">
+                    <%= text_field_tag(:name, object_request.name, {class: "form-control", disabled: true})%>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
+                    <%= I18n.t 'helpers.layouts.back'%>
+                </button>                
+                <%= link_to(I18n.t('helpers.layouts.edit'), edit_military_path(object_request.id), class:"btn btn-success btn-xs") %>
+            </div>
+        </div>
+    </div>
+</div>

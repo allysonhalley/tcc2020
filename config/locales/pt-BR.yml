@@ -7,6 +7,9 @@ pt-BR:
       military: 
         one: Militar
         other: Militares
+      card_request:
+        one: Requisição de Carteira
+        other: Requisições de Carteira
     attributes:
       hierarchy:
         name: Nome
@@ -41,6 +44,10 @@ pt-BR:
         firearms:
           fit: Apto
           unfit: Inapto
+      card_request:
+        military_registration: Matrícula do militar
+        document_reference: Documento de referência
+        reason_request: Motivo da requisição
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -197,6 +204,7 @@ pt-BR:
       update: Atualizar %{model}
       edit: Editar %{model}
       sure: Confirmar exclusão?
+      confirm_card_request: Confirmar solicitação de carteira?
       confirm: Sim 
     layouts:
       sgid: SGId
@@ -215,6 +223,7 @@ pt-BR:
       back: Voltar
       search: Pesquisar por...
       print_request: Solicitar Impressão
+      card_request: Solicitar Carteira
       add: Adicionar %{parameter}
       version: Versão
       version_number: 3.0.a

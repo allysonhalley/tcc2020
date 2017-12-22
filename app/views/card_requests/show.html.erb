@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Military registration:</strong>
+  <%= @card_request.military_registration %>
+</p>
+
+<p>
+  <strong>Document reference:</strong>
+  <%= @card_request.document_reference %>
+</p>
+
+<p>
+  <strong>Reason request:</strong>
+  <%= @card_request.reason_request %>
+</p>
+
+<%= link_to 'Edit', edit_card_request_path(@card_request) %> |
+<%= link_to 'Back', card_requests_path %>

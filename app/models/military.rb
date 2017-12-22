@@ -1,25 +1,28 @@
 # Classe responsavel por representar Militar
 class Military < ApplicationRecord
   
+  
+  before_save :uppercase_strings
+  before_update :uppercase_strings
+
+  before_validation :clean_mask
+  
   # Validações
   validates :name, presence: true, length: {minimum:3}
   validates :cpf, presence: true, uniqueness: true, length: {is: 11}
-  validates :identification, presence: true
+  validates :identification, presence: true, length: {is: 8}
   validates :father_name, length: {minimum:3}
   validates :mother_name, length: {minimum:3}
   validates :born_date, presence: true
-  validates :registration, presence: true
+  validates :registration, presence: true, length: {is: 7}
   validates :naturalness, presence: true, length: {minimum:3}
-  validates :vote_number, presence: true
-  validates :vote_zone, presence: true
-  validates :vote_section, presence: true
-  validates :digital_factor, presence: true
+  validates :vote_number, presence: true, length: {is: 12}
+  validates :vote_zone, presence: true, length: {is: 3}
+  validates :vote_section, presence: true, length: {is: 3}
+  validates :digital_factor, presence: true, length: {is: 10}
   validates :blood_type, presence: true
   validates :blood_factor, presence: true
   validates :firearm, presence: true
-
-  before_save :uppercase_strings
-  before_update :uppercase_strings
 
   belongs_to :hierarchy
 
@@ -34,6 +37,17 @@ class Military < ApplicationRecord
     father_name.upcase!
     mother_name.upcase!
     naturalness.upcase!
+  end
+
+  def clean_mask  
+    self.cpf.gsub!(/[^0123456789]/, '')
+    self.identification.gsub!(/[^0123456789]/, '')
+    self.registration.gsub!(/[^0123456789]/, '')
+    self.vote_number.gsub!(/[^0123456789]/, '')
+    self.vote_zone.gsub!(/[^0123456789]/, '')
+    self.vote_section.gsub!(/[^0123456789]/, '')
+    self.digital_factor.gsub!(/[^a-zA-Z0-9]/, '')
+
   end
 
   #  def born_date

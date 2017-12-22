@@ -35,7 +35,7 @@ class MilitariesController < ApplicationController
 
   # PATCH/PUT /militaries/1
   # PATCH/PUT /militaries/1.json
-  def update 
+  def update
     if @military.update(military_params)
       redirect_to @military, flash: {success: t('activerecord.success.update')}      
     else
@@ -64,6 +64,6 @@ class MilitariesController < ApplicationController
   # Never trust parameters from the scary internet,
   # only allow the white list through.
   def military_params
-    params.require(:military).permit(:name, :identification, :hierarchy_id, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :firearm)
+    params.require(:military).permit(:name, :identification, :hierarchy_id, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :firearm)    
   end
 end

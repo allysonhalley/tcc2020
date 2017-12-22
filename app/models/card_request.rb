@@ -1,0 +1,2 @@
+class CardRequest < ApplicationRecord
+end

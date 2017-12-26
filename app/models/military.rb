@@ -50,10 +50,7 @@ class Military < ApplicationRecord
 
   end
 
-  #  def born_date
-  #    self[:born_date].strftime("%d/%m/%Y")
-  #  end
-
+  # Formatação de data para exibição
   def date_formatted
     born_date.strftime('%d/%m/%Y') if born_date?
   end

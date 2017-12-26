@@ -48,6 +48,14 @@ pt-BR:
         military_registration: Matrícula do militar
         document_reference: Documento de referência
         reason_request: Motivo da requisição
+        reason_requests:
+          change_data: Mudança de dados
+          include: Inclusão
+          promotion: Promoção
+          unuseble: Inutilizável
+          reinclude: Reinclusão
+          expired: Expirado
+          tired: Reserva
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

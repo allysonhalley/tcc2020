@@ -4,7 +4,8 @@ class CardRequestsController < ApplicationController
   # GET /card_requests
   # GET /card_requests.json
   def index
-    @card_requests = CardRequest.all
+    @q = Card_request.ransack(params[:q])
+    @card_request = @q.result(distinct: true).order(timestamps: :desc)
   end
 
   # GET /card_requests/1
@@ -23,41 +24,34 @@ class CardRequestsController < ApplicationController
 
   # POST /card_requests
   # POST /card_requests.json
-  def create
+  def create    
     @card_request = CardRequest.new(card_request_params)
-
-    respond_to do |format|
-      if @card_request.save
-        format.html { redirect_to @card_request, notice: 'Card request was successfully created.' }
-        format.json { render :show, status: :created, location: @card_request }
-      else
-        format.html { render :new }
-        format.json { render json: @card_request.errors, status: :unprocessable_entity }
-      end
+    if @card_request.save
+      redirect_to card_requests_url, flash: {success: t('activerecord.success.create')}
+    else
+      flash.now[:error] = @card_request.errors.full_messages.first
+      redirect_to militaries_url, flash: {error: @card_request.errors.full_messages.first }
     end
   end
 
   # PATCH/PUT /card_requests/1
   # PATCH/PUT /card_requests/1.json
-  def update
-    respond_to do |format|
-      if @card_request.update(card_request_params)
-        format.html { redirect_to @card_request, notice: 'Card request was successfully updated.' }
-        format.json { render :show, status: :ok, location: @card_request }
-      else
-        format.html { render :edit }
-        format.json { render json: @card_request.errors, status: :unprocessable_entity }
-      end
-    end
+  def update    
+    if @card_request.update(card_request_params)
+      redirect_to @card_request, notice: 'Card request was successfully updated.'
+    else
+      flash.now[:error] = @card_request.errors.full_messages.first
+      render :edit
+    end    
   end
 
   # DELETE /card_requests/1
   # DELETE /card_requests/1.json
   def destroy
-    @card_request.destroy
-    respond_to do |format|
-      format.html { redirect_to card_requests_url, notice: 'Card request was successfully destroyed.' }
-      format.json { head :no_content }
+    if @card_request.destroy
+      redirect_to card_requests_url, flash: {success: t('activerecord.success.destroy')}
+    else
+      redirect_to card_requests_url, flash: {error: @card_request.errors.full_messages.first }
     end
   end
 

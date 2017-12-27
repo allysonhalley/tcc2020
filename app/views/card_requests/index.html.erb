@@ -1,31 +1,42 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Card Requests</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Military registration</th>
-      <th>Document reference</th>
-      <th>Reason request</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @card_requests.each do |card_request| %>
-      <tr>
-        <td><%= card_request.military_registration %></td>
-        <td><%= card_request.document_reference %></td>
-        <td><%= card_request.reason_request %></td>
-        <td><%= link_to 'Show', card_request %></td>
-        <td><%= link_to 'Edit', edit_card_request_path(card_request) %></td>
-        <td><%= link_to 'Destroy', card_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<h3>
+  <%= I18n.t 'activerecord.models.card_request.other'%>
+</h3>
+<p id="notice">
+  <%= notice %>
+</p>
+<div class="box">
+  <div class="box-body">
+    <%= search_form_for @q, html: {class: "form-horizontal", role: "search"} do |f| %>
+      <%= f.search_field :military_registration_or_document_reference_cont, class: "form-control", placeholder: t('helpers.layouts.search') %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Card Request', new_card_request_path %>
+    <table class="table table-responsive table-hover">
+      <thead>
+        <tr>
+          <th class="col-sm-3 text-center"><%= sort_link(@q, :military_registration, StrHelper.upper('activerecord.attributes.card_request.military_registration')) %></th>
+          <th class="col-sm-3 text-center"><%= sort_link(@q, :document_reference, StrHelper.upper('activerecord.attributes.card_request.document_reference')) %></th>
+          <th class="col-sm-3 text-center"><%= sort_link(@q, :created_at, StrHelper.upper('activerecord.attributes.card_request.date_request')) %></th>          
+          <th class="col-sm-3 text-center"><%= StrHelper.upper('helpers.layouts.action') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @card_requests.each do |card_request| %>
+          <tr>
+            <td align="center">
+              <%= card_request.military_registration %>
+            </td>
+            <td align="center">
+              <%= card_request.document_reference %>
+            </td>
+            <td align="center">
+              <%= card_request.date_formatted %>
+            </td>
+            <td align="center">
+              <%= hidden_field(@card_request, card_request) %>
+              <%= link_to( "", edit_card_request_path(card_request.id), class: 'btn btn-info btn-xs fa fa-edit', title: I18n.t('helpers.layouts.edit'), 'data-toggle' => 'tooltip', 'data-placement' => 'left')%>              
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

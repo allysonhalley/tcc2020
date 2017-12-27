@@ -13,6 +13,11 @@ class CardRequest < ApplicationRecord
     self.military_registration.gsub!(/[^0123456789]/, '')
   end
 
+  # Formatação de data para exibição
+  def date_formatted
+    created_at.strftime('%d/%m/%Y') if created_at?
+  end
+
   # Internationalization (I18n)
   # reason_request: Internationalization (I18n)
   def i18n_reason_request

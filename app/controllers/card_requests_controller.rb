@@ -4,8 +4,8 @@ class CardRequestsController < ApplicationController
   # GET /card_requests
   # GET /card_requests.json
   def index
-    @q = Card_request.ransack(params[:q])
-    @card_request = @q.result(distinct: true).order(timestamps: :desc)
+    @q = CardRequest.ransack(params[:q])
+    @card_requests = @q.result(distinct: true).order(created_at: :desc)
   end
 
   # GET /card_requests/1

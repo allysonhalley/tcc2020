@@ -4,7 +4,6 @@
     <%= link_to "", new_military_path, class: 'btn btn-success btn-xs fa fa-plus', title: I18n.t('helpers.layouts.add', parameter: I18n.t('activerecord.models.military.one')), 'data-toggle' => 'tooltip', 'data-placement' => 'left' %>
   </div>  
 </h3>
-<p id="notice"><%= notice %></p>
 <div class="box">
   <!-- /.box-header -->
   <div class="box-body">
@@ -18,7 +17,7 @@
           <th class="col-sm-1 text-center"><%= sort_link(@q, :identification, t('activerecord.attributes.military.identification').upcase!) %></th>
           <th class="col-sm-1 text-center"><%= sort_link(@q, :registration, t('activerecord.attributes.military.registration').upcase!) %></th>
           <th class="col-sm-1 text-center"><%= sort_link(@q, :cpf, t('activerecord.attributes.military.cpf').upcase!) %></th>          
-          <th class="col-sm-2 text-center"><%= StrHelper.upper('helpers.layouts.action') %></th>
+          <th class="col-sm-2 text-center"><%= StrHelper.system_upper(:action, [:helpers, :layouts]) %></th>
         </tr>
       </thead>
       <tbody>
@@ -35,11 +34,11 @@
               <button type="button" class="btn btn-danger btn-xs fa " data-toggle="modal" data-target='<%="#modal-destroy-#{military.id}"%>'>
                   <a class="btn-danger fa fa-trash" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title="Excluir"></a>
               </button>
-              <%= render 'helpers/modal/destroy', :object_destroy => military %>            
+              <%= render 'helpers/modal/destroy', object_destroy: military, term: military.register_and_name %>            
               <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-request-#{military.id}"%>'>
                   <a class="btn-success fa fa-print" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title="Solicitar Carteira"></a>
               </button>
-              <%= render 'helpers/modal/card_request', :object_request => military %>
+              <%= render 'helpers/modal/card_request', object_request: military %>
             </td>
           </tr>
         <% end %>

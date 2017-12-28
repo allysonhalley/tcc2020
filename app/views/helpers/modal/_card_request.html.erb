@@ -13,34 +13,33 @@
                 <div class="modal-body">
                     <div class="box box-success">
                         <div class="form-horizontal">
-                            <div class="box-body">                                
+                            <div class="box-body">
                                 <div class="form-group">
                                     <%= label_tag( :name, I18n.t("activerecord.attributes.military.name").upcase!, class: 'col-sm-5 control-label') %>
                                     <div class="col-sm-6">
                                         <%= text_field_tag(:name, object_request.name, {class: "form-control", disabled: true})%>
                                     </div>
                                 </div>
-                                
-                                    <div class="form-group">
-                                        <%= form.label( :military_registration, StrHelper.upper("activerecord.attributes.card_request.military_registration"), class: 'col-sm-5 control-label') %>
-                                        <div class="col-sm-6">
-                                          <%= form.text_field :military_registration, id: :card_request_military_registration, value: object_request.registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control" %>
-                                        </div>
+
+                                <div class="form-group">
+                                    <%= form.label( :military_registration, StrHelper.upper("activerecord.attributes.card_request.military_registration"), class: 'col-sm-5 control-label') %>
+                                    <div class="col-sm-6">
+                                        <%= form.text_field :military_registration, id: :card_request_military_registration, value: object_request.registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control" %>
                                     </div>
-                            
-                                    <div class="form-group">
-                                        <%= form.label( :document_reference, StrHelper.upper("activerecord.attributes.card_request.document_reference"), class: 'col-sm-5 control-label') %>
-                                        <div class="col-sm-6">                                    
-                                            <%= form.text_field :document_reference, id: :card_request_document_reference, data:{ inputmask:'"mask": "BGE-999/9999"', mask:""}, class: "form-control" %>
-                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <%= form.label( :document_reference, StrHelper.upper("activerecord.attributes.card_request.document_reference"), class: 'col-sm-5 control-label') %>
+                                    <div class="col-sm-6">
+                                        <%= form.text_field :document_reference, id: :card_request_document_reference, data:{ inputmask:'"mask": "BGE-999/9999"', mask:""}, class: "form-control" %>
                                     </div>
-                                    <div class="form-group">
-                                        <%= form.label( :reason_request, StrHelper.upper("activerecord.attributes.card_request.reason_request"), class: 'col-sm-5 control-label') %>
-                                        <div class="col-sm-6">
-                                            <%= form.select(:reason_request, options_for_select(CardRequest.i18n_reason_requests, :reason_request), {}, {class: "form-control"}) %>
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <%= form.label( :reason_request, StrHelper.upper("activerecord.attributes.card_request.reason_request"), class: 'col-sm-5 control-label') %>
+                                    <div class="col-sm-6">
+                                        <%= form.select(:reason_request, options_for_select(CardRequest.i18n_reason_requests, :reason_request), {}, {class: "form-control"}) %>
                                     </div>
-                                
+                                </div>
                             </div>
                         </div>
                     </div>

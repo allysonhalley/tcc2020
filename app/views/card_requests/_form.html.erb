@@ -1,32 +1,30 @@
-<%= form_with(model: card_request, local: true) do |form| %>
-  <% if card_request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(card_request.errors.count, "error") %> prohibited this card_request from being saved:</h2>
-
-      <ul>
-      <% card_request.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<div class="box box-info">
+  <%= form_with(model: card_request, local: true, class: 'form-horizontal') do |form| %>
+    <div class="box-body">
+      <div class="form-group">
+        <%= form.label( :military_registration, StrHelper.upper("activerecord.attributes.card_request.military_registration"), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field :military_registration, id: :card_request_military_registration, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label( :document_reference, StrHelper.upper("activerecord.attributes.card_request.document_reference"), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field :document_reference, id: :card_request_document_reference, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label( :reason_request, StrHelper.upper("activerecord.attributes.card_request.reason_request"), class: 'col-sm-3 control-label') %>
+          <div class="col-sm-6">
+            <%= form.select(:reason_request, options_for_select(CardRequest.i18n_reason_requests, @card_request.reason_request), {}, {class: "form-control"}) %>
+          </div>
+      </div>
+      <div class="actions">
+        <%= link_to(I18n.t('helpers.layouts.back'), card_requests_path, class:"btn btn-default btn-sm") %>
+        <div class="box-tools pull-right">
+          <%= form.submit( I18n.t('helpers.layouts.save'), class:"btn btn-success btn-sm" )%>
+        </div>
+      </div>
+    </div>    
   <% end %>
-
-  <div class="field">
-    <%= form.label :military_registration %>
-    <%= form.text_field :military_registration, id: :card_request_military_registration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :document_reference %>
-    <%= form.text_field :document_reference, id: :card_request_document_reference %>
-  </div>
-
-  <div class="field">
-    <%= form.label :reason_request %>
-    <%= form.text_field :reason_request, id: :card_request_reason_request %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -32,7 +32,7 @@
             </td>
             <td align="center">
               <%= hidden_field(@card_request, card_request) %>
-              <%= link_to( "", edit_card_request_path(card_request.id), class: 'btn btn-info btn-xs fa fa-edit', title: I18n.t('helpers.layouts.edit'), 'data-toggle' => 'tooltip', 'data-placement' => 'left')%>              
+              <%= link_to( "", edit_card_request_path(card_request.id), class: 'btn btn-info btn-xs fa fa-edit', title: I18n.t('helpers.layouts.edit'), 'data-toggle' => 'tooltip', 'data-placement' => 'left')%>
             </td>
           </tr>
         <% end %>

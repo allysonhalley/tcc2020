@@ -1,19 +1,31 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Military registration:</strong>
-  <%= @card_request.military_registration %>
-</p>
-
-<p>
-  <strong>Document reference:</strong>
-  <%= @card_request.document_reference %>
-</p>
-
-<p>
-  <strong>Reason request:</strong>
-  <%= @card_request.reason_request %>
-</p>
-
-<%= link_to 'Edit', edit_card_request_path(@card_request) %> |
-<%= link_to 'Back', card_requests_path %>
+<h3><%= I18n.t('helpers.layouts.show') %> <%= I18n.t 'activerecord.models.card_request.one'%></h3>
+<div class="box box-info">  
+  <div class="form-horizontal">
+    <div class="box-body">
+      <div class="form-group">
+        <%= label_tag( :military_registration, StrHelper.upper("activerecord.attributes.card_request.military_registration"), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:military_registration, @card_request.military_registration, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :document_reference, StrHelper.upper("activerecord.attributes.card_request.document_reference"), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag( :document_reference, @card_request.document_reference, {class: "form-control", disabled: true}) %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag( :reason_request, StrHelper.upper("activerecord.attributes.card_request.reason_request"),class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= text_field_tag(:reason_request, @card_request.i18n_reason_request, {class: "form-control", disabled: true})%>
+        </div>
+      </div>
+      <div class="actions">        
+        <%= link_to(I18n.t('helpers.layouts.back'), card_requests_path, class:"btn btn-default btn-sm") %>
+        <div class="box-tools pull-right">
+            <%= link_to(I18n.t('helpers.layouts.edit'), edit_card_request_path(@card_request), class:"btn btn-info btn-sm") %> 
+        </div>                
+      </div>
+    </div>
+  </div>
+</div>

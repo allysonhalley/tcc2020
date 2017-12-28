@@ -3,9 +3,9 @@
 one:
   military_registration: MyString
   document_reference: MyString
-  reason_request: MyString
+  reason_request: 1
 
 two:
   military_registration: MyString
   document_reference: MyString
-  reason_request: MyString
+  reason_request: 1

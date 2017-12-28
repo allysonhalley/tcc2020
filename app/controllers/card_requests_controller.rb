@@ -27,7 +27,7 @@ class CardRequestsController < ApplicationController
   def create    
     @card_request = CardRequest.new(card_request_params)
     if @card_request.save
-      redirect_to card_requests_url, flash: {success: t('activerecord.success.create')}
+      redirect_to card_requests_url, flash: {success: t('activerecord.success.create')}      
     else
       flash.now[:error] = @card_request.errors.full_messages.first
       redirect_to militaries_url, flash: {error: @card_request.errors.full_messages.first }
@@ -36,11 +36,11 @@ class CardRequestsController < ApplicationController
 
   # PATCH/PUT /card_requests/1
   # PATCH/PUT /card_requests/1.json
-  def update    
+  def update
     if @card_request.update(card_request_params)
-      redirect_to @card_request, notice: 'Card request was successfully updated.'
+      redirect_to @card_request, flash: {success: t('activerecord.success.update')}      
     else
-      flash.now[:error] = @card_request.errors.full_messages.first
+      flash.now[:error] = @card_request.errors.full_messages.first       
       render :edit
     end    
   end

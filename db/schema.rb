@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171222153702) do
+ActiveRecord::Schema.define(version: 20171228125200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171222153702) do
   create_table "card_requests", force: :cascade do |t|
     t.string "military_registration"
     t.string "document_reference"
-    t.string "reason_request"
+    t.integer "reason_request"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

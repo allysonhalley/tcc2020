@@ -13,18 +13,7 @@
                 <div class="box box-danger">
                     <div class="form-horizontal">
                         <div class="box-body">
-                            <div class="form-group">
-                                <%= label_tag( :name, I18n.t("activerecord.attributes.military.name").upcase!, class: 'col-sm-2 control-label') %>
-                                <div class="col-sm-6">
-                                    <%= text_field_tag(:name, object_destroy.name, {class: "form-control", disabled: true})%>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <%= label_tag( :registration, I18n.t("activerecord.attributes.military.registration").upcase!, class: 'col-sm-2 control-label') %>
-                                <div class="col-sm-6">
-                                    <%= text_field_tag(:registration, object_destroy.registration, {class: "form-control", disabled: true})%>
-                                </div>
-                            </div>
+                            <p><%= term %></p>
                         </div>
                     </div>                    
                 </div>

@@ -26,9 +26,9 @@ class MilitariesController < ApplicationController
   def create
     @military = Military.new(military_params)
     if @military.save
-      redirect_to @military, flash: {success: t('activerecord.success.create')}
-    else         
-      flash.now[:error] = @military.errors.full_messages.first       
+      redirect_to @military, flash: { success: t('activerecord.success.create') }
+    else
+      flash.now[:error] = @military.errors.full_messages.first
       render :new
     end
   end
@@ -37,21 +37,21 @@ class MilitariesController < ApplicationController
   # PATCH/PUT /militaries/1.json
   def update
     if @military.update(military_params)
-      redirect_to @military, flash: {success: t('activerecord.success.update')}      
+      redirect_to @military, flash: { success: t('activerecord.success.update') }
     else
-      flash.now[:error] = @military.errors.full_messages.first       
+      flash.now[:error] = @military.errors.full_messages.first
       render :edit
     end
   end
 
   # DELETE /militaries/1
   # DELETE /militaries/1.json
-  def destroy    
-    if @military.destroy    
-        redirect_to militaries_url, flash: {success: t('activerecord.success.destroy')}    
-    else    
-      redirect_to militaries_url, flash: {error: @military.errors.full_messages.first }    
-    end    
+  def destroy
+    if @military.destroy
+      redirect_to militaries_url, flash: { success: t('activerecord.success.destroy') }
+    else
+      redirect_to militaries_url, flash: { error: @military.errors.full_messages.first }
+    end
   end
 
   private
@@ -64,6 +64,6 @@ class MilitariesController < ApplicationController
   # Never trust parameters from the scary internet,
   # only allow the white list through.
   def military_params
-    params.require(:military).permit(:name, :identification, :hierarchy_id, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :firearm)    
+    params.require(:military).permit(:name, :identification, :hierarchy_id, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :firearm)
   end
 end

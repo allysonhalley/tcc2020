@@ -1,11 +1,11 @@
-# HierarchiesController controlla link com view
+# HierarchiesController controla link com view
 class HierarchiesController < ApplicationController
   before_action :set_hierarchy, only: %i[show edit update destroy]
 
   # GET /hierarchies
   # GET /hierarchies.json
   def index
-    @q = Hierarchy.ransack(params[:q])    
+    @q = Hierarchy.ransack(params[:q])
     @hierarchies = @q.result(distinct: true).order(rank: :asc)
   end
 
@@ -24,22 +24,22 @@ class HierarchiesController < ApplicationController
   # POST /hierarchies
   # POST /hierarchies.json
   def create
-    @hierarchy = Hierarchy.new(hierarchy_params)    
+    @hierarchy = Hierarchy.new(hierarchy_params)
     if @hierarchy.save
-      redirect_to @hierarchy, flash: {success: t('activerecord.success.create')}
+      redirect_to @hierarchy, flash: { success: t('activerecord.success.create') }
     else
-      flash.now[:error] = @hierarchy.errors.full_messages.first       
+      flash.now[:error] = @hierarchy.errors.full_messages.first
       render :new
-    end    
+    end
   end
 
   # PATCH/PUT /hierarchies/1
   # PATCH/PUT /hierarchies/1.json
   def update
     if @hierarchy.update(hierarchy_params)
-      redirect_to @hierarchy, flash: {success: t('activerecord.success.update')}      
+      redirect_to @hierarchy, flash: { success: t('activerecord.success.update') }
     else
-      flash.now[:error] = @hierarchy.errors.full_messages.first       
+      flash.now[:error] = @hierarchy.errors.full_messages.first
       render :edit
     end
   end
@@ -48,9 +48,9 @@ class HierarchiesController < ApplicationController
   # DELETE /hierarchies/1.json
   def destroy
     if @hierarchy.destroy
-      redirect_to hierarchies_url, flash: {success: t('activerecord.success.destroy')}
+      redirect_to hierarchies_url, flash: { success: t('activerecord.success.destroy') }
     else
-      redirect_to hierarchies_url, flash: {error: @hierarchy.errors.full_messages.first }
+      redirect_to hierarchies_url, flash: { error: @hierarchy.errors.full_messages.first }
     end
   end
 

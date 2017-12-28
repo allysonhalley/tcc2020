@@ -8,8 +8,8 @@ pt-BR:
         one: Militar
         other: Militares
       card_request:
-        one: Requisição de Carteira
-        other: Requisições de Carteira
+        one: Solicitação de Carteira
+        other: Solicitações de Carteira
     attributes:
       hierarchy:
         name: Nome

@@ -26,7 +26,7 @@ class MilitariesController < ApplicationController
   def create
     @military = Military.new(military_params)
     if @military.save
-      redirect_to @military, flash: { success: t('activerecord.success.create') }
+      redirect_to @military, flash: { success: StrHelper.system_i18n_upper(:create,[:activerecord, :success]) }
     else
       flash.now[:error] = @military.errors.full_messages.first
       render :new
@@ -37,7 +37,7 @@ class MilitariesController < ApplicationController
   # PATCH/PUT /militaries/1.json
   def update
     if @military.update(military_params)
-      redirect_to @military, flash: { success: t('activerecord.success.update') }
+      redirect_to @military, flash: { success: StrHelper.system_i18n_upper(:update,[:activerecord, :success]) }
     else
       flash.now[:error] = @military.errors.full_messages.first
       render :edit
@@ -48,7 +48,7 @@ class MilitariesController < ApplicationController
   # DELETE /militaries/1.json
   def destroy
     if @military.destroy
-      redirect_to militaries_url, flash: { success: t('activerecord.success.destroy') }
+      redirect_to militaries_url, flash: { success: StrHelper.system_i18n_upper(:destroy,[:activerecord, :success]) }
     else
       redirect_to militaries_url, flash: { error: @military.errors.full_messages.first }
     end

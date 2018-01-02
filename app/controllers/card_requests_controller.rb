@@ -26,7 +26,7 @@ class CardRequestsController < ApplicationController
   def create
     @card_request = CardRequest.new(card_request_params)
     if @card_request.save
-      redirect_to card_requests_url, flash: { success: t('activerecord.success.create') }
+      redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:create,[:activerecord, :success]) }
     else
       flash.now[:error] = @card_request.errors.full_messages.first
       redirect_to militaries_url, flash: { error: @card_request.errors.full_messages.first }
@@ -37,7 +37,7 @@ class CardRequestsController < ApplicationController
   # PATCH/PUT /card_requests/1.json
   def update
     if @card_request.update(card_request_params)
-      redirect_to @card_request, flash: { success: t('activerecord.success.update') }
+      redirect_to @card_request, flash: { success: StrHelper.system_i18n_upper(:update,[:activerecord, :success]) }
     else
       flash.now[:error] = @card_request.errors.full_messages.first
       render :edit
@@ -48,7 +48,7 @@ class CardRequestsController < ApplicationController
   # DELETE /card_requests/1.json
   def destroy
     if @card_request.destroy
-      redirect_to card_requests_url, flash: { success: t('activerecord.success.destroy') }
+      redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:destroy,[:activerecord, :success]) }
     else
       redirect_to card_requests_url, flash: { error: @card_request.errors.full_messages.first }
     end

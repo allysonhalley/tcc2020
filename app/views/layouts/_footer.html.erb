@@ -1,6 +1,6 @@
 <footer class="main-footer">
   <div class="hidden-xs">
-    <b><%= I18n.t 'helpers.layouts.version' %></b><%= I18n.t 'helpers.layouts.version_number' %>
+    <b><%= I18n.t 'helpers.layouts.version' %></b><%=  StrHelper.system_i18n(:version_number, [:helpers, :layouts]) %>
   </div>
-  <strong><%= I18n.t 'helpers.layouts.fire_fight' %><a href="intranet.bombeiros.pe.gov.br"></a>.</strong>
+  <strong><%= StrHelper.system_i18n(:fire_fight, [:helpers, :layouts]) %><a href="intranet.bombeiros.pe.gov.br"></a>.</strong>
 </footer>

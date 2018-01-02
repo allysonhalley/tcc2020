@@ -1,3 +1,3 @@
-<h2><%= I18n.t('helpers.layouts.new') %> <%= I18n.t 'activerecord.models.military.one'%></h2>
+<h2><%= StrHelper.upper_i18n('helpers.layouts.new') %> <%= StrHelper.upper_i18n('activerecord.models.military.one')%></h2>
 
 <%= render 'form', military: @military %>

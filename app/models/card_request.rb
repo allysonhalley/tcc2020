@@ -20,13 +20,26 @@ class CardRequest < ApplicationRecord
   # Internationalization (I18n)
   # reason_request: Internationalization (I18n)
   def i18n_reason_request
-    StrHelper.attribute_upper(reason_request.to_sym, %i[card_request reason_requests])
+    StrHelper.attribute_i18n(reason_request.to_sym, %i[card_request reason_requests])
+  end
+  
+  # reason_request: Internationalization (I18n) with uppercase
+  def i18n_upper_reason_request
+    StrHelper.attribute_i18n_upper(reason_request.to_sym, %i[card_request reason_requests])
   end
 
   # Hash reason_requests: Internationalization (I18n)
   def self.i18n_reason_requests(hash = {})
     reason_requests.each_key do |key|
-      hash[StrHelper.attribute_upper(key.to_sym, %i[card_request reason_requests])] = key
+      hash[StrHelper.attribute_i18n(key.to_sym, %i[card_request reason_requests])] = key
+    end
+    hash
+  end
+
+  # Hash reason_requests: Internationalization (I18n) with uppercase
+  def self.i18n_upper_reason_requests(hash = {})
+    reason_requests.each_key do |key|
+      hash[StrHelper.attribute_i18n_upper(key.to_sym, %i[card_request reason_requests])] = key
     end
     hash
   end

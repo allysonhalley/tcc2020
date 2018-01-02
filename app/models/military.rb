@@ -59,39 +59,78 @@ class Military < ApplicationRecord
   # Internationalization (I18n)
   # blood_type: Internationalization (I18n)
   def i18n_blood_type
-    I18n.t("activerecord.attributes.military.blood_types.#{blood_type}").upcase!
+    StrHelper.attribute_i18n(blood_type.to_sym, %i[military blood_types])
+  end
+
+  # blood_type: Internationalization (I18n)
+  def i18n_upper_blood_type
+    StrHelper.attribute_upper_i18n(blood_type.to_sym, %i[military blood_types])
   end
 
   # Hash blood_types: Internationalization (I18n)
   def self.i18n_blood_types(hash = {})
     blood_types.each_key do |key|
-      hash[I18n.t("activerecord.attributes.military.blood_types.#{key}").upcase!] = key
+      hash[StrHelper.attribute_i18n(key.to_sym, %i[military blood_types])] = key
+    end
+    hash
+  end
+
+  # Hash blood_types: Internationalization (I18n) with uppercase
+  def self.i18n_upper_blood_types(hash = {})
+    blood_types.each_key do |key|
+      hash[StrHelper.attribute_upper_i18n(key.to_sym, %i[military blood_types])] = key
     end
     hash
   end
 
   # blood_type: Internationalization (I18n)
   def i18n_blood_factor
-    I18n.t("activerecord.attributes.military.blood_factors.#{blood_factor}").upcase!
+    StrHelper.attribute_i18n(blood_factor.to_sym, %i[military blood_factors])
+  end
+
+  # blood_factor: Internationalization (I18n) with uppercase
+  def i18n_upper_blood_factor
+    StrHelper.attribute_upper_i18n(blood_factor.to_sym, %i[military blood_factors])
   end
 
   # Hash blood_factors: Internationalization (I18n)
   def self.i18n_blood_factors(hash = {})
     blood_factors.each_key do |key|
-      hash[I18n.t("activerecord.attributes.military.blood_factors.#{key}").upcase!] = key
+      hash[StrHelper.attribute_i18n(key.to_sym, %i[military blood_factors])] = key
+    end
+    hash
+  end
+
+  # Hash blood_factors: Internationalization (I18n) with uppercase
+  def self.i18n_upper_blood_factors(hash = {})
+    blood_factors.each_key do |key|
+      hash[StrHelper.attribute_upper_i18n(key.to_sym, %i[military blood_factors])] = key
     end
     hash
   end
 
   # firearm: Internationalization (I18n)
   def i18n_firearm
-    I18n.t("activerecord.attributes.military.firearms.#{firearm}").upcase!
+    StrHelper.attribute_i18n(firearm.to_sym, %i[military firearms])
   end
 
+  # firearm: Internationalization (I18n) with uppercase
+  def i18n_upper_firearm
+    StrHelper.attribute_i18n_upper(firearm.to_sym, %i[military firearms])
+  end
+  
   # Hash firearms: Internationalization (I18n)
   def self.i18n_firearms(hash = {})
-    firearms.each_key do |key|
-      hash[I18n.t("activerecord.attributes.military.firearms.#{key}").upcase!] = key
+    firearms.each_key do |key|      
+      hash[StrHelper.attribute_i18n(key.to_sym, %i[military firearms])] = key
+    end
+    hash
+  end
+
+  # Hash firearms: Internationalization (I18n) with uppercase
+  def self.i18n_upper_firearms(hash = {})
+    firearms.each_key do |key|      
+      hash[StrHelper.attribute_i18n_upper(key.to_sym, %i[military firearms])] = key
     end
     hash
   end

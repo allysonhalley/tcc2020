@@ -7,24 +7,24 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="nav sidebar-menu">
             <li class="header">
-              <%= I18n.t 'helpers.layouts.menu' %>
+              <%= StrHelper.system_i18n(:menu, [:helpers, :layouts])%>
             </li>
             <li class="">
               <a href="/hierarchies">
                 <i class="fa fa-circle-o"></i>
-                <%= I18n.t 'activerecord.models.hierarchy.one' %>
+                <%= StrHelper.model_i18n(:other, [:hierarchy])%>
               </a>
             </li>
             <li class="">
               <a href="/militaries">
                 <i class="fa fa-circle-o"></i>
-                <%= I18n.t 'activerecord.models.military.one' %>
+                <%= StrHelper.model_i18n(:other, [:military])%>
               </a>
             </li>
             <li class="">
               <a href="/card_requests">
                 <i class="fa fa-circle-o"></i>
-                <%= I18n.t 'activerecord.models.card_request.one' %>
+                <%= StrHelper.model_i18n(:other, [:card_request])%>
               </a>
             </li>
           </ul>

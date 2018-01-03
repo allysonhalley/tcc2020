@@ -18,7 +18,7 @@ module StrHelper
   end
 
   # Uppercase with i18n in models
-  def self.model_18n_upper(quantity, scopes)
+  def self.model_i18n_upper(quantity, scopes)
     scopes = %i[activerecord models].concat(scopes)
     I18n.t(quantity, scope: scopes).mb_chars.upcase.to_s
   end

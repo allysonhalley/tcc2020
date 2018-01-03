@@ -5,13 +5,13 @@
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini">
       <strong>
-        <%= I18n.t 'helpers.layouts.sgid' %>
+        <%= StrHelper.system_i18n(:sgid, [:helpers, :layouts])%>
       </strong>
     </span>
     <!-- logo for regular state and mobile devices -->
     <span class="logo-lg">
       <strong>
-        <%= I18n.t 'helpers.layouts.sgid' %>
+        <%= StrHelper.system_i18n(:sgid, [:helpers, :layouts])%>
       </strong>
     </span>
   </a>
@@ -22,12 +22,12 @@
       <ul class="nav navbar-nav">
         <li>
           <a href="http://www.bombeiros.pe.gov.br">
-            <%= I18n.t 'helpers.layouts.fire_fights' %>
+            <%= StrHelper.system_i18n(:fire_fights, [:helpers, :layouts])%>
           </a>
         </li>
         <li>
           <a href="http://www.bombeiros.pe.gov.br">
-            <%= I18n.t 'helpers.layouts.fire_fights_acronym' %>
+            <%= StrHelper.system_i18n(:fire_fights_acronym, [:helpers, :layouts])%>
           </a>
         </li>
       </ul>

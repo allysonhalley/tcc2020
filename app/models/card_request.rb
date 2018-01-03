@@ -22,7 +22,7 @@ class CardRequest < ApplicationRecord
   def i18n_reason_request
     StrHelper.attribute_i18n(reason_request.to_sym, %i[card_request reason_requests])
   end
-  
+
   # reason_request: Internationalization (I18n) with uppercase
   def i18n_upper_reason_request
     StrHelper.attribute_i18n_upper(reason_request.to_sym, %i[card_request reason_requests])

@@ -1,3 +1,3 @@
-<h3><%= StrHelper.upper_i18n('helpers.layouts.edit') %> <%= StrHelper.upper_i18n('activerecord.models.military.one')%></h3>
+<h3><%= StrHelper.system_i18n(:edit, [:helpers, :layouts]) %> <%= StrHelper.model_i18n(:one, [:military])%></h3>
 
 <%= render 'form', military: @military %>

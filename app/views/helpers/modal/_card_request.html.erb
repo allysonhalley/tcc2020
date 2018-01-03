@@ -7,7 +7,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title">
-                        <%= I18n.t 'helpers.submit.confirm_card_request'%>
+                        <%= StrHelper.system_i18n(:confirm_card_request, [:helpers, :submit])%>
                     </h4>
                 </div>
                 <div class="modal-body">
@@ -46,9 +46,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
-                        <%= I18n.t 'helpers.layouts.back'%>
+                        <%= StrHelper.system_i18n(:back, [:helpers, :layouts])%>
                     </button>
-                    <%= submit_tag( I18n.t('helpers.layouts.card_request'), class: "btn btn-success btn-xs" )%>
+                    <%= submit_tag( StrHelper.system_i18n(:card_request, [:helpers, :layouts]), class: "btn btn-success btn-xs" )%>
                 </div>
             <% end %>
         </div>

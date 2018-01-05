@@ -10,6 +10,9 @@ pt-BR:
       card_request:
         one: Solicitação de Carteira
         other: Solicitações de Carteira
+      card:
+        one: Carteira
+        other: Carteiras
     attributes:
       hierarchy:
         name: Nome
@@ -57,6 +60,13 @@ pt-BR:
           expired: Expirado
           tired: Reserva
         date_request: Data de solicitação
+      card:        
+        print_locale: Local de impressão
+        print_date: Data de impressão
+        expire_date: Validade
+        card_number: Número da cédula
+        returned_card: Carteira retornada
+        status_id: Status da carteira
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

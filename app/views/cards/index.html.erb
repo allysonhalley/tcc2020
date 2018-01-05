@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Identification</th>
+      <th>Hierarchy</th>
+      <th>Father name</th>
+      <th>Mother name</th>
+      <th>Born date</th>
+      <th>Registration</th>
+      <th>Naturalness</th>
+      <th>Vote number</th>
+      <th>Vote zone</th>
+      <th>Vote section</th>
+      <th>Cpf</th>
+      <th>Digital factor</th>
+      <th>Blood type</th>
+      <th>Blood factor</th>
+      <th>Firearms</th>
+      <th>Print locale</th>
+      <th>Print date</th>
+      <th>Expire date</th>
+      <th>Card number</th>
+      <th>Returned card</th>
+      <th>Card request</th>
+      <th>Card status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <td><%= card.name %></td>
+        <td><%= card.identification %></td>
+        <td><%= card.hierarchy %></td>
+        <td><%= card.father_name %></td>
+        <td><%= card.mother_name %></td>
+        <td><%= card.born_date %></td>
+        <td><%= card.registration %></td>
+        <td><%= card.naturalness %></td>
+        <td><%= card.vote_number %></td>
+        <td><%= card.vote_zone %></td>
+        <td><%= card.vote_section %></td>
+        <td><%= card.cpf %></td>
+        <td><%= card.digital_factor %></td>
+        <td><%= card.blood_type %></td>
+        <td><%= card.blood_factor %></td>
+        <td><%= card.firearms %></td>
+        <td><%= card.print_locale %></td>
+        <td><%= card.print_date %></td>
+        <td><%= card.expire_date %></td>
+        <td><%= card.card_number %></td>
+        <td><%= card.returned_card %></td>
+        <td><%= card.card_request %></td>
+        <td><%= card.card_status %></td>
+        <td><%= link_to 'Show', card %></td>
+        <td><%= link_to 'Edit', edit_card_path(card) %></td>
+        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Card', new_card_path %>

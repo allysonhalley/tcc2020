@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  identification: MyString
+  hierarchy: MyString
+  father_name: MyString
+  mother_name: MyString
+  born_date: MyString
+  registration: MyString
+  naturalness: MyString
+  vote_number: MyString
+  vote_zone: MyString
+  vote_section: MyString
+  cpf: MyString
+  digital_factor: MyString
+  blood_type: MyString
+  blood_factor: MyString
+  firearms: false
+  print_locale: MyString
+  print_date: 2018-01-05
+  expire_date: 2018-01-05
+  card_number: MyString
+  returned_card: false
+  card_request: one
+  card_status: one
+
+two:
+  name: MyString
+  identification: MyString
+  hierarchy: MyString
+  father_name: MyString
+  mother_name: MyString
+  born_date: MyString
+  registration: MyString
+  naturalness: MyString
+  vote_number: MyString
+  vote_zone: MyString
+  vote_section: MyString
+  cpf: MyString
+  digital_factor: MyString
+  blood_type: MyString
+  blood_factor: MyString
+  firearms: false
+  print_locale: MyString
+  print_date: 2018-01-05
+  expire_date: 2018-01-05
+  card_number: MyString
+  returned_card: false
+  card_request: two
+  card_status: two

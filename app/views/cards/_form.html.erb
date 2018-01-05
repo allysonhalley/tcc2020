@@ -1,0 +1,132 @@
+<%= form_with(model: card, local: true) do |form| %>
+  <% if card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(card.errors.count, "error") %> prohibited this card from being saved:</h2>
+
+      <ul>
+      <% card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :card_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :identification %>
+    <%= form.text_field :identification, id: :card_identification %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hierarchy %>
+    <%= form.text_field :hierarchy, id: :card_hierarchy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :father_name %>
+    <%= form.text_field :father_name, id: :card_father_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mother_name %>
+    <%= form.text_field :mother_name, id: :card_mother_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :born_date %>
+    <%= form.text_field :born_date, id: :card_born_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :registration %>
+    <%= form.text_field :registration, id: :card_registration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :naturalness %>
+    <%= form.text_field :naturalness, id: :card_naturalness %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vote_number %>
+    <%= form.text_field :vote_number, id: :card_vote_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vote_zone %>
+    <%= form.text_field :vote_zone, id: :card_vote_zone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vote_section %>
+    <%= form.text_field :vote_section, id: :card_vote_section %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf, id: :card_cpf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :digital_factor %>
+    <%= form.text_field :digital_factor, id: :card_digital_factor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :blood_type %>
+    <%= form.text_field :blood_type, id: :card_blood_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :blood_factor %>
+    <%= form.text_field :blood_factor, id: :card_blood_factor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :firearms %>
+    <%= form.check_box :firearms, id: :card_firearms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :print_locale %>
+    <%= form.text_field :print_locale, id: :card_print_locale %>
+  </div>
+
+  <div class="field">
+    <%= form.label :print_date %>
+    <%= form.date_select :print_date, id: :card_print_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expire_date %>
+    <%= form.date_select :expire_date, id: :card_expire_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :card_number %>
+    <%= form.text_field :card_number, id: :card_card_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :returned_card %>
+    <%= form.check_box :returned_card, id: :card_returned_card %>
+  </div>
+
+  <div class="field">
+    <%= form.label :card_request_id %>
+    <%= form.text_field :card_request_id, id: :card_card_request_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :card_status_id %>
+    <%= form.text_field :card_status_id, id: :card_card_status_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

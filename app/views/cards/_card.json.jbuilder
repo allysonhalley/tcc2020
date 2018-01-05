@@ -1,0 +1,2 @@
+json.extract! card, :id, :name, :identification, :hierarchy, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :firearms, :print_locale, :print_date, :expire_date, :card_number, :returned_card, :card_request_id, :card_status_id, :created_at, :updated_at
+json.url card_url(card, format: :json)

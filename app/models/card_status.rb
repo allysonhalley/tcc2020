@@ -1,0 +1,2 @@
+class CardStatus < ApplicationRecord
+end

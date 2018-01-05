@@ -29,4 +29,13 @@ Hierarchy.create!([
     {name: "ALUNO CFSD", acronym: "AL CFSD", rank: 18}
   ])
 
-  p "Created #{Hierarchy.count} hierarchies"
+p "Created #{Hierarchy.count} hierarchies"
+
+CardStatus.destroy_all
+
+CardStatus.create!([
+    {describe: "PRINTED"}, 
+    {describe: "USING"}
+  ])
+
+p "Created #{CardStatus.count} card_statuses"

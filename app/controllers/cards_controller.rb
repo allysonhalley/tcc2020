@@ -5,7 +5,7 @@ class CardsController < ApplicationController
   # GET /cards.json
   def index
     @q = Card.ransack(params[:q])
-    @cards = @q.result(distinct: true).order(name: :asc)
+    @cards = @q.result(distinct: true).joins(:card_status).joins(:card_request).order(registration: :asc)
     
   end
 

@@ -60,13 +60,42 @@ pt-BR:
           expired: Expirado
           tired: Reserva
         date_request: Data de solicitação
-      card:        
+      card:                
         print_locale: Local de impressão
         print_date: Data de impressão
         expire_date: Validade
         card_number: Número da cédula
         returned_card: Carteira retornada
+        card_status: Status
         status_id: Status da carteira
+        name: Nome
+        cpf: cpf
+        identification: RG
+        father_name: Nome do pai
+        mother_name: Nome da mãe
+        born_date: Data de nascimento
+        registration: Matrícula
+        naturalness: Naturalidade
+        vote_number: Título de eleitor
+        vote_zone: Zona
+        vote_section: Seção      
+        digital_factor: Fator digital
+        blood_type: Tipo sanguíneo
+        blood_types:
+          undefine_type: Indefinido
+          a: a
+          b: b
+          ab: ab
+          o: o
+        blood_factor: Fator sanguíneo
+        blood_factors:
+          undefine_factor: indefinido      
+          positive: Positivo
+          negative: Negativo      
+        firearm: Porte de Arma
+        firearms:
+          fit: Apto
+          unfit: Inapto
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

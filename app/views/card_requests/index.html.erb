@@ -1,0 +1,42 @@
+<h3>
+  <%= StrHelper.model_i18n(:other, [:card_request])%>
+</h3>
+<p id="notice">
+  <%= notice %>
+</p>
+<div class="box">
+  <div class="box-body">
+    <%= search_form_for @q, html: {class: "form-horizontal", role: "search"} do |f| %>
+      <%= f.search_field :military_registration_or_document_reference_cont, class: "form-control", placeholder: StrHelper.system_i18n(:search, [:helpers, :layouts]) %>
+    <% end %>
+    <table class="table table-responsive table-hover">
+      <thead>
+        <tr>
+          <th class="col-sm-3 text-center"><%= sort_link(@q, :military_registration, StrHelper.attribute_i18n_upper(:military_registration, [:card_request])) %></th>
+          <th class="col-sm-3 text-center"><%= sort_link(@q, :document_reference, StrHelper.attribute_i18n_upper(:document_reference, [:card_request])) %></th>
+          <th class="col-sm-3 text-center"><%= sort_link(@q, :created_at, StrHelper.attribute_i18n_upper(:date_request, [:card_request])) %></th>          
+          <th class="col-sm-3 text-center"><%= StrHelper.system_i18n_upper(:action, [:helpers, :layouts]) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @card_requests.each do |card_request| %>
+          <tr>
+            <td align="center">
+              <%= card_request.military_registration %>
+            </td>
+            <td align="center">
+              <%= card_request.document_reference %>
+            </td>
+            <td align="center">
+              <%= card_request.date_formatted %>
+            </td>
+            <td align="center">
+              <%= hidden_field(@card_request, card_request) %>
+              <%= link_to( "", edit_card_request_path(card_request.id), class: 'btn btn-info btn-xs fa fa-edit', title: StrHelper.system_i18n(:edit, [:helpers, :layouts]), 'data-toggle' => 'tooltip', 'data-placement' => 'left')%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

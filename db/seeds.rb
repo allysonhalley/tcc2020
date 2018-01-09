@@ -41,14 +41,3 @@ CardStatus.create!([
   ])
 
 p "Created #{CardStatus.count} card_statuses"
-
-# Insert militaries test elements
-Military.destroy_all
-
-Military.create!([
-    {name: "EVERSON PEREIRA DE LIMA", identification: "62334455", hierarchy: 1, father_name: "JOSÉ", mother_name: "MARIA", born_date: 2000/01/01, registration: "5555555", naturalness: "RECIFE-PE", vote_number: "4444545633", vote_zone: "4423", vote_section: "454", cpf: "22345355555", digital_factor: "E5555F5555", blood_type: 2, blood_factor: 2, firearm: 1},
-    {name: "PEREIRA DE LIMA", identification: "12345678", hierarchy: 1, father_name: "JOSÉ", mother_name: "MARIA", born_date: 2000/01/01, registration: "4444444", naturalness: "RECIFE-PE", vote_number: "5444545633", vote_zone: "4423", vote_section: "454", cpf: "04488877787", digital_factor: "E5555F5555", blood_type: 2, blood_factor: 2, firearm: 1},
-    {name: "DE LIMA", identification: "87654321", hierarchy: 1, father_name: "JOSÉ", mother_name: "MARIA", born_date: 2000/01/01, registration: "3333333", naturalness: "RECIFE-PE", vote_number: "5444545622", vote_zone: "4423", vote_section: "454", cpf: "05588877787", digital_factor: "E5555F5555", blood_type: 2, blood_factor: 2, firearm: 1}
-  ])
-
-p "Created #{Military.count} militaries"

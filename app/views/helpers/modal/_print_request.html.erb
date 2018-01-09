@@ -6,17 +6,17 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title">
-                    <%= I18n.t 'helpers.submit.sure'%>
+                    <%= StrHelper.system_i18n(:confirm_print_request, [:helpers, :submit])%>
                 </h4>
             </div>
             <div class="modal-body">
-                <p><%= "#{object_request.name}"%></p>
+                <p><%= "#{object_request.military_registration}"%></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
                     <%= I18n.t 'helpers.layouts.back'%>
                 </button>                
-                <%= link_to(I18n.t('helpers.layouts.edit'), edit_card_path(object_request.id), class:"btn btn-success btn-xs") %>
+                <%= link_to(StrHelper.system_i18n(:print, [:helpers, :submit]), new_card_path(object_request_id: object_request.id), class:"btn btn-success btn-xs") %>
             </div>
         </div>
     </div>

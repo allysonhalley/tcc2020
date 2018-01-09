@@ -92,10 +92,7 @@ pt-BR:
           undefine_factor: indefinido      
           positive: Positivo
           negative: Negativo      
-        firearm: Porte de Arma
-        firearms:
-          fit: Apto
-          unfit: Inapto
+        firearms: Porte de Arma
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -253,6 +250,8 @@ pt-BR:
       edit: Editar %{model}
       sure: Confirmar exclusão?
       confirm_card_request: Confirmar solicitação de carteira?
+      confirm_print_request: Confirmar solicitação de impressão?
+      print: Imprimir
       confirm: Sim 
     layouts:
       sgid: SGId

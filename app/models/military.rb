@@ -51,6 +51,14 @@ class Military < ApplicationRecord
     "#{registration} #{name}"
   end
 
+  def hierarchy_name
+    self.hierarchy.name
+  end
+
+  def hierarchy_acronym
+    self.hierarchy.acronym
+  end
+
   # Formatacao de data para exibicao
   def date_formatted
     born_date.strftime('%d/%m/%Y') if born_date?

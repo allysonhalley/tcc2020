@@ -17,6 +17,9 @@ class CardsController < ApplicationController
   # GET /cards/new
   def new
     @card = Card.new
+    object_request_id = params[:object_request_id]
+    #registration = object_request.military_registration
+    @card.fill_by_request(object_request_id)
   end
 
   # GET /cards/1/edit
@@ -54,6 +57,11 @@ class CardsController < ApplicationController
     else
       redirect_to cards_url, flash: { error: @card.errors.full_messages.first }
     end
+  end
+
+  def print_request
+    @military = Military.find(@card_request.military_registration)
+
   end
 
   private

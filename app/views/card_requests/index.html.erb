@@ -33,6 +33,10 @@
             <td align="center">
               <%= hidden_field(@card_request, card_request) %>
               <%= link_to( "", edit_card_request_path(card_request.id), class: 'btn btn-info btn-xs fa fa-edit', title: StrHelper.system_i18n(:edit, [:helpers, :layouts]), 'data-toggle' => 'tooltip', 'data-placement' => 'left')%>
+              <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-request-#{card_request.id}"%>'>
+                <a class="btn-success fa fa-print" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:print_request, [:helpers, :layouts])%>'></a>
+              </button>
+              <%= render 'helpers/modal/print_request', object_request: card_request %>
             </td>
           </tr>
         <% end %>

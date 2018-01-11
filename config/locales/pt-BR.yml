@@ -243,6 +243,8 @@ pt-BR:
   helpers:
     select:
       prompt: Por favor selecione
+      positive: Sim
+      negative: Não
     submit:
       create: Criar %{model}
       submit: Salvar %{model}

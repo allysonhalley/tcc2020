@@ -23,6 +23,7 @@
 //= require toastr_rails
 //= require fastclick.min
 //= require adminlte.min
+//= require 'icheck'
 //= require_tree .
 
 

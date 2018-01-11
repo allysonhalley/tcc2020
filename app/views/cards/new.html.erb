@@ -1,5 +1,3 @@
-<h1>New Card</h1>
+<h3><%= StrHelper.system_i18n(:new, [:helpers, :layouts]) %> <%= StrHelper.model_i18n(:one, [:card])%></h3>
 
 <%= render 'form', card: @card %>
-
-<%= link_to 'Back', cards_path %>

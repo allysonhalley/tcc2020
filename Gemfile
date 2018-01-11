@@ -20,6 +20,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-datepicker-rails', '~> 1.4'
 gem 'adminlte-rails', '~> 1.3', '>= 1.3.3'
 gem 'toastr_rails', '~> 2.1', '>= 2.1.3'
+gem 'icheck-rails', '~> 1.0', '>= 1.0.2.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster.

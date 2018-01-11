@@ -113,8 +113,7 @@
       <div class="form-group">
         <%= form.label( :firearms, StrHelper.attribute_i18n_upper(:firearms, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-            <%= form.radio_button( :firearms, id: :card_firearms, value: true, class: "form-control" )%>
-            <%= form.radio_button( :firearms, id: :card_firearms, value: false, class: "form-control" )%>
+            <%= form.text_field :firearms, id: :card_firearms, class: "form-control" %>
         </div>
       </div>
 
@@ -163,12 +162,14 @@
           <%= form.text_field :card_number, id: :card_card_number, data:{ inputmask:'"mask": "9999999"', mask:""}, class: "form-control" %>
         </div>          
       </div>
-    
+
       <div class="form-group">
         <%= form.label( :returned_card, StrHelper.attribute_i18n_upper(:returned_card, [:card]), class: 'col-sm-2 control-label') %>                  
-        <div class="col-sm-6">
-          <%= form.radio_button( :returned_card, id: :card_returned_card, value: true, class: "form-control" )%>
-          <%= form.radio_button( :returned_card, id: :card_returned_card, value: false, class: "form-control" )%>
+        <div class="col-sm-6">          
+            <%= form.label( :returned_card, "Yes", value: :true)  %>
+            <%= form.radio_button( :returned_card, :true, id: :card_returned_card) %>
+            <%= form.label( :returned_card, "No", value: :false) %>
+            <%= form.radio_button( :returned_card, :false, id: :card_returned_card) %>
         </div>          
       </div>
     

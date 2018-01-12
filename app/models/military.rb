@@ -61,7 +61,7 @@ class Military < ApplicationRecord
 
   # Formatacao de data para exibicao
   def date_formatted
-    born_date.strftime('%d/%m/%Y') if born_date?
+    self.born_date.strftime('%d/%m/%Y') if born_date?
   end
 
   # Internationalization (I18n)

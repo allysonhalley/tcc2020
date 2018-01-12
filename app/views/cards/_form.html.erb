@@ -4,42 +4,42 @@
       <div class="form-group">
         <%= form.label(:name, StrHelper.attribute_i18n_upper(:name, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field( :name, id: :card_name, class: "form-control") %>
+          <%= form.text_field( :name, id: :card_name, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :cpf, StrHelper.attribute_i18n_upper(:cpf, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :cpf, id: :card_cpf, data:{ inputmask:'"mask": "999.999.999-99"', mask:""}, class: "form-control" %>
+          <%= form.text_field( :cpf, id: :card_cpf, data:{ inputmask:'"mask": "999.999.999-99"', mask:""}, class: "form-control", disabled: true )%>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label(:identification, StrHelper.attribute_i18n_upper(:identification, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :identification, id: :card_identification, data:{ inputmask:'"mask": "9999999-9"', mask:""}, class: "form-control" %>
+          <%= form.text_field( :identification, id: :card_identification, data:{ inputmask:'"mask": "9999999-9"', mask:""}, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label(:hierarchy, StrHelper.model_i18n_upper(:one, [:hierarchy]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :hierarchy, id: :card_hierarchy, class: "form-control" %>
+          <%= form.text_field( :hierarchy, id: :card_hierarchy, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label(:father_name, StrHelper.attribute_i18n_upper(:father_name, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :father_name, id: :card_father_name, class: "form-control" %>
+          <%= form.text_field( :father_name, id: :card_father_name, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label(:mother_name, StrHelper.attribute_i18n_upper(:mother_name, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :mother_name, id: :card_mother_name, class: "form-control" %>
+          <%= form.text_field( :mother_name, id: :card_mother_name, class: "form-control", disabled: true) %>
         </div>
       </div>
 
@@ -50,70 +50,70 @@
             <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
               </div>
-              <%= form.text_field :born_date, id: :card_born_date, type: "date", class: "form-control pull-right" %>
+              <%= form.text_field(:born_date, id: :card_born_date, value: card.born_date, type:"date", class: "form-control pull-right", disabled: true)%>
             </div>
           </div>
       </div>
       <div class="form-group">
         <%= form.label( :registration, StrHelper.attribute_i18n_upper(:registration, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :registration, id: :card_registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control" %>
+          <%= form.text_field( :registration, id: :card_registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :naturalness, StrHelper.attribute_i18n_upper(:naturalness, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :naturalness, id: :card_naturalness, class: "form-control" %>
+          <%= form.text_field( :naturalness, id: :card_naturalness, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :vote_number, StrHelper.attribute_i18n_upper(:vote_number, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :vote_number, id: :card_vote_number, data:{ inputmask:'"mask": "999999999999"', mask:""}, class: "form-control" %>            
+          <%= form.text_field( :vote_number, id: :card_vote_number, data:{ inputmask:'"mask": "999999999999"', mask:""}, class: "form-control", disabled: true) %>            
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :vote_zone, StrHelper.attribute_i18n_upper(:vote_zone, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :vote_zone, id: :card_vote_zone, data:{ inputmask:'"mask": "999"', mask:""}, class: "form-control" %>
+          <%= form.text_field( :vote_zone, id: :card_vote_zone, data:{ inputmask:'"mask": "999"', mask:""}, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :vote_section, StrHelper.attribute_i18n_upper(:vote_section, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :vote_section, id: :card_vote_section, data:{ inputmask:'"mask": "999"', mask:""}, class: "form-control" %>
+          <%= form.text_field( :vote_section, id: :card_vote_section, data:{ inputmask:'"mask": "999"', mask:""}, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :digital_factor, StrHelper.attribute_i18n_upper(:digital_factor, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= form.text_field :digital_factor, id: :card_digital_factor, data:{ inputmask:'"mask": "A-9999/A-9999"', mask:""}, class: "form-control" %>
+          <%= form.text_field( :digital_factor, id: :card_digital_factor, data:{ inputmask:'"mask": "A-9999/A-9999"', mask:""}, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :blood_type, StrHelper.attribute_i18n_upper(:blood_type, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-            <%= form.text_field :blood_type, id: :card_blood_type, class: "form-control" %>
+            <%= form.text_field( :blood_type, id: :card_blood_type, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :blood_factor,StrHelper.attribute_i18n_upper(:blood_factor, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-            <%= form.text_field :blood_factor, id: :card_blood_factor, class: "form-control" %>
+            <%= form.text_field( :blood_factor, id: :card_blood_factor, class: "form-control", disabled: true) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= form.label( :firearms, StrHelper.attribute_i18n_upper(:firearms, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-            <%= form.text_field :firearms, id: :card_firearms, class: "form-control" %>
+          <%= form.select(:firearms, options_for_select(Military.i18n_upper_firearms, card.firearms_string_convert), {}, class: "form-control", disabled: true) %>
         </div>
       </div>
 
@@ -166,17 +166,17 @@
       <div class="form-group">
         <%= form.label( :returned_card, StrHelper.attribute_i18n_upper(:returned_card, [:card]), class: 'col-sm-2 control-label') %>                  
         <div class="col-sm-6">          
-            <%= form.label( :returned_card, "Yes", value: :true)  %>
+            <%= form.label( :returned_card, StrHelper.system_i18n(:positive, [:helpers, :select]), value: :true)  %>
             <%= form.radio_button( :returned_card, :true, id: :card_returned_card) %>
-            <%= form.label( :returned_card, "No", value: :false) %>
+            <%= form.label( :returned_card, StrHelper.system_i18n(:negative, [:helpers, :select]), value: :false) %>
             <%= form.radio_button( :returned_card, :false, id: :card_returned_card) %>
         </div>          
       </div>
     
       <div class="form-group">
-        <%= form.label( :card_request_id, StrHelper.model_i18n_upper(:one, [:card_request]), class: 'col-sm-2 control-label') %>                  
+        <%= form.label( :card_request, StrHelper.model_i18n_upper(:one, [:card_request]), class: 'col-sm-2 control-label') %>                  
         <div class="col-sm-6">
-          <%= form.text_field :card_request_id, id: :card_card_request_id, value: card.request_name, class: "form-control", disabled: true %>
+          <%= form.select(:card_request_id, CardRequest.all.map {|card_request| [card_request.document_reference, card_request.id]}, {}, class: "form-control", disabled: true) %>
         </div>          
       </div>
     

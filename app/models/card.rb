@@ -1,6 +1,8 @@
 # Classe responsavel por representar Carteiras
 class Card < ApplicationRecord
   
+  before_save :uppercase_strings
+  before_update :uppercase_strings
   
   belongs_to :card_request
   belongs_to :card_status
@@ -9,7 +11,15 @@ class Card < ApplicationRecord
     "#{registration} #{name}"
   end
 
-  def fill_by_request(object_request_id)
+  # Tornar todas strings upercase
+  def uppercase_strings
+    name.upcase!
+    father_name.upcase!
+    mother_name.upcase!
+    naturalness.upcase!
+  end
+
+  def fill_by_request(object_request_id) 
     card_request = CardRequest.find(object_request_id)
     military = Military.find_by_registration(card_request.military_registration)
     self.name = military.name
@@ -42,7 +52,17 @@ class Card < ApplicationRecord
     end
   end
 
-  def request_name
+  def firearms_string_convert
+    case self.firearms
+      when true
+        "APTO"
+      when false 
+        "INAPTO"
+    end
+  end
+
+  def self.document_request_name
+    abort self.card_request.to_json
     self.card_request.document_reference
   end
 

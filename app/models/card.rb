@@ -7,15 +7,15 @@ class Card < ApplicationRecord
   belongs_to :card_request
   belongs_to :card_status
 
+  # Validacoes
+  validates :naturalness, presence: true, length: { minimum: 3 }
+
   def register_and_name
     "#{registration} #{name}"
   end
 
   # Tornar todas strings upercase
   def uppercase_strings
-    name.upcase!
-    father_name.upcase!
-    mother_name.upcase!
     naturalness.upcase!
   end
 
@@ -39,6 +39,8 @@ class Card < ApplicationRecord
     self.blood_factor = military.i18n_upper_blood_factor
     self.firearms = firearms_boolean_convert(military.firearm)
     self.print_date = DateTime.now.strftime('%d/%m/%Y')
+    expire = DateTime.now + 10.years
+    self.expire_date = expire.strftime('%d/%m/%Y')
     self.card_request = card_request
     self.returned_card = false
   end
@@ -61,9 +63,12 @@ class Card < ApplicationRecord
     end
   end
 
-  def self.document_request_name
-    abort self.card_request.to_json
+  def document_request_name
     self.card_request.document_reference
+  end
+
+  def status_describe
+    self.card_status.describe
   end
 
 end

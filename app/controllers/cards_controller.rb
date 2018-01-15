@@ -34,7 +34,7 @@ class CardsController < ApplicationController
       redirect_to @card, flash: { success: StrHelper.system_i18n_upper(:create,[:activerecord, :success]) }
     else
       flash.now[:error] = @card.errors.full_messages.first
-      render :new
+      render :new, @card
     end
   end
 

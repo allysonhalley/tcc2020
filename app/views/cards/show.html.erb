@@ -5,37 +5,37 @@
       <div class="form-group">
         <%= label_tag( :name, StrHelper.attribute_i18n_upper(:name, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:name, @card.name, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:name, @card.name, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :cpf, StrHelper.attribute_i18n_upper(:cpf, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:cpf, @card.cpf, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:cpf, @card.cpf, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :identification, StrHelper.attribute_i18n_upper(:identification, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:identification, @card.identification, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:identification, @card.identification, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag(:hierarchy, StrHelper.model_i18n_upper(:one, [:hierarchy]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:hierarchy, @card.hierarchy, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:hierarchy, @card.hierarchy, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :father_name, StrHelper.attribute_i18n_upper(:father_name, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:father_name, @card.father_name, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:father_name, @card.father_name, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :mother_name, StrHelper.attribute_i18n_upper(:mother_name, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:mother_name, @card.mother_name, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:mother_name, @card.mother_name, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
@@ -45,69 +45,69 @@
             <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
             </div>
-            <%= text_field_tag(:born_date, @card.born_date, type:"date", class: "form-control pull-right", disabled: true)%>
+            <%= text_field_tag(:born_date, @card.born_date, type:"date", class: "form-control pull-right", readonly: true)%>
           </div>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :registration, StrHelper.attribute_i18n_upper(:registration, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:registration, @card.registration, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:registration, @card.registration, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :naturalness, StrHelper.attribute_i18n_upper(:naturalness, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:naturalness, @card.naturalness, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:naturalness, @card.naturalness, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :vote_number, StrHelper.attribute_i18n_upper(:vote_number, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:vote_number, @card.vote_number, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:vote_number, @card.vote_number, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :vote_zone, StrHelper.attribute_i18n_upper(:vote_zone, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:vote_zone, @card.vote_zone, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:vote_zone, @card.vote_zone, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :vote_section, StrHelper.attribute_i18n_upper(:vote_section, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:vote_section, @card.vote_section, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:vote_section, @card.vote_section, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :digital_factor, StrHelper.attribute_i18n_upper(:digital_factor, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:digital_factor, @card.digital_factor, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:digital_factor, @card.digital_factor, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :blood_type, StrHelper.attribute_i18n_upper(:blood_type, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:blood_type, @card.blood_type, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:blood_type, @card.blood_type, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :blood_factor, StrHelper.attribute_i18n_upper(:blood_factor, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:blood_factor, @card.blood_factor, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:blood_factor, @card.blood_factor, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :firearm, StrHelper.attribute_i18n_upper(:firearm, [:card]), class: 'col-sm-2 control-label') %>
+        <%= label_tag( :firearms, StrHelper.attribute_i18n_upper(:firearms, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:firearm, @card.firearms, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:firearms, @card.firearms_string_convert, {class: "form-control", readonly: true})%>
         </div>
       </div>
 
       <div class="form-group">
         <%= label_tag( :print_locale, StrHelper.attribute_i18n_upper(:print_locale, [:card]), class: 'col-sm-2 control-label') %>                  
         <div class="col-sm-6">
-            <%= text_field_tag( :print_locale, @card.print_locale, class: "form-control", disabled: true) %>
+            <%= text_field_tag( :print_locale, @card.print_locale, class: "form-control", readonly: true) %>
         </div>
       </div>
 
@@ -118,7 +118,7 @@
             <div class="input-group-addon">
               <i class="fa fa-calendar"></i>
             </div>
-            <%= text_field_tag(:print_date, @card.print_date, value: @card.print_date, type:"date", class: "form-control pull-right", disabled: true)%>
+            <%= text_field_tag(:print_date, @card.print_date, value: @card.print_date, type:"date", class: "form-control pull-right", readonly: true)%>
           </div>
         </div>
       </div>
@@ -130,15 +130,8 @@
             <div class="input-group-addon">
               <i class="fa fa-calendar"></i>
             </div>
-            <%= text_field_tag( :expire_date, @card.expire_date, type: "date", class: "form-control pull-right", disabled: true) %>
+            <%= text_field_tag( :expire_date, @card.expire_date, type: "date", class: "form-control pull-right", readonly: true) %>
           </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= label_tag( :print_locale, StrHelper.attribute_i18n_upper(:print_locale, [:card]), class: 'col-sm-2 control-label') %>                  
-        <div class="col-sm-6">
-            <%= text_field_tag( :print_locale, @card.print_locale, class: "form-control", disabled: true) %>
         </div>
       </div>
 
@@ -146,7 +139,7 @@
         
         <%= label_tag( :card_number, StrHelper.attribute_i18n_upper(:card_number, [:card]), class: 'col-sm-2 control-label') %>                  
         <div class="col-sm-6">
-          <%= text_field_tag( :card_number, @card.card_number, data:{ inputmask:'"mask": "9999999"', mask:""}, class: "form-control", disabled: true) %>
+          <%= text_field_tag( :card_number, @card.card_number, data:{ inputmask:'"mask": "9999999"', mask:""}, class: "form-control", readonly: true) %>
         </div>          
       </div>
 
@@ -154,23 +147,23 @@
         <%= label_tag( :returned_card, StrHelper.attribute_i18n_upper(:returned_card, [:card]), class: 'col-sm-2 control-label') %>                  
         <div class="col-sm-6">          
             <%= label_tag( :returned_card, "Yes", value: :true)  %>
-            <%= radio_button_tag( :returned_card, :true, @card.returned_card, disabled: true) %>
+            <%= radio_button_tag( :returned_card, :true, @card.returned_card, readonly: true) %>
             <%= label_tag( :returned_card, "No", value: :false) %>
-            <%= radio_button_tag( :returned_card, :false, @card.returned_card, disabled: true) %>
+            <%= radio_button_tag( :returned_card, :false, @card.returned_card, readonly: true) %>
         </div>          
       </div>
     
       <div class="form-group">
         <%= label_tag( :card_request_id, StrHelper.model_i18n_upper(:one, [:card_request]), class: 'col-sm-2 control-label') %>                  
         <div class="col-sm-6">
-          <%= text_field_tag(:vote_section, @card.document_request_name, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:card_request_id, @card.document_request_name, {class: "form-control", readonly: true})%>
         </div>          
       </div>
     
       <div class="form-group">
         <%= label_tag( :card_status_id, StrHelper.attribute_i18n_upper(:card_status, [:card]), class: 'col-sm-2 control-label') %>                  
         <div class="col-sm-6">
-          <%= text_field_tag( :card_status_id, @card.card_status_id, class: "form-control", disabled: true) %>
+          <%= text_field_tag(:card_request_id, @card.status_describe, {class: "form-control", readonly: true})%>
         </div>          
       </div>
       <div class="actions">        

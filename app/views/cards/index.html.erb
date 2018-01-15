@@ -15,7 +15,7 @@
         <tr>
           <th class="col-sm-1 text-center"><%= sort_link(@q, :registration, StrHelper.attribute_i18n_upper(:registration, [:card])) %></th>
           <th><%= sort_link(@q, :name, StrHelper.attribute_i18n_upper(:name, [:card])) %></th>
-          <th class="col-sm-3 text-center"><%= sort_link(@q, :car_request, StrHelper.attribute_i18n_upper(:document_reference, [:card_request])) %></th>
+          <th class="col-sm-3 text-center"><%= sort_link(@q, :card_request, StrHelper.attribute_i18n_upper(:document_reference, [:card_request])) %></th>
           <th class="col-sm-1 text-center"><%= sort_link(@q, :card_status, StrHelper.attribute_i18n_upper(:card_status,[:card])) %></th>          
           <th class="col-sm-2 text-center"><%= StrHelper.system_i18n_upper(:action, [:helpers, :layouts]) %></th>
         </tr>
@@ -25,20 +25,12 @@
           <tr>
             <td align="center"><%= card.registration %></td>
             <td><%= card.name %></td>            
-            <td align="center"><%= card.car_request.document_reference %></td>
-            <td align="center"><%= card.car_status.describe %></td>
+            <td align="center"><%= card.card_request.document_reference %></td>
+            <td align="center"><%= card.card_status.describe %></td>
             <td align="center">
               <%= hidden_field(@card, card) %>
               <%= link_to("", card, class:"btn btn-default btn-xs fa fa-file-text-o", title: StrHelper.system_i18n(:show, [:helpers, :layouts]), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
               <%= link_to("", edit_card_path(card.id), class: 'btn btn-info btn-xs fa fa-edit', title: StrHelper.system_i18n(:edit, [:helpers, :layouts]), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
-              <button type="button" class="btn btn-danger btn-xs fa " data-toggle="modal" data-target='<%="#modal-destroy-#{card.id}"%>'>
-                  <a class="btn-danger fa fa-trash" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:destroy, [:helpers, :layouts]) %>'></a>
-              </button>
-              <%= render 'helpers/modal/destroy', object_destroy: card, term: card.register_and_name %>            
-              <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-request-#{card.id}"%>'>
-                  <a class="btn-success fa fa-print" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:print_request, [:helpers, :layouts])%>'></a>
-              </button>
-              <%= render 'helpers/modal/print_request', object_request: card %>
             </td>
           </tr>
         <% end %>

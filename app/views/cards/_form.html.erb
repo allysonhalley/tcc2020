@@ -159,9 +159,9 @@
       <div class="form-group">
         <%= form.label( :returned_card, StrHelper.attribute_i18n_upper(:returned_card, [:card]), class: 'col-sm-2 control-label') %>                  
         <div class="col-sm-6">          
-            <%= form.label( :returned_card, StrHelper.system_i18n(:positive, [:helpers, :select]), value: :true)  %>
+            <%= form.label( :returned_card, StrHelper.system_i18n(:positive, [:helpers, :select]))  %>
             <%= form.radio_button( :returned_card, :true, id: :card_returned_card) %>
-            <%= form.label( :returned_card, StrHelper.system_i18n(:negative, [:helpers, :select]), value: :false) %>
+            <%= form.label( :returned_card, StrHelper.system_i18n(:negative, [:helpers, :select])) %>
             <%= form.radio_button( :returned_card, :false, id: :card_returned_card) %>
         </div>          
       </div>

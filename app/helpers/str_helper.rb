@@ -1,5 +1,11 @@
 # Class manipulacao de strings
 module StrHelper
+
+  # Uppercase simple strings
+  def self.str_upper(str)    
+    str.mb_chars.upcase
+  end
+
   # Uppercase with i18n in '...activerecord...' info messages
   def self.upper_i18n(i18n)
     I18n.t(i18n).mb_chars.upcase.to_s

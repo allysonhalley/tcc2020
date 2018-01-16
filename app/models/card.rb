@@ -27,7 +27,7 @@ class Card < ApplicationRecord
     self.identification = military.identification
     self.father_name = military.father_name
     self.mother_name = military.mother_name
-    self.born_date = military.date_formatted
+    self.born_date = military.born_date
     self.registration = military.registration
     self.naturalness = military.naturalness
     self.vote_number = military.vote_number
@@ -38,11 +38,12 @@ class Card < ApplicationRecord
     self.blood_type = military.i18n_upper_blood_type
     self.blood_factor = military.i18n_upper_blood_factor
     self.firearms = firearms_boolean_convert(military.firearm)
-    self.print_date = DateTime.now.strftime('%d/%m/%Y')
-    expire = DateTime.now + 10.years
-    self.expire_date = expire.strftime('%d/%m/%Y')
+    print_dt = DateTime.now    
+    self.print_date = print_dt
+    expire_dt = print_dt + 10.years
+    self.expire_date = expire_dt
     self.card_request = card_request
-    self.returned_card = false
+    self.returned_card = :false
   end
 
   def firearms_boolean_convert(military_firearm)    

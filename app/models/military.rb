@@ -1,9 +1,7 @@
 # Classe responsavel por representar Militar
 class Military < ApplicationRecord
-  before_save :uppercase_strings
-  before_update :uppercase_strings
-
-  before_validation :clean_mask
+  
+  before_validation :clean_mask, :uppercase_strings
 
   # Validacoes
   validates :name, presence: true, length: { minimum: 3 }
@@ -31,10 +29,10 @@ class Military < ApplicationRecord
 
   # Tornar todas strings upercase
   def uppercase_strings
-    name.upcase!
-    father_name.upcase!
-    mother_name.upcase!
-    naturalness.upcase!
+    self.name = StrHelper.str_upper(self.name)
+    self.father_name = StrHelper.str_upper(self.father_name)
+    self.mother_name = StrHelper.str_upper(self.mother_name)
+    self.naturalness = StrHelper.str_upper(self.naturalness)
   end
 
   def clean_mask

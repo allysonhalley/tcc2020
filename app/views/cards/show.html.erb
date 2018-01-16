@@ -45,7 +45,7 @@
             <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
             </div>
-            <%= text_field_tag(:born_date, @card.born_date, type:"date", class: "form-control pull-right", readonly: true)%>
+            <%= text_field_tag(:born_date, @card.born_date, value: @card.born_date, type:"date", class: "form-control pull-right", readonly: true) %>
           </div>
         </div>
       </div>
@@ -144,12 +144,13 @@
       </div>
 
       <div class="form-group">
+        
         <%= label_tag( :returned_card, StrHelper.attribute_i18n_upper(:returned_card, [:card]), class: 'col-sm-2 control-label') %>                  
-        <div class="col-sm-6">          
-            <%= label_tag( :returned_card, "Yes", value: :true)  %>
-            <%= radio_button_tag( :returned_card, :true, @card.returned_card, readonly: true) %>
-            <%= label_tag( :returned_card, "No", value: :false) %>
-            <%= radio_button_tag( :returned_card, :false, @card.returned_card, readonly: true) %>
+        <div class="col-sm-6">
+          <%= label_tag( :returned_card, StrHelper.system_i18n(:positive, [:helpers, :select]))  %>
+          <%= radio_button_tag( :returned_card, :true, checked: @card.returned_card, disabled: true) %>
+          <%= label_tag( :returned_card, StrHelper.system_i18n(:negative, [:helpers, :select])) %>
+          <%= radio_button_tag( :returned_card, :false, checked: @card.returned_card, disabled: true) %>
         </div>          
       </div>
     

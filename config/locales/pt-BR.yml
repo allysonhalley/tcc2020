@@ -43,10 +43,7 @@ pt-BR:
           undefine_factor: indefinido      
           positive: Positivo
           negative: Negativo      
-        firearm: Porte de Arma
-        firearms:
-          fit: Apto
-          unfit: Inapto
+        carry_weapon: Porte de Arma
       card_request:
         military_registration: Matrícula do militar
         document_reference: Documento de referência
@@ -92,7 +89,7 @@ pt-BR:
           undefine_factor: indefinido      
           positive: Positivo
           negative: Negativo      
-        firearms: Porte de Arma
+        carry_weapon: Porte de Arma
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -245,6 +242,8 @@ pt-BR:
       prompt: Por favor selecione
       positive: Sim
       negative: Não
+      fit: Apto
+      unfit: Inapto
     submit:
       create: Criar %{model}
       submit: Salvar %{model}

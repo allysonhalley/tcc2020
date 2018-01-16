@@ -16,6 +16,7 @@ class MilitariesController < ApplicationController
   # GET /militaries/new
   def new
     @military = Military.new
+    @military.fill_default
   end
 
   # GET /militaries/1/edit
@@ -36,6 +37,7 @@ class MilitariesController < ApplicationController
   # PATCH/PUT /militaries/1
   # PATCH/PUT /militaries/1.json
   def update
+    #abort params.inspect
     if @military.update(military_params)
       redirect_to @military, flash: { success: StrHelper.system_i18n_upper(:update,[:activerecord, :success]) }
     else
@@ -64,6 +66,6 @@ class MilitariesController < ApplicationController
   # Never trust parameters from the scary internet,
   # only allow the white list through.
   def military_params
-    params.require(:military).permit(:name, :identification, :hierarchy_id, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :firearm)
+    params.require(:military).permit(:name, :identification, :hierarchy_id, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :carry_weapon)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180105134219) do
+ActiveRecord::Schema.define(version: 20180116195456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20180105134219) do
     t.string "hierarchy"
     t.string "father_name"
     t.string "mother_name"
-    t.string "born_date"
+    t.date "born_date"
     t.string "registration"
     t.string "naturalness"
     t.string "vote_number"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20180105134219) do
     t.string "digital_factor"
     t.string "blood_type"
     t.string "blood_factor"
-    t.boolean "firearms"
+    t.boolean "carry_weapon"
     t.string "print_locale"
     t.date "print_date"
     t.date "expire_date"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20180105134219) do
     t.string "digital_factor"
     t.integer "blood_type"
     t.integer "blood_factor"
-    t.integer "firearm"
+    t.boolean "carry_weapon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["hierarchy_id"], name: "index_militaries_on_hierarchy_id"

@@ -111,11 +111,15 @@
       </div>
 
       <div class="form-group">
-        <%= form.label( :firearm, StrHelper.attribute_i18n_upper(:firearm, [:military]), class: 'col-sm-2 control-label') %>
-          <div class="col-sm-6">
-            <%= form.select(:firearm, options_for_select(Military.i18n_upper_firearms, @military.firearm), {}, {class: "form-control"}) %>
-          </div>
+        <%= form.label( :carry_weapon, StrHelper.attribute_i18n_upper(:carry_weapon, [:military]), class: 'col-sm-2 control-label') %>                  
+        <div class="col-sm-6">
+          <%= form.radio_button( :carry_weapon, true, id: :military_carry_weapon, class: "col-sm-1") %>  
+          <%= form.label( :carry_weapon, StrHelper.system_i18n(:fit, [:helpers, :select]), class: "col-sm-3")  %>
+          <%= form.radio_button( :carry_weapon, false, id: :military_carry_weapon, class: "col-sm-1") %>  
+          <%= form.label( :carry_weapon, StrHelper.system_i18n(:fit, [:helpers, :select]), class: "col-sm-3")  %>
+        </div>          
       </div>
+      
       <div class="actions">
         <%= link_to(StrHelper.system_i18n(:back, [:helpers, :layouts]), militaries_path, class:"btn btn-default btn-sm") %>
         <div class="box-tools pull-right">

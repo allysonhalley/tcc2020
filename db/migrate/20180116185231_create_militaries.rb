@@ -16,7 +16,7 @@ class CreateMilitaries < ActiveRecord::Migration[5.1]
       t.string :digital_factor
       t.integer :blood_type
       t.integer :blood_factor
-      t.integer :firearm
+      t.boolean :carry_weapon
 
       t.timestamps
     end

@@ -24,7 +24,7 @@
                                 <div class="form-group">
                                     <%= form.label( :military_registration, StrHelper.attribute_i18n_upper(:military_registration, [:card_request]), class: 'col-sm-5 control-label') %>
                                     <div class="col-sm-6">
-                                        <%= form.text_field :military_registration, id: :card_request_military_registration, value: object_request.registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control" %>
+                                        <%= form.text_field :military_registration, id: :card_request_military_registration, value: object_request.registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control", readonly: true %>
                                     </div>
                                 </div>
 

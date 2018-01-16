@@ -17,7 +17,7 @@ class MilitariesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create military" do
     assert_difference('Military.count') do
-      post militaries_url, params: { military: { blood_factor: @military.blood_factor, blood_type: @military.blood_type, born_date: @military.born_date, cpf: @military.cpf, digital_factor: @military.digital_factor, father_name: @military.father_name, firearm: @military.firearm, hierarchy_id: @military.hierarchy_id, identification: @military.identification, mother_name: @military.mother_name, name: @military.name, naturalness: @military.naturalness, registration: @military.registration, vote_number: @military.vote_number, vote_section: @military.vote_section, vote_zone: @military.vote_zone } }
+      post militaries_url, params: { military: { blood_factor: @military.blood_factor, blood_type: @military.blood_type, born_date: @military.born_date, carry_weapon: @military.carry_weapon, cpf: @military.cpf, digital_factor: @military.digital_factor, father_name: @military.father_name, hierarchy_id: @military.hierarchy_id, identification: @military.identification, mother_name: @military.mother_name, name: @military.name, naturalness: @military.naturalness, registration: @military.registration, vote_number: @military.vote_number, vote_section: @military.vote_section, vote_zone: @military.vote_zone } }
     end
 
     assert_redirected_to military_url(Military.last)
@@ -34,7 +34,7 @@ class MilitariesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update military" do
-    patch military_url(@military), params: { military: { blood_factor: @military.blood_factor, blood_type: @military.blood_type, born_date: @military.born_date, cpf: @military.cpf, digital_factor: @military.digital_factor, father_name: @military.father_name, firearm: @military.firearm, hierarchy_id: @military.hierarchy_id, identification: @military.identification, mother_name: @military.mother_name, name: @military.name, naturalness: @military.naturalness, registration: @military.registration, vote_number: @military.vote_number, vote_section: @military.vote_section, vote_zone: @military.vote_zone } }
+    patch military_url(@military), params: { military: { blood_factor: @military.blood_factor, blood_type: @military.blood_type, born_date: @military.born_date, carry_weapon: @military.carry_weapon, cpf: @military.cpf, digital_factor: @military.digital_factor, father_name: @military.father_name, hierarchy_id: @military.hierarchy_id, identification: @military.identification, mother_name: @military.mother_name, name: @military.name, naturalness: @military.naturalness, registration: @military.registration, vote_number: @military.vote_number, vote_section: @military.vote_section, vote_zone: @military.vote_zone } }
     assert_redirected_to military_url(@military)
   end
 

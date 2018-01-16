@@ -37,31 +37,13 @@ class Card < ApplicationRecord
     self.digital_factor = military.digital_factor
     self.blood_type = military.i18n_upper_blood_type
     self.blood_factor = military.i18n_upper_blood_factor
-    self.firearms = firearms_boolean_convert(military.firearm)
+    self.carry_weapon = military.carry_weapon
     print_dt = DateTime.now    
     self.print_date = print_dt
     expire_dt = print_dt + 10.years
     self.expire_date = expire_dt
     self.card_request = card_request
     self.returned_card = :false
-  end
-
-  def firearms_boolean_convert(military_firearm)    
-    case military_firearm
-      when :fit 
-        true
-      when :unfit 
-        false
-    end
-  end
-
-  def firearms_string_convert
-    case self.firearms
-      when true
-        "APTO"
-      when false 
-        "INAPTO"
-    end
   end
 
   def document_request_name

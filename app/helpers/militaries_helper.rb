@@ -6,4 +6,12 @@ module MilitariesHelper
         military.register_and_name
     end
 
+    def self.fit_carry_weapon(fit)        
+        case fit
+        when true
+            StrHelper.system_i18n_upper(:fit, [:helpers, :select])
+        when false
+            StrHelper.system_i18n_upper(:unfit, [:helpers, :select])
+        end
+    end
 end

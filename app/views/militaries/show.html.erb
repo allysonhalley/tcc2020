@@ -5,37 +5,37 @@
       <div class="form-group">
         <%= label_tag( :name, StrHelper.attribute_i18n_upper(:name, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:name, @military.name, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:name, @military.name, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :cpf, StrHelper.attribute_i18n_upper(:cpf, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:cpf, @military.cpf, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:cpf, @military.cpf, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :identification, StrHelper.attribute_i18n_upper(:identification, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:identification, @military.identification, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:identification, @military.identification, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag(:hierarchy, StrHelper.model_i18n_upper(:one, [:hierarchy]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:hierarchy, @military.hierarchy.name, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:hierarchy, @military.hierarchy.name, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :father_name, StrHelper.attribute_i18n_upper(:father_name, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:father_name, @military.father_name, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:father_name, @military.father_name, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :mother_name, StrHelper.attribute_i18n_upper(:mother_name, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:mother_name, @military.mother_name, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:mother_name, @military.mother_name, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
@@ -45,63 +45,63 @@
             <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
             </div>
-            <%= text_field_tag(:born_date, @military.born_date, type:"date", class: "form-control pull-right", disabled: true)%>
+            <%= text_field_tag(:born_date, @military.born_date, type:"date", class: "form-control pull-right", readonly: true)%>
           </div>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :registration, StrHelper.attribute_i18n_upper(:registration, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:registration, @military.registration, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:registration, @military.registration, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :naturalness, StrHelper.attribute_i18n_upper(:naturalness, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:naturalness, @military.naturalness, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:naturalness, @military.naturalness, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :vote_number, StrHelper.attribute_i18n_upper(:vote_number, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:vote_number, @military.vote_number, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:vote_number, @military.vote_number, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :vote_zone, StrHelper.attribute_i18n_upper(:vote_zone, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:vote_zone, @military.vote_zone, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:vote_zone, @military.vote_zone, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :vote_section, StrHelper.attribute_i18n_upper(:vote_section, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:vote_section, @military.vote_section, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:vote_section, @military.vote_section, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :digital_factor, StrHelper.attribute_i18n_upper(:digital_factor, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag( :digital_factor, @military.digital_factor, data:{ inputmask:'"mask": "A-9999/A-9999"', mask:""}, class: "form-control", disabled: true) %>
+          <%= text_field_tag( :digital_factor, @military.digital_factor, data:{ inputmask:'"mask": "A-9999/A-9999"', mask:""}, class: "form-control", readonly: true) %>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :blood_type, StrHelper.attribute_i18n_upper(:blood_type, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:blood_type, @military.i18n_upper_blood_type, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:blood_type, @military.i18n_upper_blood_type, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
         <%= label_tag( :blood_factor, StrHelper.attribute_i18n_upper(:blood_factor, [:military]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:blood_factor, @military.i18n_upper_blood_factor, {class: "form-control", disabled: true})%>
+          <%= text_field_tag(:blood_factor, @military.i18n_upper_blood_factor, {class: "form-control", readonly: true})%>
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :firearm, StrHelper.attribute_i18n_upper(:firearm, [:military]), class: 'col-sm-2 control-label') %>
+        <%= label_tag( :carry_weapon, StrHelper.attribute_i18n_upper(:carry_weapon, [:military]), class: 'col-sm-2 control-label') %>                  
         <div class="col-sm-6">
-          <%= select_tag(:firearm, options_for_select(Military.i18n_upper_firearms, @military.firearm), class: "form-control", disabled: true) %>
-        </div>
+          <%= text_field_tag(:carry_weapon, MilitariesHelper.fit_carry_weapon(@military.carry_weapon), {class: "form-control", readonly: true})%>
+        </div>          
       </div>
       <div class="actions">        
         <%= link_to(StrHelper.system_i18n(:back, [:helpers, :layouts]), militaries_path, class:"btn btn-default btn-sm") %>

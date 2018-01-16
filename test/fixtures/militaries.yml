@@ -6,7 +6,7 @@ one:
   hierarchy: one
   father_name: MyString
   mother_name: MyString
-  born_date: 2017-11-23
+  born_date: 2018-01-16
   registration: MyString
   naturalness: MyString
   vote_number: MyString
@@ -16,7 +16,7 @@ one:
   digital_factor: MyString
   blood_type: 1
   blood_factor: 1
-  firearm: 1
+  carry_weapon: false
 
 two:
   name: MyString
@@ -24,7 +24,7 @@ two:
   hierarchy: two
   father_name: MyString
   mother_name: MyString
-  born_date: 2017-11-23
+  born_date: 2018-01-16
   registration: MyString
   naturalness: MyString
   vote_number: MyString
@@ -34,4 +34,4 @@ two:
   digital_factor: MyString
   blood_type: 1
   blood_factor: 1
-  firearm: 1
+  carry_weapon: false

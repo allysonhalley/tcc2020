@@ -6,7 +6,7 @@ class CreateCards < ActiveRecord::Migration[5.1]
       t.string :hierarchy
       t.string :father_name
       t.string :mother_name
-      t.string :born_date
+      t.date :born_date
       t.string :registration
       t.string :naturalness
       t.string :vote_number
@@ -16,7 +16,7 @@ class CreateCards < ActiveRecord::Migration[5.1]
       t.string :digital_factor
       t.string :blood_type
       t.string :blood_factor
-      t.boolean :firearms
+      t.boolean :carry_weapon
       t.string :print_locale
       t.date :print_date
       t.date :expire_date

@@ -4,7 +4,9 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @q = Card.ransack(params[:q])
+    @cards = @q.result(distinct: true).joins(:card_status).joins(:card_request).order(registration: :asc)
+    
   end
 
   # GET /cards/1
@@ -15,6 +17,10 @@ class CardsController < ApplicationController
   # GET /cards/new
   def new
     @card = Card.new
+    object_request_id = params[:object_request_id]
+    #registration = object_request.military_registration
+    @card.fill_by_request(object_request_id)
+    #abort @card.returned_card.inspect
   end
 
   # GET /cards/1/edit
@@ -25,40 +31,38 @@ class CardsController < ApplicationController
   # POST /cards.json
   def create
     @card = Card.new(card_params)
-
-    respond_to do |format|
-      if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
-        format.json { render :show, status: :created, location: @card }
-      else
-        format.html { render :new }
-        format.json { render json: @card.errors, status: :unprocessable_entity }
-      end
+    if @card.save
+      redirect_to @card, flash: { success: StrHelper.system_i18n_upper(:create,[:activerecord, :success]) }
+    else
+      flash.now[:error] = @card.errors.full_messages.first
+      render :new, @card
     end
   end
 
   # PATCH/PUT /cards/1
   # PATCH/PUT /cards/1.json
   def update
-    respond_to do |format|
-      if @card.update(card_params)
-        format.html { redirect_to @card, notice: 'Card was successfully updated.' }
-        format.json { render :show, status: :ok, location: @card }
-      else
-        format.html { render :edit }
-        format.json { render json: @card.errors, status: :unprocessable_entity }
-      end
-    end
+    if @card.update(card_params)
+      redirect_to @card, flash: { success: StrHelper.system_i18n_upper(:update,[:activerecord, :success]) }
+    else
+      flash.now[:error] = @card.errors.full_messages.first
+      render :edit
+    end    
   end
 
   # DELETE /cards/1
   # DELETE /cards/1.json
   def destroy
-    @card.destroy
-    respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
-      format.json { head :no_content }
+    if @card.destroy
+      redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:destroy,[:activerecord, :success]) }
+    else
+      redirect_to cards_url, flash: { error: @card.errors.full_messages.first }
     end
+  end
+
+  def print_request
+    @military = Military.find(@card_request.military_registration)
+
   end
 
   private

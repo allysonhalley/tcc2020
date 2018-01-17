@@ -43,7 +43,7 @@ class Card < ApplicationRecord
     expire_dt = print_dt + 10.years
     self.expire_date = expire_dt
     self.card_request = card_request
-    self.returned_card = :false
+    self.returned_card = false
   end
 
   def document_request_name

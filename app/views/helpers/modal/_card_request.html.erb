@@ -48,7 +48,7 @@
                     <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
                         <%= StrHelper.system_i18n(:back, [:helpers, :layouts])%>
                     </button>
-                    <%= submit_tag( StrHelper.system_i18n(:card_request, [:helpers, :layouts]), class: "btn btn-success btn-xs" )%>
+                    <%= form.submit( StrHelper.system_i18n(:card_request, [:helpers, :layouts]), class: "btn btn-success btn-xs" )%>
                 </div>
             <% end %>
         </div>

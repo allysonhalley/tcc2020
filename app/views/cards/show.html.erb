@@ -98,9 +98,9 @@
         </div>
       </div>
       <div class="form-group">
-        <%= label_tag( :firearms, StrHelper.attribute_i18n_upper(:firearms, [:card]), class: 'col-sm-2 control-label') %>
+        <%= label_tag( :carry_weapon, StrHelper.attribute_i18n_upper(:carry_weapon, [:card]), class: 'col-sm-2 control-label') %>
         <div class="col-sm-6">
-          <%= text_field_tag(:firearms, @card.firearms_string_convert, {class: "form-control", readonly: true})%>
+        <%= text_field_tag( :carry_weapon, MilitariesHelper.fit_carry_weapon(@card.carry_weapon), class: "form-control", readonly: true) %>
         </div>
       </div>
 
@@ -147,10 +147,7 @@
         
         <%= label_tag( :returned_card, StrHelper.attribute_i18n_upper(:returned_card, [:card]), class: 'col-sm-2 control-label') %>                  
         <div class="col-sm-6">
-          <%= label_tag( :returned_card, StrHelper.system_i18n(:positive, [:helpers, :select]))  %>
-          <%= radio_button_tag( :returned_card, :true, checked: @card.returned_card, disabled: true) %>
-          <%= label_tag( :returned_card, StrHelper.system_i18n(:negative, [:helpers, :select])) %>
-          <%= radio_button_tag( :returned_card, :false, checked: @card.returned_card, disabled: true) %>
+        <%= text_field_tag( :returned_card, CardsHelper.returned_old_card(@card.returned_card), class: "form-control", readonly: true) %>
         </div>          
       </div>
     

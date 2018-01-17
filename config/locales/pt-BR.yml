@@ -244,6 +244,8 @@ pt-BR:
       negative: Não
       fit: Apto
       unfit: Inapto
+      returned: Retornado
+      unreturned: Não Retornado
     submit:
       create: Criar %{model}
       submit: Salvar %{model}

@@ -1,5 +1,5 @@
 class DiscardsController < ApplicationController
-  before_action :set_discard, only: [:show, :edit, :update, :destroy]
+  before_action :set_discard, only: %i[show edit update destroy]
 
   # GET /discards
   # GET /discards.json
@@ -10,8 +10,7 @@ class DiscardsController < ApplicationController
 
   # GET /discards/1
   # GET /discards/1.json
-  def show
-  end
+  def show; end
 
   # GET /discards/new
   def new
@@ -21,8 +20,7 @@ class DiscardsController < ApplicationController
   end
 
   # GET /discards/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /discards
   # POST /discards.json
@@ -31,7 +29,7 @@ class DiscardsController < ApplicationController
     card = Card.find_by_card_number(@discard.card_number)
     if @discard.save
       card.destroy
-      redirect_to @discard, flash: { success: StrHelper.system_i18n_upper(:create,[:activerecord, :success]) }
+      redirect_to @discard, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
     else
       flash.now[:error] = @discard.errors.full_messages.first
       render :new, @discard
@@ -42,31 +40,32 @@ class DiscardsController < ApplicationController
   # PATCH/PUT /discards/1.json
   def update
     if @discard.update(discard_params)
-      redirect_to @discard, flash: { success: StrHelper.system_i18n_upper(:update,[:activerecord, :success]) }
+      redirect_to @discard, flash: { success: StrHelper.system_i18n_upper(:update, %i[activerecord success]) }
     else
       flash.now[:error] = @discard.errors.full_messages.first
       render :edit
-    end    
+    end
   end
 
   # DELETE /discards/1
   # DELETE /discards/1.json
   def destroy
     if @discard.destroy
-      redirect_to discards_url, flash: { success: StrHelper.system_i18n_upper(:destroy,[:activerecord, :success]) }
+      redirect_to discards_url, flash: { success: StrHelper.system_i18n_upper(:destroy, %i[activerecord success]) }
     else
       redirect_to discards_url, flash: { error: @discard.errors.full_messages.first }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_discard
-      @discard = Discard.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def discard_params
-      params.require(:discard).permit(:card_number, :card_request_id, :reason_discard)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_discard
+    @discard = Discard.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def discard_params
+    params.require(:discard).permit(:card_number, :card_request_id, :reason_discard)
+  end
 end

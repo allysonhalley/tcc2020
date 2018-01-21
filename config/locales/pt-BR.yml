@@ -13,6 +13,9 @@ pt-BR:
       card:
         one: Carteira
         other: Carteiras
+      discard:
+        one: Descarte
+        other: Descartes
     attributes:
       hierarchy:
         name: Nome
@@ -44,6 +47,7 @@ pt-BR:
           positive: Positivo
           negative: Negativo      
         carry_weapon: Porte de Arma
+        registration_name: Matrícula e Nome
       card_request:
         military_registration: Matrícula do militar
         document_reference: Documento de referência
@@ -90,6 +94,8 @@ pt-BR:
           positive: Positivo
           negative: Negativo      
         carry_weapon: Porte de Arma
+      discard:
+        reason_discard: Motivo do descarte
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -254,7 +260,8 @@ pt-BR:
       sure: Confirmar exclusão?
       confirm_card_request: Confirmar solicitação de carteira?
       confirm_print_request: Confirmar solicitação de impressão?
-      print: Imprimir
+      confirm_discard: Confirmar descarte de carteira?
+      print: Imprimir      
       confirm: Sim 
     layouts:
       sgid: SGId
@@ -271,9 +278,12 @@ pt-BR:
       new: Novo
       destroy: Excluir
       back: Voltar
+      discard: Descartar
       search: Pesquisar por...
       print_request: Solicitar Impressão
       card_request: Solicitar Carteira
+      giving_card: Entregar Carteira
+      discard_card: Descartar Carteira
       add: Adicionar %{parameter}
       version: Versão
       version_number: 3.0.a

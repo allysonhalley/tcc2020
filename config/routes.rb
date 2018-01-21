@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :discards
   resources :cards
   resources :militaries
   resources :card_requests

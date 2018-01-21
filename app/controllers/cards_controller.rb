@@ -5,8 +5,7 @@ class CardsController < ApplicationController
   # GET /cards.json
   def index
     @q = Card.ransack(params[:q])
-    @cards = @q.result(distinct: true).joins(:card_status).joins(:card_request).order(registration: :asc)
-    
+    @cards = @q.result(distinct: true).joins(:card_status).joins(:card_request).order(registration: :asc)    
   end
 
   # GET /cards/1
@@ -18,9 +17,7 @@ class CardsController < ApplicationController
   def new
     @card = Card.new
     object_request_id = params[:object_request_id]
-    #registration = object_request.military_registration
     @card.fill_by_request(object_request_id)
-    #abort @card.returned_card.inspect
   end
 
   # GET /cards/1/edit

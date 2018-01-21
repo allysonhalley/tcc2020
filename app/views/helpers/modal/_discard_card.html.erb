@@ -1,0 +1,51 @@
+<div class="modal fade" id='<%="modal-discard-#{discard_card.id}"%>' role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <%= form_with(model: Discard.new, local: true, class: 'form-horizontal') do |form| %>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">
+                        <%= StrHelper.system_i18n(:confirm_discard, [:helpers, :submit])%>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="box box-success">
+                        <div class="form-horizontal">
+                            <div class="box-body">                                
+                                <div class="form-group">
+                                    <%= form.label( :card_number, StrHelper.attribute_i18n_upper(:card_number, [:card]), class: 'col-sm-5 control-label') %>
+                                    <div class="col-sm-6">
+                                        <%= form.text_field( :card_number, id: :discard_card_number, value: discard_card.card_number, class: "form-control", readonly: true) %>
+                                    </div>
+                                </div>
+
+                                <%= form.hidden_field(:card_request_id, value: discard_card.card_request_id) %>
+                                <div class="form-group">
+                                    <%= label_tag( :document_reference, StrHelper.attribute_i18n_upper(:document_reference, [:card_request]), class: 'col-sm-5 control-label') %>
+                                    <div class="col-sm-6">
+                                        <%= text_field_tag(:document_reference, discard_card.document_request_name, {class: "form-control", disabled: true})%>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <%= form.label( :reason_discard, StrHelper.attribute_i18n_upper(:reason_discard, [:discard]), class: 'col-sm-5 control-label') %>
+                                    <div class="col-sm-6">
+                                        <%= form.text_area( :reason_discard, id: :discard_reason_discard, class: "form-control" )%>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
+                        <%= StrHelper.system_i18n(:back, [:helpers, :layouts])%>
+                    </button>
+                    <%= form.submit( StrHelper.system_i18n(:discard, [:helpers, :layouts]), class: "btn btn-success btn-xs" )%>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="modal fade" id='<%="modal-giving-#{giving_card.id}"%>' role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    <%= StrHelper.system_i18n(:giving_card, [:helpers, :layouts])%>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p><%= CardsHelper.register_name(giving_card.registration)%></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
+                    <%= StrHelper.system_i18n(:back, [:helpers, :layouts]) %>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

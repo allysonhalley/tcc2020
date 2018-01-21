@@ -16,4 +16,10 @@ module CardsHelper
             StrHelper.system_i18n_upper(:unreturned, [:helpers, :select])
         end
     end
+
+    # return Registration and Name
+    def self.register_name(registration)
+        card = Card.find_by_registration(registration)
+        card.register_and_name
+    end
 end

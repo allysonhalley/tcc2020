@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116195456) do
+ActiveRecord::Schema.define(version: 20180121041803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 20180116195456) do
     t.index ["card_status_id"], name: "index_cards_on_card_status_id"
   end
 
+  create_table "discards", force: :cascade do |t|
+    t.string "card_number"
+    t.bigint "card_request_id"
+    t.text "reason_discard"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_request_id"], name: "index_discards_on_card_request_id"
+  end
+
   create_table "hierarchies", force: :cascade do |t|
     t.string "name"
     t.string "acronym"
@@ -91,5 +100,6 @@ ActiveRecord::Schema.define(version: 20180116195456) do
 
   add_foreign_key "cards", "card_requests"
   add_foreign_key "cards", "card_statuses"
+  add_foreign_key "discards", "card_requests"
   add_foreign_key "militaries", "hierarchies"
 end

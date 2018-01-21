@@ -1,0 +1,33 @@
+<div class="box box-info">
+    <%= form_with(model: discard, local: true, class: 'form-horizontal') do |form| %>
+      <div class="box-body">
+        <div class="form-group">
+            <%= form.label( :card_number, StrHelper.attribute_i18n_upper(:card_number, [:card]), class: 'col-sm-5 control-label') %>
+            <div class="col-sm-6">
+                <%= form.text_field( :card_number, id: :discard_card_number, class: "form-control", readonly: true) %>
+            </div>
+        </div>
+
+        <%= form.hidden_field(:card_request_id, value: discard.card_request_id) %>
+        <div class="form-group">
+            <%= label_tag( :document_request_reference, StrHelper.attribute_i18n_upper(:document_reference, [:card_request]), class: 'col-sm-5 control-label') %>
+            <div class="col-sm-6">
+                <%= text_field_tag(:document_request_reference, discard.document_request_reference, class: "form-control", disabled: true)%>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= form.label( :reason_discard, StrHelper.attribute_i18n_upper(:reason_discard, [:discard]), class: 'col-sm-5 control-label') %>
+            <div class="col-sm-6">
+                <%= form.text_area( :reason_discard, id: :discard_reason_discard, class: "form-control" )%>
+            </div>
+        </div>
+        <div class="actions">
+          <%= link_to(StrHelper.system_i18n(:back, [:helpers, :layouts]), discards_path, class:"btn btn-default btn-sm") %>
+          <div class="box-tools pull-right">
+            <%= form.submit( StrHelper.system_i18n(:save, [:helpers, :layouts]), class:"btn btn-success btn-sm" )%>
+          </div>
+        </div>
+      </div>    
+    <% end %>
+  </div>

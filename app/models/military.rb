@@ -47,7 +47,7 @@ class Military < ApplicationRecord
   end
 
   def register_and_name
-    "#{registration} #{name}"
+    "#{registration} - #{name}"
   end
 
   def hierarchy_name

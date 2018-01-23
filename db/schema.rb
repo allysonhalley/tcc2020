@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121041803) do
+ActiveRecord::Schema.define(version: 20180123155913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180121041803) do
     t.string "military_registration"
     t.string "document_reference"
     t.integer "reason_request"
+    t.boolean "canceled"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,7 +99,6 @@ ActiveRecord::Schema.define(version: 20180121041803) do
     t.index ["hierarchy_id"], name: "index_militaries_on_hierarchy_id"
   end
 
-  add_foreign_key "cards", "card_requests"
   add_foreign_key "cards", "card_statuses"
   add_foreign_key "discards", "card_requests"
   add_foreign_key "militaries", "hierarchies"

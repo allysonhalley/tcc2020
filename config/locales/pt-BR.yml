@@ -101,11 +101,12 @@ pt-BR:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{model} dependente
-          has_many: Não é possível excluir o registro pois existem %{model} dependentes
+          has_many: Não é possível excluir o registro pois existem %{model} dependentes        
     success:
       create: Criado com sucesso.
       update: Atualizado com sucesso.
       destroy: Excluído com sucesso.
+      discard_ok: Discartada com sucesso.
   date:
     abbr_day_names:
     - Dom
@@ -238,11 +239,13 @@ pt-BR:
         one: não possui o tamanho esperado (1 caracter)
         other: não possui o tamanho esperado (%{count} caracteres)
       other_than: deve ser diferente de %{count}
+      request_exist: Solicitação de carteira já existe
+      card_printed_exist: Carteira impressa
     template:
       body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:
         one: 'Não foi possível gravar %{model}: 1 erro'
-        other: 'Não foi possível gravar %{model}: %{count} erros'
+        other: 'Não foi possível gravar %{model}: %{count} erros'    
   helpers:
     select:
       prompt: Por favor selecione
@@ -276,6 +279,7 @@ pt-BR:
       create: Criar
       show: Exibir
       new: Novo
+      newx: Nova
       destroy: Excluir
       back: Voltar
       discard: Descartar

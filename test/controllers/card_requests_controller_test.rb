@@ -17,7 +17,7 @@ class CardRequestsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create card_request" do
     assert_difference('CardRequest.count') do
-      post card_requests_url, params: { card_request: { document_reference: @card_request.document_reference, military_registration: @card_request.military_registration, reason_request: @card_request.reason_request } }
+      post card_requests_url, params: { card_request: { canceled: @card_request.canceled, document_reference: @card_request.document_reference, military_registration: @card_request.military_registration, reason_request: @card_request.reason_request } }
     end
 
     assert_redirected_to card_request_url(CardRequest.last)
@@ -34,7 +34,7 @@ class CardRequestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update card_request" do
-    patch card_request_url(@card_request), params: { card_request: { document_reference: @card_request.document_reference, military_registration: @card_request.military_registration, reason_request: @card_request.reason_request } }
+    patch card_request_url(@card_request), params: { card_request: { canceled: @card_request.canceled, document_reference: @card_request.document_reference, military_registration: @card_request.military_registration, reason_request: @card_request.reason_request } }
     assert_redirected_to card_request_url(@card_request)
   end
 

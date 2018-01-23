@@ -36,7 +36,7 @@
               </button>
               <%= render 'helpers/modal/destroy', object_destroy: military, term: military.register_and_name %>            
               <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-request-#{military.id}"%>'>
-                <a class="btn-success fa fa-print" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:card_request, [:helpers, :layouts])%>'></a>
+                <a class="btn-success fa fa-send-o" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:card_request, [:helpers, :layouts])%>'></a>
               </button>
               <%= render 'helpers/modal/card_request', object_request: military %>
             </td>

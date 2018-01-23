@@ -38,6 +38,7 @@ class Card < ApplicationRecord
     self.blood_type = military.i18n_upper_blood_type
     self.blood_factor = military.i18n_upper_blood_factor
     self.carry_weapon = military.carry_weapon
+    self.print_locale = "Recife-PE"
     print_dt = DateTime.now    
     self.print_date = print_dt
     expire_dt = print_dt + 10.years

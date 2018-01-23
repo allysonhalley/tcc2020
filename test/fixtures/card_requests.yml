@@ -4,8 +4,10 @@ one:
   military_registration: MyString
   document_reference: MyString
   reason_request: 1
+  canceled: false
 
 two:
   military_registration: MyString
   document_reference: MyString
   reason_request: 1
+  canceled: false

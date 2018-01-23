@@ -37,7 +37,6 @@ class MilitariesController < ApplicationController
   # PATCH/PUT /militaries/1
   # PATCH/PUT /militaries/1.json
   def update
-    #abort params.inspect
     if @military.update(military_params)
       redirect_to @military, flash: { success: StrHelper.system_i18n_upper(:update,[:activerecord, :success]) }
     else

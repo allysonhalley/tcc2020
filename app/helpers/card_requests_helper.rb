@@ -8,5 +8,8 @@ module CardRequestsHelper
         card.register_and_name
     end
 
-
+    # Validar se solicitacao ja existe
+    def self.request_exist(document, registration)
+        CardRequest.where(document_reference: document).where(military_registration: registration).where(canceled: false).present?
+    end
 end

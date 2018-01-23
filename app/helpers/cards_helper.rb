@@ -22,4 +22,9 @@ module CardsHelper
         card = Card.find_by_registration(registration)
         card.register_and_name
     end
+
+    # Verificacao para nova solicitacao
+    def self.card_printed_exist(registration)
+        Card.joins(:card_status).where(card_statuses: {describe: "PRINTED"}).where(registration: registration).present?
+    end
 end

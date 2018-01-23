@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :discards
+  resources :card_requests
   resources :cards
   resources :militaries
-  resources :card_requests
   resources :hierarchies
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

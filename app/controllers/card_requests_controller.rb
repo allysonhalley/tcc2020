@@ -24,8 +24,13 @@ class CardRequestsController < ApplicationController
   # POST /card_requests
   # POST /card_requests.json
   def create
+
     @card_request = CardRequest.new(card_request_params)
-    if @card_request.save
+    if CardRequestsHelper.request_exist(@card_request.document_reference, @card_request.military_registration)
+      redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:request_exist,[:errors, :messages]) }    
+    elsif CardsHelper.card_printed_exist(@card_request.military_registration)
+      redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:card_printed_exist,[:errors, :messages]) }    
+    elsif @card_request.save
       redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:create,[:activerecord, :success]) }
     else
       flash.now[:error] = @card_request.errors.full_messages.first
@@ -63,6 +68,6 @@ class CardRequestsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def card_request_params
-    params.require(:card_request).permit(:military_registration, :document_reference, :reason_request)
+    params.require(:card_request).permit(:military_registration, :document_reference, :reason_request, :canceled)
   end
 end

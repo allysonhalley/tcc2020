@@ -24,14 +24,13 @@ class CardRequestsController < ApplicationController
   # POST /card_requests
   # POST /card_requests.json
   def create
-
     @card_request = CardRequest.new(card_request_params)
     if CardRequestsHelper.request_exist(@card_request.document_reference, @card_request.military_registration)
-      redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:request_exist,[:errors, :messages]) }    
+      redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:request_exist, %i[errors messages]) }
     elsif CardsHelper.card_printed_exist(@card_request.military_registration)
-      redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:card_printed_exist,[:errors, :messages]) }    
+      redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:card_printed_exist, %i[errors messages]) }
     elsif @card_request.save
-      redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:create,[:activerecord, :success]) }
+      redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
     else
       flash.now[:error] = @card_request.errors.full_messages.first
       redirect_to militaries_url, flash: { error: @card_request.errors.full_messages.first }
@@ -42,7 +41,7 @@ class CardRequestsController < ApplicationController
   # PATCH/PUT /card_requests/1.json
   def update
     if @card_request.update(card_request_params)
-      redirect_to @card_request, flash: { success: StrHelper.system_i18n_upper(:update,[:activerecord, :success]) }
+      redirect_to @card_request, flash: { success: StrHelper.system_i18n_upper(:update, %i[activerecord success]) }
     else
       flash.now[:error] = @card_request.errors.full_messages.first
       render :edit
@@ -53,7 +52,7 @@ class CardRequestsController < ApplicationController
   # DELETE /card_requests/1.json
   def destroy
     if @card_request.destroy
-      redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:destroy,[:activerecord, :success]) }
+      redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:destroy, %i[activerecord success]) }
     else
       redirect_to card_requests_url, flash: { error: @card_request.errors.full_messages.first }
     end

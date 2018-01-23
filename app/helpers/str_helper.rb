@@ -1,8 +1,7 @@
 # Class manipulacao de strings
 module StrHelper
-
   # Uppercase simple strings
-  def self.str_upper(str)    
+  def self.str_upper(str)
     str.mb_chars.upcase
   end
 

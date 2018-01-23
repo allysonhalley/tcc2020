@@ -1,3 +1,4 @@
+# Classe responsavel por representar Discartes
 class Discard < ApplicationRecord
   belongs_to :card_request
 

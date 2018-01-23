@@ -1,9 +1,8 @@
 # Classe responsavel por representar Carteiras
 class Card < ApplicationRecord
-  
   before_save :uppercase_strings
   before_update :uppercase_strings
-  
+
   belongs_to :card_request
   belongs_to :card_status
 
@@ -11,15 +10,19 @@ class Card < ApplicationRecord
   validates :naturalness, presence: true, length: { minimum: 3 }
 
   def register_and_name
-    "#{registration} #{name}"
+    "#{hierarchy} - #{registration} - #{name}"
   end
+
+  def hierarchy_register_and_name
+    "#{hierarchy} - #{registration} - #{name}"
+  end  
 
   # Tornar todas strings upercase
   def uppercase_strings
     naturalness.upcase!
   end
 
-  def fill_by_request(object_request_id) 
+  def fill_by_request(object_request_id)
     card_request = CardRequest.find(object_request_id)
     military = Military.find_by_registration(card_request.military_registration)
     self.name = military.name
@@ -38,8 +41,8 @@ class Card < ApplicationRecord
     self.blood_type = military.i18n_upper_blood_type
     self.blood_factor = military.i18n_upper_blood_factor
     self.carry_weapon = military.carry_weapon
-    self.print_locale = "Recife-PE"
-    print_dt = DateTime.now    
+    self.print_locale = 'Recife-PE'
+    print_dt = DateTime.now
     self.print_date = print_dt
     expire_dt = print_dt + 10.years
     self.expire_date = expire_dt
@@ -48,11 +51,20 @@ class Card < ApplicationRecord
   end
 
   def document_request_name
-    self.card_request.document_reference
+    card_request.document_reference
   end
 
   def status_describe
-    self.card_status.describe
+    card_status.describe
   end
+
+  def card_printed
+    
+    if card_status.describe == "PRINTED"
+      ''
+    else
+      'disabled'
+    end
+  end      
 
 end

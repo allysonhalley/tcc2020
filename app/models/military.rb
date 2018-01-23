@@ -50,6 +50,10 @@ class Military < ApplicationRecord
     "#{registration} - #{name}"
   end
 
+  def hierarchy_register_and_name
+    "#{hierarchy_name} - #{registration} - #{name}"
+  end  
+
   def hierarchy_name
     self.hierarchy.name
   end

@@ -10,13 +10,17 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <p><%= MilitariesHelper.register_name(object_request.military_registration)%></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
-                    <%= I18n.t 'helpers.layouts.back'%>
-                </button>                
-                <%= link_to(StrHelper.system_i18n(:print, [:helpers, :submit]), new_card_path(object_request_id: object_request.id), class:"btn btn-success btn-xs") %>
+                <div class="box box-success">
+                    <div class="form-horizontal">
+                        <p><%= MilitariesHelper.hierarchy_register_and_name(object_request.military_registration)%></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
+                            <%= I18n.t 'helpers.layouts.back'%>
+                        </button>                
+                        <%= link_to(StrHelper.system_i18n(:print, [:helpers, :submit]), new_card_path(object_request_id: object_request.id), class:"btn btn-success btn-xs") %>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

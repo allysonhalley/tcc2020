@@ -10,7 +10,9 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <p><%= CardsHelper.register_name(giving_card.registration)%></p>
+                <p><%= giving_card.hierarchy_register_and_name %></p>
+                <p><%= StrHelper.attribute_i18n_upper(:document_reference, [:card_request]) %></p>
+                <p><%= giving_card.document_request_name %></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">

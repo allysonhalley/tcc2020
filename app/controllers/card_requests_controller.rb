@@ -5,10 +5,11 @@ class CardRequestsController < ApplicationController
   # GET /card_requests
   # GET /card_requests.json
   def index
-    @q = CardRequest.ransack(params[:q])
+    collection = CardRequest.joins("LEFT JOIN cards ON card_requests.id = cards.card_request_id").where(cards: {card_request_id: nil})
+    @q = collection.ransack(params[:q])
     @card_requests = @q.result(distinct: true).order(created_at: :desc)
+    
   end
-
   # GET /card_requests/1
   # GET /card_requests/1.json
   def show; end
@@ -53,6 +54,17 @@ class CardRequestsController < ApplicationController
   def destroy
     if @card_request.destroy
       redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:destroy, %i[activerecord success]) }
+    else
+      redirect_to card_requests_url, flash: { error: @card_request.errors.full_messages.first }
+    end
+  end
+
+  # DELETE /card_requests/1
+  # DELETE /card_requests/1.json
+  def cancel
+    @card_request.canceled = true
+    if @card_request.save
+      redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:cancel, %i[activerecord success]) }
     else
       redirect_to card_requests_url, flash: { error: @card_request.errors.full_messages.first }
     end

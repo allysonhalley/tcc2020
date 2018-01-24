@@ -2,6 +2,8 @@
 class CardRequest < ApplicationRecord
   before_validation :clean_mask
 
+  has_one :card
+
   validates :military_registration, presence: true, length: { is: 7 }
   validates :document_reference, presence: true
   validates :reason_request, presence: true

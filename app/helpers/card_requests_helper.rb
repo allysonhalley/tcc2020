@@ -10,6 +10,7 @@ module CardRequestsHelper
 
   # Validar se solicitacao ja existe
   def self.request_exist(document, registration)
-    CardRequest.where(document_reference: document).where(military_registration: registration).where(canceled: false).present?
+    registration = registration.gsub!(/[^0123456789]/, '')
+    CardRequest.where(military_registration: registration).present?
   end
 end

@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   get 'create_card_request', to: 'card_requests#create', as: :create_card_request
   get 'print_request', to: 'card#create', as: :print_request
+  post 'cancel_card_request', to:'card_request#cancel', as: :cancel_card_request
 
 end

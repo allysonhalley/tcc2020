@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 20180123155913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "card_requests", force: :cascade do |t|
-    t.string "military_registration"
-    t.string "document_reference"
-    t.integer "reason_request"
-    t.boolean "canceled"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "card_statuses", force: :cascade do |t|
     t.string "describe"
     t.datetime "created_at", null: false
@@ -100,6 +91,5 @@ ActiveRecord::Schema.define(version: 20180123155913) do
   end
 
   add_foreign_key "cards", "card_statuses"
-  add_foreign_key "discards", "card_requests"
   add_foreign_key "militaries", "hierarchies"
 end

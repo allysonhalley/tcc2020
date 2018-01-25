@@ -1,0 +1,25 @@
+rails g scaffold hierarchy name:string acronym:string rank:integer
+rails g model state acronym:string name:string
+rails g model city name:string state:references
+
+rails g scaffold military name:string identification:string hierarchy:references father_name:string mother_name:string born_date:date registration:string naturalness:string vote_number:string vote_zone:string vote_section:string cpf:string digital_factor:string blood_type:integer blood_factor:integer carry_weapon:boolean
+rails g model card_status describe:string
+
+rails g scaffold card_request military_registration:string document_reference:string reason_request:integer canceled:boolean
+
+rails g scaffold card name:string identification:string hierarchy:string father_name:string mother_name:string born_date:date registration:string naturalness:string vote_number:string vote_zone:string vote_section:string cpf:string digital_factor:string blood_type:string blood_factor:string carry_weapon:boolean print_locale:string print_date:date expire_date:date card_number:string returned_card:boolean card_request:references card_status:references
+rails g scaffold discard card_number:string card_request:references reason_discard:text
+
+##################################
+
+rails d scaffold hierarchy
+rails d model state
+rails d model city
+
+rails d scaffold military
+rails d model card_status
+
+rails d scaffold card_request
+
+rails d scaffold card
+rails d scaffold discard

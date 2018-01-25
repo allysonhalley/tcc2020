@@ -35,7 +35,7 @@
               <%= render 'helpers/modal/giving_card', giving_card: card %>
 
               <button type="button" class="btn btn-danger btn-xs fa" data-toggle="modal" data-target='<%="#modal-discard-#{card.id}"%>'>
-                <a class="btn-danger fa fa-scissors" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:discard_card, [:helpers, :layouts])%>'></a>
+                <a class="btn-danger fa fa-close" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:discard_card, [:helpers, :layouts])%>'></a>
               </button>
               <%= render 'helpers/modal/discard_card', discard_card: card %>
 

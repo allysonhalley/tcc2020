@@ -36,7 +36,7 @@
               <button type="button" class="btn btn-danger btn-xs fa " data-toggle="modal" data-target='<%="#modal-destroy-#{card_request.id}"%>'>
                   <a class="btn-danger fa fa-ban" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:cancel, [:helpers, :layouts]) %>'></a>
                 </button>
-                <%= render 'helpers/modal/cancel_card_request', object_cancel: card_request %>            
+                <%= render 'helpers/modal/cancel_card_request', request_cancel: card_request %>            
               <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-request-#{card_request.id}"%>'>
                 <a class="btn-success fa fa-print" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:print_request, [:helpers, :layouts])%>'></a>
               </button>

@@ -4,6 +4,11 @@ module MilitariesHelper
     military = Military.find_by_registration(registration)
     military.hierarchy_register_and_name
   end
+  # return Registration and Name
+  def self.military_name(registration)
+    military = Military.find_by_registration(registration)
+    military.name
+  end
 
   def self.fit_carry_weapon(fit)
     case fit

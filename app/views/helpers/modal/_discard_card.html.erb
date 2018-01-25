@@ -20,12 +20,11 @@
                                         <%= form.text_field( :card_number, id: :discard_card_number, value: discard_card.card_number, class: "form-control", readonly: true) %>
                                     </div>
                                 </div>
-
                                 <%= form.hidden_field(:card_request_id, value: discard_card.card_request_id) %>
                                 <div class="form-group">
                                     <%= label_tag( :document_reference, StrHelper.attribute_i18n_upper(:document_reference, [:card_request]), class: 'col-sm-5 control-label') %>
                                     <div class="col-sm-6">
-                                        <%= text_field_tag(:document_reference, discard_card.document_request_name, {class: "form-control", disabled: true})%>
+                                        <%= text_field_tag(:document_reference, discard_card.document_reference_request, {class: "form-control", disabled: true})%>
                                     </div>
                                 </div>
 

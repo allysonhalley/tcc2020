@@ -34,7 +34,7 @@
               <button type="button" class="btn btn-danger btn-xs fa " data-toggle="modal" data-target='<%="#modal-destroy-#{military.id}"%>'>
                 <a class="btn-danger fa fa-trash" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:destroy, [:helpers, :layouts]) %>'></a>
               </button>
-              <%= render 'helpers/modal/destroy', object_destroy: military, term: military.register_and_name %>            
+              <%= render 'helpers/modal/destroy', object_destroy: military %>            
               <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-request-#{military.id}"%>'>
                 <a class="btn-success fa fa-send-o" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:card_request, [:helpers, :layouts])%>'></a>
               </button>

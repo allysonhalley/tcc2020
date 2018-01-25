@@ -50,7 +50,7 @@ class Card < ApplicationRecord
     self.returned_card = false
   end
 
-  def document_request_name
+  def document_reference_request
     card_request.document_reference
   end
 

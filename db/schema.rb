@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123155913) do
+ActiveRecord::Schema.define(version: 20180125170409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "card_requests", force: :cascade do |t|
+    t.string "military_registration"
+    t.string "document_reference"
+    t.integer "reason_request"
+    t.boolean "canceled", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "card_statuses", force: :cascade do |t|
     t.string "describe"
@@ -49,6 +58,14 @@ ActiveRecord::Schema.define(version: 20180123155913) do
     t.datetime "updated_at", null: false
     t.index ["card_request_id"], name: "index_cards_on_card_request_id"
     t.index ["card_status_id"], name: "index_cards_on_card_status_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.bigint "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
   create_table "discards", force: :cascade do |t|
@@ -90,6 +107,16 @@ ActiveRecord::Schema.define(version: 20180123155913) do
     t.index ["hierarchy_id"], name: "index_militaries_on_hierarchy_id"
   end
 
+  create_table "states", force: :cascade do |t|
+    t.string "acronym"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "cards", "card_requests"
   add_foreign_key "cards", "card_statuses"
+  add_foreign_key "cities", "states"
+  add_foreign_key "discards", "card_requests"
   add_foreign_key "militaries", "hierarchies"
 end

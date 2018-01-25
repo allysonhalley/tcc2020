@@ -56,6 +56,20 @@ class CardsController < ApplicationController
     end
   end
 
+  # GINVING /card_requests/1
+  # GINVING /card_requests/1.json
+  def giving
+    #card = Card.find_by_id(params[:id])
+    abort params[:card_number].inspect
+    #abort card.inspect
+    card.card_status.describe = "USING"
+    if card.save
+      redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:cancel, %i[activerecord success]) }
+    else
+      redirect_to cards_url, flash: { error: card.errors.full_messages.first }
+    end
+  end  
+
   def print_request
     @military = Military.find(@card_request.military_registration)
   end

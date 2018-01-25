@@ -5,7 +5,7 @@ class CardRequestsController < ApplicationController
   # GET /card_requests
   # GET /card_requests.json
   def index
-    collection = CardRequest.joins("LEFT JOIN cards ON card_requests.id = cards.card_request_id").where(cards: {card_request_id: nil})
+    collection = CardRequest.joins("LEFT JOIN cards ON card_requests.id = cards.card_request_id").where(cards: {card_request_id: nil}).where(card_requests: {canceled: false})
     @q = collection.ransack(params[:q])
     @card_requests = @q.result(distinct: true).order(created_at: :desc)
     
@@ -25,11 +25,11 @@ class CardRequestsController < ApplicationController
   # POST /card_requests
   # POST /card_requests.json
   def create
-    @card_request = CardRequest.new(card_request_params)
-    if CardRequestsHelper.request_exist(@card_request.document_reference, @card_request.military_registration)
-      redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:request_exist, %i[errors messages]) }
-    elsif CardsHelper.card_printed_exist(@card_request.military_registration)
+    @card_request = CardRequest.new(card_request_params)    
+    if CardsHelper.card_printed_exist(@card_request.military_registration)
       redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:card_printed_exist, %i[errors messages]) }
+    elsif CardRequestsHelper.request_exist(@card_request.document_reference, @card_request.military_registration)
+      redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:request_exist, %i[errors messages]) }
     elsif @card_request.save
       redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
     else
@@ -59,14 +59,15 @@ class CardRequestsController < ApplicationController
     end
   end
 
-  # DELETE /card_requests/1
-  # DELETE /card_requests/1.json
+  # CANCEL /card_requests/1
+  # CANCEL /card_requests/1.json
   def cancel
-    @card_request.canceled = true
-    if @card_request.save
+    card_request = CardRequest.find_by_id(params[:id])
+    card_request.canceled = true
+    if card_request.save
       redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:cancel, %i[activerecord success]) }
     else
-      redirect_to card_requests_url, flash: { error: @card_request.errors.full_messages.first }
+      redirect_to card_requests_url, flash: { error: card_request.errors.full_messages.first }
     end
   end
 

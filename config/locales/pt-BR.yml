@@ -263,10 +263,12 @@ pt-BR:
       edit: Editar %{model}
       sure: Confirmar exclusão?
       confirm_card_request: Confirmar solicitação de carteira?
+      sure_cancel: Confirmar cancelamento?
       confirm_print_request: Confirmar solicitação de impressão?
       confirm_discard: Confirmar descarte de carteira?
       print: Imprimir      
-      confirm: Sim 
+      confirm: Sim
+      giving: Entregar
     layouts:
       sgid: SGId
       fire_fight: Corpo de Bombeiros Militar de Pernambuco

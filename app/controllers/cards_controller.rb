@@ -28,10 +28,9 @@ class CardsController < ApplicationController
   def create
     @card = Card.new(card_params)
     if @card.save
-      redirect_to @card, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
-    else
-      flash.now[:error] = @card.errors.full_messages.first
-      render :new, @card
+      redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
+    else      
+      redirect_to card_requests_url, flash: { error: @card.errors.full_messages.first }
     end
   end
 
@@ -41,8 +40,7 @@ class CardsController < ApplicationController
     if @card.update(card_params)
       redirect_to @card, flash: { success: StrHelper.system_i18n_upper(:update, %i[activerecord success]) }
     else
-      flash.now[:error] = @card.errors.full_messages.first
-      render :edit
+      redirect_to cards_url, flash: { error: @card.errors.full_messages.first }
     end
   end
 
@@ -59,11 +57,15 @@ class CardsController < ApplicationController
   # GINVING /card_requests/1
   # GINVING /card_requests/1.json
   def giving
-    #card = Card.find_by_id(params[:id])
-    abort params[:card_number].inspect
+    abort params.inspect
+    card = Card.find_by_id(params[:id])
+    
     #abort card.inspect
-    card.card_status.describe = "USING"
-    if card.save
+    card_status = CardStatus.find_by_describe("USING").first
+    card.card_status = card_status
+    if DiscardsHelper.validate_card_number_by_discard
+      redirect_to cards_url, flash: { error: StrHelper.system_i18n_upper(:card_number_exist, %i[errors messages]) }    
+    elsif card.save
       redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:cancel, %i[activerecord success]) }
     else
       redirect_to cards_url, flash: { error: card.errors.full_messages.first }

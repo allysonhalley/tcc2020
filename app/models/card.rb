@@ -7,7 +7,8 @@ class Card < ApplicationRecord
   belongs_to :card_status
 
   # Validacoes
-  validates :naturalness, presence: true, length: { minimum: 3 }
+  validates :naturalness, presence: true, length: { minimum: 3 }  
+  validates :card_number, allow_nil: true, uniqueness: true  
 
   def register_and_name
     "#{hierarchy} - #{registration} - #{name}"
@@ -47,6 +48,7 @@ class Card < ApplicationRecord
     expire_dt = print_dt + 10.years
     self.expire_date = expire_dt
     self.card_request = card_request
+    self.card_status = CardStatus.find_by_describe("PRINTED")
     self.returned_card = false
   end
 
@@ -55,7 +57,7 @@ class Card < ApplicationRecord
   end
 
   def status_describe
-    card_status.describe
+    self.card_status.describe
   end
 
   def card_printed
@@ -69,7 +71,7 @@ class Card < ApplicationRecord
 
   # Verificacao para nova solicitacao
   def self.find_to_discard(card_request_id)
-    Card.joins(:card_status).where(card_statuses: { describe: 'PRINTED' }).where(card_request: card_request_id)
+    Card.joins(:card_status).where(card_statuses: { describe: 'PRINTED' }).where(card_request: card_request_id).first
   end
-
+  
 end

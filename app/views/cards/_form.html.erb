@@ -149,16 +149,10 @@
       </div>
     
       <div class="form-group">
-        <%= form.label( :card_request, StrHelper.model_i18n_upper(:one, [:card_request]), class: 'col-sm-3 control-label') %>                  
+        <%= form.label( :card_request, StrHelper.attribute_i18n_upper(:document_reference, [:card_request]), class: 'col-sm-3 control-label') %>                  
         <div class="col-sm-6">
-          <%= form.select(:card_request_id, CardRequest.all.map {|card_request| [card_request.document_reference, card_request.id]}, {}, class: "form-control", readonly: true) %>
-        </div>          
-      </div>
-    
-      <div class="form-group">
-        <%= form.label( :card_status_id, StrHelper.attribute_i18n_upper(:card_status, [:card]), class: 'col-sm-3 control-label') %>                  
-        <div class="col-sm-6">
-          <%= form.select(:card_status_id, CardStatus.all.map {|card_status| [card_status.describe, card_status.id]}, {}, class: "form-control", readonly: true) %>
+          <%= form.hidden_field(:card_request_id, id: :card_card_request_id, value: card.card_request.id) %>
+          <%= text_field_tag( :document_reference, card.document_reference_request, class: "form-control", readonly: true) %>
         </div>          
       </div>
         
@@ -168,6 +162,7 @@
           <%= form.submit( StrHelper.system_i18n(:save, [:helpers, :layouts]), class:"btn btn-success btn-sm" )%>
         </div>
       </div>
+      <%= form.hidden_field(:card_status_id, id: :card_card_status_id, value: card.card_status.id) %>
     </div>
   <% end %>
 </div>

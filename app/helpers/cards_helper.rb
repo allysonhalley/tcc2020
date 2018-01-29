@@ -33,4 +33,9 @@ module CardsHelper
   def self.find_to_discard(card_request_id)
     Card.joins(:card_status).where(card_statuses: { describe: 'PRINTED' }).where(card_request: card_request_id).first
   end
+  
+  def self.validate_card_number_by_card(card_number)
+    Card.find_by_card_number(card_number).present?
+  end
+
 end

@@ -14,8 +14,9 @@
           <tr>
             <th class="col-sm-3 text-center"><%= sort_link(@q, :card_request, StrHelper.attribute_i18n_upper(:registration_name, [:military])) %></th>
             <th class="col-sm-3 text-center"><%= sort_link(@q, :card_request, StrHelper.attribute_i18n_upper(:document_reference, [:card_request])) %></th>
+            <th class="col-sm-2 text-center"><%= sort_link(@q, :card_number, StrHelper.attribute_i18n_upper(:card_number, [:card])) %></th>
             <th class="col-sm-3 text-center"><%= sort_link(@q, :reason_discard, StrHelper.attribute_i18n_upper(:reason_discard, [:discard])) %></th>          
-            <th class="col-sm-3 text-center"><%= StrHelper.system_i18n_upper(:action, [:helpers, :layouts]) %></th>
+            <th class="col-sm-2 text-center"><%= StrHelper.system_i18n_upper(:action, [:helpers, :layouts]) %></th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
               </td>
               <td align="center">
                 <%= discard.document_request_reference %>
+              </td>
+              <td align="center">
+                <%= discard.card_number %>
               </td>
               <td align="center">
                 <%= discard.reason_discard %>

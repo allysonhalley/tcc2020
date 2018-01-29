@@ -16,42 +16,42 @@ ActiveRecord::Schema.define(version: 20180125170409) do
   enable_extension "plpgsql"
 
   create_table "card_requests", force: :cascade do |t|
-    t.string "military_registration"
-    t.string "document_reference"
-    t.integer "reason_request"
+    t.string "military_registration", null: false
+    t.string "document_reference", null: false
+    t.integer "reason_request", null: false
     t.boolean "canceled", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "card_statuses", force: :cascade do |t|
-    t.string "describe"
+    t.string "describe", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "cards", force: :cascade do |t|
-    t.string "name"
-    t.string "identification"
-    t.string "hierarchy"
+    t.string "name", null: false
+    t.string "identification", null: false
+    t.string "hierarchy", null: false
     t.string "father_name"
     t.string "mother_name"
-    t.date "born_date"
-    t.string "registration"
-    t.string "naturalness"
-    t.string "vote_number"
-    t.string "vote_zone"
-    t.string "vote_section"
-    t.string "cpf"
-    t.string "digital_factor"
-    t.string "blood_type"
-    t.string "blood_factor"
-    t.boolean "carry_weapon"
-    t.string "print_locale"
-    t.date "print_date"
-    t.date "expire_date"
+    t.date "born_date", null: false
+    t.string "registration", null: false
+    t.string "naturalness", null: false
+    t.string "vote_number", null: false
+    t.string "vote_zone", null: false
+    t.string "vote_section", null: false
+    t.string "cpf", null: false
+    t.string "digital_factor", null: false
+    t.string "blood_type", null: false
+    t.string "blood_factor", null: false
+    t.boolean "carry_weapon", null: false
+    t.string "print_locale", null: false
+    t.date "print_date", null: false
+    t.date "expire_date", null: false
     t.string "card_number"
-    t.boolean "returned_card"
+    t.boolean "returned_card", default: false, null: false
     t.bigint "card_request_id"
     t.bigint "card_status_id"
     t.datetime "created_at", null: false
@@ -61,55 +61,55 @@ ActiveRecord::Schema.define(version: 20180125170409) do
   end
 
   create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.bigint "state_id"
+    t.string "name", null: false
+    t.bigint "state_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
   create_table "discards", force: :cascade do |t|
-    t.string "card_number"
-    t.bigint "card_request_id"
-    t.text "reason_discard"
+    t.string "card_number", null: false
+    t.bigint "card_request_id", null: false
+    t.text "reason_discard", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_request_id"], name: "index_discards_on_card_request_id"
   end
 
   create_table "hierarchies", force: :cascade do |t|
-    t.string "name"
-    t.string "acronym"
-    t.integer "rank"
+    t.string "name", null: false
+    t.string "acronym", null: false
+    t.integer "rank", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "militaries", force: :cascade do |t|
-    t.string "name"
-    t.string "identification"
-    t.bigint "hierarchy_id"
+    t.string "name", null: false
+    t.string "identification", null: false
+    t.bigint "hierarchy_id", null: false
     t.string "father_name"
     t.string "mother_name"
-    t.date "born_date"
-    t.string "registration"
-    t.string "naturalness"
-    t.string "vote_number"
-    t.string "vote_zone"
-    t.string "vote_section"
-    t.string "cpf"
-    t.string "digital_factor"
-    t.integer "blood_type"
-    t.integer "blood_factor"
-    t.boolean "carry_weapon"
+    t.date "born_date", null: false
+    t.string "registration", null: false
+    t.string "naturalness", null: false
+    t.string "vote_number", null: false
+    t.string "vote_zone", null: false
+    t.string "vote_section", null: false
+    t.string "cpf", null: false
+    t.string "digital_factor", null: false
+    t.integer "blood_type", null: false
+    t.integer "blood_factor", null: false
+    t.boolean "carry_weapon", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["hierarchy_id"], name: "index_militaries_on_hierarchy_id"
   end
 
   create_table "states", force: :cascade do |t|
-    t.string "acronym"
-    t.string "name"
+    t.string "acronym", null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

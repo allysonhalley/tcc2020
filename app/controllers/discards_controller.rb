@@ -16,6 +16,7 @@ class DiscardsController < ApplicationController
   def new
     @discard = Discard.new
     card_request_id = params[:card_request_id]
+    abort params[:card_request_id].inspect
     @discard.fill_by_request(card_request_id)
   end
 
@@ -26,19 +27,19 @@ class DiscardsController < ApplicationController
   # POST /discards.json
   def create
     ActiveRecord::Base.transaction do
-      @discard = Discard.new(discard_params)    
-      card = Card.find_to_discard(@discard.card_request_id)      
-      if @discard.save
+      @discard = Discard.new(discard_params)
+      card = CardsHelper.find_to_discard(@discard.card_request_id)
+      if CardsHelper.validate_card_number_by_card(@discard.card_number)
+        redirect_to discards_url, flash: { error: StrHelper.system_i18n_upper(:card_number_exist, %i[errors messages]) }
+      elsif @discard.save
         if Card.destroy(card.id)
+          redirect_to discards_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
+        else
           raise ActiveRecord::Rollback
-          redirect_to @discard, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
-        else 
-          flash.now[:error] = @discard.errors.full_messages.first
-          render :new, @discard
+          redirect_to discards_url, flash: { error: discard.errors.full_messages.first }
         end
       else
-        flash.now[:error] = @discard.errors.full_messages.first
-        render :new, @discard
+        redirect_to discards_url, flash: { error: discard.errors.full_messages.first }
       end
     end
   end

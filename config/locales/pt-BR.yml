@@ -241,6 +241,7 @@ pt-BR:
         other: não possui o tamanho esperado (%{count} caracteres)
       other_than: deve ser diferente de %{count}
       request_exist: Solicitação de carteira já existe
+      card_number_exist: Número da cédula já existe
       card_printed_exist: Carteira impressa
     template:
       body: 'Por favor, verifique o(s) seguinte(s) campo(s):'

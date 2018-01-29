@@ -1,8 +1,8 @@
 class CreateCities < ActiveRecord::Migration[5.1]
   def change
     create_table :cities do |t|
-      t.string :name
-      t.references :state, foreign_key: true
+      t.string :name, null: false
+      t.references :state, null: false, foreign_key: true
 
       t.timestamps
     end

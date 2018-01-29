@@ -12,4 +12,9 @@ module CardRequestsHelper
     registration = registration.gsub!(/[^0123456789]/, '')
     CardRequest.where(military_registration: registration, canceled: false).present?
   end
+
+  def validate_card_number_by_discard(card_number)
+    Discard.find_by_card_number(card_number).present?
+  end
+  
 end

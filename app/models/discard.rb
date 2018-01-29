@@ -2,6 +2,9 @@
 class Discard < ApplicationRecord
   belongs_to :card_request
 
+  # Validacoes
+  validates :card_number, presence: true
+
   def fill_by_request(object_request_id)
     card_request = CardRequest.find(object_request_id)
     card = Card.find_by_registration(card_request.military_registration)

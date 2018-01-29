@@ -12,32 +12,34 @@
             <div class="modal-body">
                 <div class="box box-success">
                     <div class="form-horizontal">
-                        <div class="form-group">
-                            <%= label_tag( :name, StrHelper.attribute_i18n_upper(:name, [:military]), class: 'col-sm-5 control-label') %>
-                            <div class="col-sm-6">
-                                <%= text_field_tag(:name, MilitariesHelper.military_name(object_request.military_registration), {class: "form-control", disabled: true})%>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <%= label_tag( :name, StrHelper.attribute_i18n_upper(:name, [:military]), class: 'col-sm-5 control-label') %>
+                                <div class="col-sm-6">
+                                    <%= text_field_tag(:name, MilitariesHelper.military_name(object_request.military_registration), {class: "form-control", disabled: true})%>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <%= label_tag( :registration, StrHelper.attribute_i18n_upper(:registration, [:military]), class: 'col-sm-5 control-label') %>
+                                <div class="col-sm-6">
+                                    <%= text_field_tag(:registration, object_request.military_registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control", readonly: true) %>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <%= label_tag( :document_reference, StrHelper.attribute_i18n_upper(:document_reference, [:card_request]), class: 'col-sm-5 control-label') %>
+                                <div class="col-sm-6">
+                                    <%= text_field_tag( :document_reference, object_request.document_reference, data:{ inputmask:'"mask": "BGE-999/9999"', mask:""}, class: "form-control", readonly: true) %>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <%= label_tag( :registration, StrHelper.attribute_i18n_upper(:registration, [:military]), class: 'col-sm-5 control-label') %>
-                            <div class="col-sm-6">
-                                <%= text_field_tag(:registration, object_request.military_registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control", readonly: true) %>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <%= label_tag( :document_reference, StrHelper.attribute_i18n_upper(:document_reference, [:card_request]), class: 'col-sm-5 control-label') %>
-                            <div class="col-sm-6">
-                                <%= text_field_tag( :document_reference, object_request.document_reference, data:{ inputmask:'"mask": "BGE-999/9999"', mask:""}, class: "form-control", readonly: true) %>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
-                            <%= I18n.t 'helpers.layouts.back'%>
-                        </button>                
-                        <%= link_to(StrHelper.system_i18n(:print, [:helpers, :submit]), new_card_path(object_request_id: object_request.id), class:"btn btn-success btn-xs") %>
-                    </div>
+                    </div>                 
                 </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
+                    <%= I18n.t 'helpers.layouts.back'%>
+                </button>                
+                <%= link_to(StrHelper.system_i18n(:print, [:helpers, :submit]), new_card_path(object_request_id: object_request.id), class:"btn btn-success btn-xs") %>
             </div>
         </div>
     </div>

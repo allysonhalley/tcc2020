@@ -67,4 +67,9 @@ class Card < ApplicationRecord
     end
   end      
 
+  # Verificacao para nova solicitacao
+  def self.find_to_discard(card_request_id)
+    Card.joins(:card_status).where(card_statuses: { describe: 'PRINTED' }).where(card_request: card_request_id)
+  end
+
 end

@@ -25,14 +25,21 @@ class DiscardsController < ApplicationController
   # POST /discards
   # POST /discards.json
   def create
-    @discard = Discard.new(discard_params)
-    card = Card.find_by_card_number(@discard.card_number)
-    if @discard.save
-      card.destroy
-      redirect_to @discard, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
-    else
-      flash.now[:error] = @discard.errors.full_messages.first
-      render :new, @discard
+    ActiveRecord::Base.transaction do
+      @discard = Discard.new(discard_params)    
+      card = Card.find_to_discard(@discard.card_request_id)      
+      if @discard.save
+        if Card.destroy(card.id)
+          raise ActiveRecord::Rollback
+          redirect_to @discard, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
+        else 
+          flash.now[:error] = @discard.errors.full_messages.first
+          render :new, @discard
+        end
+      else
+        flash.now[:error] = @discard.errors.full_messages.first
+        render :new, @discard
+      end
     end
   end
 

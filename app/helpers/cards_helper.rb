@@ -28,4 +28,9 @@ module CardsHelper
   def self.card_printed_exist(registration)
     Card.joins(:card_status).where(card_statuses: { describe: 'PRINTED' }).where(registration: registration).present?
   end
+
+  # Verificacao para nova solicitacao
+  def self.find_to_discard(card_request_id)
+    Card.joins(:card_status).where(card_statuses: { describe: 'PRINTED' }).where(card_request: card_request_id).first
+  end
 end

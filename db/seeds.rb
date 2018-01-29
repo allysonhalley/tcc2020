@@ -41,3 +41,16 @@ CardStatus.create!([
   ])
 
 p "Created #{CardStatus.count} card_statuses"
+
+# Insert military exemples
+Military.destroy_all
+
+h1 = Hierarchy.find_by_acronym("CB")
+h2 = Hierarchy.find_by_acronym("SD")
+
+Military.create!([
+    {name: "ABELHINHA", identification: "11111111", hierarchy: h1, father_name: "ZANGÃO", mother_name: "ABELHA RAINHA", born_date: DateTime.now, registration: "1111111", naturalness: "RECIFE-PE", vote_number: "111111111111", vote_zone:"111", vote_section: "111", cpf: "11111111111", digital_factor: "D9999E9999", blood_type: 1, blood_factor: 1, carry_weapon: false },
+    {name: "ABELHUDO", identification: "22222222", hierarchy: h2, father_name: "ZANGÃO", mother_name: "ABELHA RAINHA", born_date: DateTime.now, registration: "2222222", naturalness: "RECIFE-PE", vote_number: "222222222222", vote_zone:"222", vote_section: "222", cpf: "22222222222", digital_factor: "D8888E8888", blood_type: 2, blood_factor: 2, carry_weapon: true }
+  ])
+
+p "Created #{Military.count} militaries"

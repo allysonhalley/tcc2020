@@ -80,6 +80,10 @@ class CardsController < ApplicationController
     end
   end
 
+  def returned_card
+    
+  end
+
   def print_request
     @military = Military.find(@card_request.military_registration)
   end

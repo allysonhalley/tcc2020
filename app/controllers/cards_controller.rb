@@ -6,7 +6,7 @@ class CardsController < ApplicationController
   # GET /cards.json
   def index
     @q = Card.ransack(params[:q])
-    @cards = @q.result(distinct: true).joins(:card_status).joins(:card_request).order(registration: :asc)
+    @cards = @q.result(distinct: true).joins(:card_status).joins(:card_request).where(card_requests: {canceled: false}).order(registration: :asc)
   end
 
   # GET /cards/1
@@ -57,20 +57,28 @@ class CardsController < ApplicationController
   # GINVING /card_requests/1
   # GINVING /card_requests/1.json
   def giving
-    abort params.inspect
-    card = Card.find_by_id(params[:id])
-    
-    #abort card.inspect
-    card_status = CardStatus.find_by_describe("USING").first
-    card.card_status = card_status
-    if DiscardsHelper.validate_card_number_by_discard
-      redirect_to cards_url, flash: { error: StrHelper.system_i18n_upper(:card_number_exist, %i[errors messages]) }    
-    elsif card.save
-      redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:cancel, %i[activerecord success]) }
-    else
-      redirect_to cards_url, flash: { error: card.errors.full_messages.first }
+    ActiveRecord::Base.transaction do
+      giving_card = params[:card]
+      card = Card.find_by_registration(giving_card[:registration])
+      card.card_number = giving_card[:card_number]
+      card.card_status = CardStatus.find_by_describe("USING")
+      if DiscardsHelper.validate_card_number_by_discard(card.card_number)
+        redirect_to cards_url, flash: { error: StrHelper.system_i18n_upper(:card_number_exist, %i[errors messages]) }
+      elsif CardsHelper.validate_card_number_by_card(card.card_number)
+        redirect_to cards_url, flash: { error: StrHelper.system_i18n_upper(:card_number_exist, %i[errors messages]) }
+      elsif card.save
+        card_request = CardRequest.find(card.card_request_id)
+        card_request.canceled = true
+        if card_request.save
+          redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:given, %i[activerecord success]) }
+        else
+          redirect_to cards_url, flash: { error: card.errors.full_messages.first }
+        end
+      else
+        redirect_to cards_url, flash: { error: card.errors.full_messages.first }
+      end
     end
-  end  
+  end
 
   def print_request
     @military = Military.find(@card_request.military_registration)

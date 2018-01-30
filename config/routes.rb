@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   get 'create_card_request', to: 'card_requests#create', as: :create_card_request
   get 'print_request', to: 'card#create', as: :print_request
   get 'cancel_card_request(.:id)', to:'card_requests#cancel', as: :cancel_card_request
-  get 'giving_card(.:id, .:card_number)', to:'cards#giving', as: :giving_card
+  patch 'giving_card', to:'cards#giving', as: :giving_card
 
 end

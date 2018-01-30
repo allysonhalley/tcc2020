@@ -24,7 +24,7 @@
                                 <div class="form-group">
                                     <%= form.label( :card_number, StrHelper.attribute_i18n_upper(:card_number, [:card]), class: 'col-sm-5 control-label') %>
                                     <div class="col-sm-6">
-                                        <%= form.text_field( :card_number, id: :discard_card_number, required: true, data:{ inputmask:'"mask": "9999999"', mask:""}, class: "form-control")%>
+                                        <%= form.text_field( :card_number, id: :discard_card_number, value: discard_card.card_number, required: true, data:{ inputmask:'"mask": "9999999"', mask:""}, class: "form-control")%>
                                     </div>
                                 </div>
                                 <div class="form-group">

@@ -30,16 +30,16 @@ class DiscardsController < ApplicationController
       @discard = Discard.new(discard_params)
       card = CardsHelper.find_to_discard(@discard.card_request_id)
       if CardsHelper.validate_card_number_by_card(@discard.card_number)
-        redirect_to discards_url, flash: { error: StrHelper.system_i18n_upper(:card_number_exist, %i[errors messages]) }
+        redirect_to cards_url, flash: { error: StrHelper.system_i18n_upper(:card_number_exist, %i[errors messages]) }
       elsif @discard.save
         if Card.destroy(card.id)
           redirect_to discards_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
         else
           raise ActiveRecord::Rollback
-          redirect_to discards_url, flash: { error: discard.errors.full_messages.first }
+          redirect_to cards_url, flash: { error: discard.errors.full_messages.first }
         end
       else
-        redirect_to discards_url, flash: { error: discard.errors.full_messages.first }
+        redirect_to cards_url, flash: { error: @discard.errors.full_messages.first }
       end
     end
   end
@@ -50,8 +50,7 @@ class DiscardsController < ApplicationController
     if @discard.update(discard_params)
       redirect_to @discard, flash: { success: StrHelper.system_i18n_upper(:update, %i[activerecord success]) }
     else
-      flash.now[:error] = @discard.errors.full_messages.first
-      render :edit
+      redirect_to cards_url, flash: { error: discard.errors.full_messages.first }
     end
   end
 

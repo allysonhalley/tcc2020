@@ -107,6 +107,7 @@ pt-BR:
       update: Atualizado com sucesso.
       destroy: Excluído com sucesso.
       cancel: Cancelado com sucesso.
+      given: Carteira entregue.
       discard_ok: Discartada com sucesso.
   date:
     abbr_day_names:

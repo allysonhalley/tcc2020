@@ -31,11 +31,12 @@ module CardsHelper
 
   # Verificacao para nova solicitacao
   def self.find_to_discard(card_request_id)
-    Card.joins(:card_status).where(card_statuses: { describe: 'PRINTED' }).where(card_request: card_request_id).first
+    #Card.joins(:card_status).where(card_statuses: { describe: ['PRINTED', 'USING'] }).where(card_request: card_request_id).first
+    Card.find_by_card_request_id(card_request_id)
   end
   
   def self.validate_card_number_by_card(card_number)
-    Card.find_by_card_number(card_number).present?
+    Card.joins(:card_status).where.not(card_statuses: { describe: ['USING'] }).where(card_number: card_number).present?
   end
 
 end

@@ -64,7 +64,7 @@
       <div class="form-group">
         <%= form.label( :naturalness, StrHelper.attribute_i18n_upper(:naturalness, [:military]), class: 'col-sm-2 control-label') %>
           <div class="col-sm-6">
-            <%= form.text_field :naturalness, id: :military_naturalness, class: "form-control" %>
+            <%= form.select(:naturalness, City.all.order(:name).map {|city| [city.city_and_state, city.city_and_state]}, {}, {class: "form-control"}) %>
           </div>
       </div>
 

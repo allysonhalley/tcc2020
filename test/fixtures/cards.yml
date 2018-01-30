@@ -6,7 +6,7 @@ one:
   hierarchy: MyString
   father_name: MyString
   mother_name: MyString
-  born_date: 2018-01-25
+  born_date: 2018-01-30
   registration: MyString
   naturalness: MyString
   vote_number: MyString
@@ -18,10 +18,9 @@ one:
   blood_factor: MyString
   carry_weapon: false
   print_locale: MyString
-  print_date: 2018-01-25
-  expire_date: 2018-01-25
+  print_date: 2018-01-30
+  expire_date: 2018-01-30
   card_number: MyString
-  returned_card: false
   card_request: one
   card_status: one
 
@@ -31,7 +30,7 @@ two:
   hierarchy: MyString
   father_name: MyString
   mother_name: MyString
-  born_date: 2018-01-25
+  born_date: 2018-01-30
   registration: MyString
   naturalness: MyString
   vote_number: MyString
@@ -43,9 +42,8 @@ two:
   blood_factor: MyString
   carry_weapon: false
   print_locale: MyString
-  print_date: 2018-01-25
-  expire_date: 2018-01-25
+  print_date: 2018-01-30
+  expire_date: 2018-01-30
   card_number: MyString
-  returned_card: false
   card_request: two
   card_status: two

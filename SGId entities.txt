@@ -1,3 +1,6 @@
+##################################
+GENERATE TABLES
+##################################
 rails g scaffold hierarchy name:string acronym:string rank:integer
 rails g model state acronym:string name:string
 rails g model city name:string state:references
@@ -11,7 +14,8 @@ rails g scaffold card name:string identification:string hierarchy:string father_
 rails g scaffold discard card_number:string card_request:references reason_discard:text
 
 ##################################
-
+DESTROY TABLES
+##################################
 rails d scaffold hierarchy
 rails d model state
 rails d model city
@@ -27,9 +31,6 @@ rails d scaffold discard
 #####################################################################
 SEEDS
 #####################################################################
-
-
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #

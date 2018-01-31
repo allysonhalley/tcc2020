@@ -4,7 +4,7 @@ class CreateCardRequests < ActiveRecord::Migration[5.1]
       t.string :military_registration
       t.string :document_reference
       t.integer :reason_request
-      t.boolean :canceled
+      t.boolean :canceled, default: false
 
       t.timestamps
     end

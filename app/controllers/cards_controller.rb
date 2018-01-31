@@ -6,7 +6,8 @@ class CardsController < ApplicationController
   # GET /cards.json
   def index
     @q = Card.ransack(params[:q])
-    @cards = @q.result(distinct: true).joins(:card_status).joins(:card_request).where(card_requests: {canceled: false}).order(registration: :asc)
+    @cards = @q.result(distinct: true).joins(:card_status).joins(:card_request).order(registration: :asc)
+    #abort @cards.to_sql
   end
 
   # GET /cards/1
@@ -80,8 +81,15 @@ class CardsController < ApplicationController
     end
   end
 
-  def returned_card
-    
+  def returning
+    returned_card = params[:card]
+    card = Card.find_by_registration(returned_card[:registration])
+    card.card_status = CardStatus.find_by_describe("RETURNED")
+    if card.save
+      redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:returned, %i[activerecord success]) }
+    else
+      redirect_to cards_url, flash: { error: card.errors.full_messages.first }
+    end
   end
 
   def print_request
@@ -97,6 +105,6 @@ class CardsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def card_params
-    params.require(:card).permit(:name, :identification, :hierarchy, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :carry_weapon, :print_locale, :print_date, :expire_date, :card_number, :returned_card, :card_request_id, :card_status_id)
+    params.require(:card).permit(:name, :identification, :hierarchy, :father_name, :mother_name, :born_date, :registration, :naturalness, :vote_number, :vote_zone, :vote_section, :cpf, :digital_factor, :blood_type, :blood_factor, :carry_weapon, :print_locale, :print_date, :expire_date, :card_number, :card_request_id, :card_status_id)
   end
 end

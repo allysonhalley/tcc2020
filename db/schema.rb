@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180130135147) do
     t.string "military_registration"
     t.string "document_reference"
     t.integer "reason_request"
-    t.boolean "canceled"
+    t.boolean "canceled", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

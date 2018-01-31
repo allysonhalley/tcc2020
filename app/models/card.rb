@@ -49,7 +49,6 @@ class Card < ApplicationRecord
     self.expire_date = expire_dt
     self.card_request = card_request
     self.card_status = CardStatus.find_by_describe("PRINTED")
-    self.returned_card = false
   end
 
   def document_reference_request
@@ -60,14 +59,21 @@ class Card < ApplicationRecord
     self.card_status.describe
   end
 
-  def card_printed
-    
-    if card_status.describe == "PRINTED"
+  def abled_to_return
+    if self.card_status.describe == "USING"
       ''
     else
       'disabled'
     end
-  end      
+  end
+
+  def abled_to_give_discard
+    if self.card_status.describe == "PRINTED"
+      ''
+    else
+      'disabled'
+    end
+  end
 
   # Verificacao para nova solicitacao
   def self.find_to_discard(card_request_id)

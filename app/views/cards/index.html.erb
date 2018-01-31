@@ -27,14 +27,18 @@
             <td align="center">
               <%= hidden_field(@card, card) %>
               <%= link_to("", card, class:"btn btn-default btn-xs fa fa-file-text-o", title: StrHelper.system_i18n(:show, [:helpers, :layouts]), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
-              <%= link_to("", edit_card_path(card.id), class: 'btn btn-info btn-xs fa fa-edit', title: StrHelper.system_i18n(:edit, [:helpers, :layouts]), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
               
-              <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-giving-#{card.id}"%>' <%= card.card_printed %>>
+              <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-giving-#{card.id}"%>' <%= card.abled_to_give_discard %>>
                 <a class="btn-success fa fa-check" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:giving_card, [:helpers, :layouts])%>'></a>
               </button>
               <%= render 'helpers/modal/giving_card', giving_card: card %>
 
-              <button type="button" class="btn btn-danger btn-xs fa" data-toggle="modal" data-target='<%="#modal-discard-#{card.id}"%>'>
+              <button type="button" class="btn btn-danger btn-xs fa" data-toggle="modal" data-target='<%="#modal-return-#{card.id}"%>' <%= card.abled_to_return %>>
+                <a class="btn-danger fa fa-recycle" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:return_card, [:helpers, :layouts])%>'></a>
+              </button>
+              <%= render 'helpers/modal/return_card', return_card: card %>
+
+              <button type="button" class="btn btn-danger btn-xs fa" data-toggle="modal" data-target='<%="#modal-discard-#{card.id}"%>' <%= card.abled_to_give_discard %>>
                 <a class="btn-danger fa fa-close" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:discard_card, [:helpers, :layouts])%>'></a>
               </button>
               <%= render 'helpers/modal/discard_card', discard_card: card %>

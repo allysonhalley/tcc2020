@@ -35,8 +35,9 @@ module CardsHelper
     Card.find_by_card_request_id(card_request_id)
   end
   
+  # Verifica numero de cedula existente
   def self.validate_card_number_by_card(card_number)
-    Card.joins(:card_status).where.not(card_statuses: { describe: ['USING'] }).where(card_number: card_number).present?
+    Card.joins(:card_status).where(card_statuses: { describe: ['USING', 'RETURNED'] }).where(card_number: card_number).present?
   end
 
 end

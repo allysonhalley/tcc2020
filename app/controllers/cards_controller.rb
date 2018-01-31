@@ -96,6 +96,47 @@ class CardsController < ApplicationController
     @military = Military.find(@card_request.military_registration)
   end
 
+  #Print /4full, 2top, 2bot cards
+  def print_cards
+    @cards = Card.find(params[:ids])
+    @cards.each do |card|
+      card.printed
+    end
+    case params[:commit]
+      when 'full'
+        pdf = CardPdf.new(@cards)
+      when 'top'
+        pdf = CardsBotPdf.new(@cards)
+      when 'bot'
+        pdf = CardsBotPdf.new(@cards)
+    end
+    @cards.each do |card|
+      if card.save
+        redirect_to :print_list
+      else
+        redirect_to :print_list, notice: "Identidade não persistida."
+      end
+
+    end
+
+  end
+
+  #Print one card
+  def print_card
+
+    @card = Card.find(params[:id])
+    @card.printed
+    pdf = CardPdf.new(@card)
+    #@card.status = Card.statuses[:printed]
+    respond_to do |format|
+      if @card.save
+        format.html { redirect_to cards_url, notice: 'Identidade impressa.' }
+      else
+        format.html { redirect_to :index, notice: 'Identidade não persistida.' }
+      end
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

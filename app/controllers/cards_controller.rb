@@ -1,5 +1,9 @@
 # CardsController controla link com view
 class CardsController < ApplicationController
+
+  require 'prawn'
+  require 'prawn-print'
+
   before_action :set_card, only: %i[show edit update destroy]
 
   # GET /cards
@@ -27,11 +31,15 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
-    @card = Card.new(card_params)
-    if @card.save
-      redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
-    else      
-      redirect_to card_requests_url, flash: { error: @card.errors.full_messages.first }
+    ActiveRecord::Base.transaction do
+      @card = Card.new(card_params)
+      if @card.save
+        pdf = CardPdf.new(@card) 
+        pdf.autoprint "ImpCTICSamsung em SRV-APP04"
+        redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
+      else      
+        redirect_to card_requests_url, flash: { error: @card.errors.full_messages.first }
+      end
     end
   end
 
@@ -119,22 +127,6 @@ class CardsController < ApplicationController
 
     end
 
-  end
-
-  #Print one card
-  def print_card
-
-    @card = Card.find(params[:id])
-    @card.printed
-    pdf = CardPdf.new(@card)
-    #@card.status = Card.statuses[:printed]
-    respond_to do |format|
-      if @card.save
-        format.html { redirect_to cards_url, notice: 'Identidade impressa.' }
-      else
-        format.html { redirect_to :index, notice: 'Identidade não persistida.' }
-      end
-    end
   end
 
   private

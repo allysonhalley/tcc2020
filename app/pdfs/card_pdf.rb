@@ -1,8 +1,10 @@
 class CardPdf < Prawn::Document
-  def initialize(card)
+
+  def initialize(card)    
     super(:page_size => 'A4')
     pfd_card(card)
-    render_file "./public/assets/pdfs/#{card.registration}-#{card.name}-#{Date.current.strftime('%d-%m-%Y')}.pdf"
+    #encrypt_document(permissions: { print_document: true})
+    render_file "./app/assets/pdfs/#{card.registration}-#{card.name}-#{card.print_date}.pdf"    
   end
 
   def pfd_card(card)
@@ -19,7 +21,7 @@ class CardPdf < Prawn::Document
                    :size => 8
 
           #Patent box
-          text_box "#{card.patent}", :at => [17,75],
+          text_box "#{card.hierarchy}", :at => [17,75],
                    :align => :center,
                    :valign => :center,
                    :width => 144,
@@ -27,11 +29,7 @@ class CardPdf < Prawn::Document
                    :size => 8
 
           #Photo box
-          image "./app/assets/images/photos/#{card.registration}.jpg", :at => [167,157],
-                :position => :center,
-                :valign => :center,
-                :width => 71,
-                :height => 82.5
+          #image "./app/assets/images/photos/#{card.registration}.jpg", :at => [167,157], :position => :center, :valign => :center, :width => 71, :height => 82.5
 
           #Register box
           text_box "#{card.identification}", :at => [167, 70],
@@ -137,7 +135,7 @@ class CardPdf < Prawn::Document
                    :size => 8
 
           #FD
-          text_box "#{card.fd}".upcase, :at => [116.5,84],
+          text_box "#{card.digital_factor}", :at => [116.5,84],
                    :align => :center,
                    :valign => :bottom,
                    :width => 32,
@@ -153,7 +151,7 @@ class CardPdf < Prawn::Document
                    :size => 8
 
           #Expire date
-          text_box "#{card.expire_date.strftime('%d/%m/%Y')}", :at => [159,38],
+          text_box "#{card.expire_date}", :at => [159,38],
                    :align => :center,
                    :valign => :bottom,
                    :width => 79,

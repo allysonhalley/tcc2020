@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   patch 'giving_card', to:'cards#giving', as: :giving_card
   patch 'returning_card', to:'cards#returning', as: :returning_card
 
+  
+
 end

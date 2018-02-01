@@ -18,6 +18,10 @@ class Card < ApplicationRecord
     "#{hierarchy} - #{registration} - #{name}"
   end  
 
+  def print_locale_date
+    "#{self.print_locale}-#{self.print_date}"
+  end
+
   # Tornar todas strings upercase
   def uppercase_strings
     naturalness.upcase!

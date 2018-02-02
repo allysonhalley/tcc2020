@@ -34,10 +34,16 @@ class CardsController < ApplicationController
     ActiveRecord::Base.transaction do
       @card = Card.new(card_params)
       if @card.save
-        pdf = CardPdf.new(@card) 
-        pdf.autoprint "ImpCTICSamsung em SRV-APP04"
+        pdf = CardPdf.new(@card)        
+        #pdf.render_file, filename: "#{@card.registration}-#{@card.name}-#{@card.print_date}", type: "application/pdf"
+        #filename = File.join(Rails.root, "public/pdfs", "#{@card.registration}-#{@card.name}-#{@card.print_date}.pdf")
+        #pdf.render_file
+         # filename: "#{@card.registration}-#{@card.name}-#{@card.print_date}",
+         # type: 'application/pdf',
+         # disposition: 'inline',
+         # flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
         redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
-      else      
+      else
         redirect_to card_requests_url, flash: { error: @card.errors.full_messages.first }
       end
     end

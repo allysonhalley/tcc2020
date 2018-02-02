@@ -3,8 +3,10 @@ class CardPdf < Prawn::Document
   def initialize(card)    
     super(:page_size => 'A4')
     pfd_card(card)
-    #encrypt_document(permissions: { print_document: true})
-    render_file "./app/assets/pdfs/#{card.registration}-#{card.name}-#{card.print_date}.pdf"    
+    encrypt_document(permissions: { print_document: true})
+    #send_data render, filename: "#{card.registration}-#{card.name}-#{card.print_date}.pdf", type: "application/pdf"
+    #send_data render, filename: "./public/pdfs/#{card.registration}-#{card.name}-#{card.print_date}.pdf", :type => "application/pdf"
+    render_file "./public/pdfs/#{card.registration}-#{card.name}-#{card.print_date}.pdf"
   end
 
   def pfd_card(card)

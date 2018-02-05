@@ -42,6 +42,13 @@ class CardRequest < ApplicationRecord
     hash
   end
 
+  def self.take_4first
+
+    registration = CardRequest.take(4).select(:military_registration)
+    abort registration.inspect
+
+  end
+
   # Hash reason_requests: Internationalization (I18n) with uppercase
   def self.i18n_upper_reason_requests(hash = {})
     reason_requests.each_key do |key|

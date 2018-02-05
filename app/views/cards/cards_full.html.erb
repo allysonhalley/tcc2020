@@ -1,0 +1,16 @@
+<h3 class="box-title">
+    <%= StrHelper.model_i18n(:other, [:card])%>
+</h3>
+<div class="box">
+    <!-- /.box-header -->
+    <div class="box-body">
+        <%= form_for(@cards, url: giving_card_path, method: :patch) do |form| %>            
+            <% @cards.each do |card| %>
+                <div class="col-md-6">
+                    <%= render 'cards/card_base/front', card: card %>
+                    <%= render 'cards/card_base/back', card: card %>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>

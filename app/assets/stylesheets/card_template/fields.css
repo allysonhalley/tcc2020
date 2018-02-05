@@ -1,0 +1,217 @@
+/*FRENTE*/
+
+div.logo{
+ 	position: absolute;
+ 	margin-top: 1mm;
+ 	margin-left: 1mm;
+ 	/*margin-right: 33mm;*/
+ 	/*margin-bottom: 1mm;*/
+ 	height:14mm;
+	width: 15mm;
+    background-image:url("public\asset\images\utilbrasaosdspe.png");
+    background-position: center
+}
+
+div.title{
+ 	position: absolute;
+ 	margin-top: 1mm;
+ 	margin-left: 17mm;
+ 	/*margin-right: 33mm;*/
+ 	/*margin-bottom: 1mm;*/
+ 	height:14mm;
+	width: 36mm; 		
+}
+
+ div.name{
+ 	position: absolute;
+ 	margin-top: 16mm;
+ 	margin-left: 1mm;
+ 	/*margin-right: 33mm;*/
+ 	/*margin-bottom: 1mm;*/
+ 	height:12mm;
+	width: 52mm; 	
+ }
+
+  div.hierarchy{
+  	position: absolute;
+ 	margin-top: 29mm;
+ 	margin-left: 1mm;
+ 	margin-right: 27mm;
+ 	margin-bottom: 20mm;
+ 	height:7mm;
+	width: 52mm; 	
+ }
+
+ div.photo{
+ 	position: absolute;
+ 	margin-top: 1mm;
+ 	margin-left: 54mm;
+ 	margin-right: 1mm;
+ 	margin-bottom: 20mm;
+ 	height:29mm;
+	width: 25mm; 	
+ }
+
+   div.rg{
+ 	position: absolute;
+ 	margin-top: 31mm;
+ 	margin-left: 54mm;
+ 	margin-right: 1mm;
+ 	margin-bottom: 20mm;
+ 	height:7mm;
+	width: 25mm; 	
+ }
+
+/*VERSO*/
+
+ div.father{
+ 	position: absolute;
+ 	margin-top: 0mm;
+ 	margin-left: 3mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:3mm;
+	width: 76mm; 	
+ }
+
+ div.mother{
+ 	position: absolute;
+ 	margin-top: 3mm;
+ 	margin-left: 3mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:5.5mm;
+	width: 76mm; 	 	
+ }
+
+  div.right_finger{
+ 	position: absolute;
+ 	margin-top: 8.5mm;
+ 	margin-left: 51mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:23mm;
+	width: 28mm; 	 	 	
+ 	
+ }
+
+ div.dt_born{
+ 	position: absolute;
+ 	margin-top: 8.5mm;
+ 	margin-left: 3mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:5.5mm;
+	width: 24mm; 	 	 	
+ }
+
+  div.register{
+  	position: absolute;
+ 	margin-top: 8.5mm;
+ 	margin-left: 27mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:5.5mm;
+	width: 24mm; 	 	 	
+ }
+
+  div.naturalness{
+	position: absolute;
+ 	margin-top: 14mm;
+ 	margin-left: 3mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:5.5mm;
+	width: 48mm; 	 	 	
+ }
+
+  div.vote_register{
+	position: absolute;
+ 	margin-top: 19.5mm;
+ 	margin-left: 3mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:6mm;
+	width: 24mm; 	 	 	
+ }
+
+  div.vote_zone{
+	position: absolute;
+ 	margin-top: 19.5mm;
+ 	margin-left: 27mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:6mm;
+	width: 14mm; 	 	 	
+ }
+
+  div.vote_section{
+	position: absolute;
+ 	margin-top: 19.5mm;
+ 	margin-left: 41mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:6mm;
+	width: 10mm; 	 	 	
+ }
+
+  div.fd{
+  		position: absolute;
+ 	margin-top: 25.5mm;
+ 	margin-left: 36mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:10mm;
+	width: 15mm; 	 	 	
+ 	
+ }
+
+  div.cpf{
+	position: absolute;
+ 	margin-top: 25.5mm;
+ 	margin-left: 3mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:5.5mm;
+	width: 33mm; 	 	 	
+ }
+
+ div.dt_emission{
+	position: absolute;
+ 	margin-top: 31mm;
+ 	margin-left: 3mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:4.5mm;
+	width: 33mm; 	 	 	
+ }
+
+  div.gs{
+	position: absolute;
+ 	margin-top: 31.5mm;
+ 	margin-left: 51mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:4mm;
+	width: 10mm; 	 	 	 	
+ }
+
+  div.rh{
+ 	position: absolute;
+ 	margin-top: 31.5mm;
+ 	margin-left: 61mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:4mm;
+	width: 18mm; 	 	 	 		
+ }
+
+  div.expire{
+ 	position: absolute;
+ 	margin-top: 42mm;
+ 	margin-left: 51mm;
+ 	margin-right: 1mm;
+ 	/*margin-bottom: 20mm;*/
+ 	height:5.5mm;
+	width: 28mm; 	 	 	 		 
+ }

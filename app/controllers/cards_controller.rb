@@ -111,28 +111,25 @@ class CardsController < ApplicationController
   end
 
   #Print /4full, 2top, 2bot cards
-  def print_cards
-    @cards = Card.find(params[:ids])
-    @cards.each do |card|
-      card.printed
+  def print_cards    
+    
+    ids_requests = CardRequest.all.select(:id).take(4)
+    @cards = Array.new
+    ids_requests.each do |ids_request|
+      card = Card.new
+      card.fill_by_request(ids_request.id)
+      @cards.push(card)
     end
-    case params[:commit]
-      when 'full'
-        pdf = CardPdf.new(@cards)
-      when 'top'
-        pdf = CardsBotPdf.new(@cards)
-      when 'bot'
-        pdf = CardsBotPdf.new(@cards)
-    end
-    @cards.each do |card|
-      if card.save
-        redirect_to :print_list
-      else
-        redirect_to :print_list, notice: "Identidade não persistida."
-      end
-
-    end
-
+    
+    #  case params[:commit]
+    #    when 'full'
+    #      pdf = CardPdf.new(@cards)
+    #    when 'top'
+    #      pdf = CardsBotPdf.new(@cards)
+    #    when 'bot'
+    #      pdf = CardsBotPdf.new(@cards)
+    #  end      
+    render :cards_full
   end
 
   private

@@ -299,6 +299,7 @@ pt-BR:
       return_card: Retornar Carteira
       discard_card: Descartar Carteira
       add: Adicionar %{parameter}
+      print_4: Imprimir as 4 primeiras %{parameter}
       version: Versão
       version_number: 3.0.a
   number:

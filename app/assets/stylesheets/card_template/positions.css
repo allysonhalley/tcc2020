@@ -1,0 +1,89 @@
+/*div.dimensaoA4{
+	width:210mm;
+	height:295mm;	
+	border: 0.1mm solid;
+}*/
+
+div.area_util_A4{
+	margin-top: 19mm;
+	margin-left: 8mm; /*Margem correta seria 11 mas há distorções*/
+	margin-right: 9mm;
+	margin-bottom: 18mm;
+
+	width:190mm;
+	height:260mm;	
+
+	/*border: 0.01mm solid;*/
+}
+
+div.card_position_01{
+	position: absolute;
+
+	width:95mm;
+	height:129.5mm;
+}
+
+div.card_position_02{
+	position: absolute;
+
+	width:95mm;
+	height:129.5mm;
+
+ 	/*margin-top: 0mm;*/
+ 	margin-left: 95mm;
+ 	/*margin-right: 0mm;*/
+ 	/*margin-bottom: 3mm;*/
+
+	/*border: 0.01mm solid;*/
+}
+div.card_position_03{
+	position: absolute;
+
+	width:95mm;
+	height:129.5mm;
+
+ 	margin-top: 130mm;
+ 	margin-left: 0mm;
+ 	margin-right: 0mm;
+ 	/*margin-bottom: 3mm;*/
+
+	/*border: 0.01mm solid;*/
+}
+
+div.card_position_04{
+	position: absolute;
+
+	width:95mm;
+	height:129.5mm;
+
+ 	margin-top: 130mm;
+ 	margin-left: 95mm;
+ 	margin-right: 0mm;
+ 	margin-bottom: 3mm;
+
+	/*border: 0.01mm solid;*/
+}
+
+div.card_front{
+  	position: relative;
+ 	margin-top: 1.5mm;
+ 	margin-left: 2mm;
+ 	margin-right: 3mm;
+ 	/*margin-bottom: 3mm;*/
+	height:60.5mm;
+	width: 90.5mm;
+	border: 4.5mm solid; 	
+	background-color: white; 	
+}
+
+div.card_back{
+	position: relative;
+	margin-top: 1.5mm;
+	margin-left: 2mm;
+	margin-right: 3mm;
+	margin-bottom: 2.5mm;
+	height:60.5mm;
+	width: 90.5mm;
+	border: 4.5mm solid; 	
+	background-color: white; 
+}

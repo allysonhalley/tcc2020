@@ -1,8 +1,7 @@
 class CardsPdf < Prawn::Document
   def initialize(cards)
     super(:page_size => 'A4')
-    mount_print(cards)
-    render_file "./public/asset/pdfs/#{Time.current.strftime('%d-%m-%Y-%H-%M ')}.pdf"
+    mount_print(cards)    
   end
 
   def mount_print(cards)
@@ -42,8 +41,8 @@ class CardsPdf < Prawn::Document
                  :height => 34,
                  :size => 8
 
-        #Patent box
-        text_box "#{card.patent}", :at => [17,75],
+        #Hierarchy box
+        text_box "#{card.hierarchy}", :at => [17,75],
                  :align => :center,
                  :valign => :center,
                  :width => 144,
@@ -51,13 +50,14 @@ class CardsPdf < Prawn::Document
                  :size => 8
 
         #Photo box
-        image "./public/asset/images/military/#{card.registration}.jpg", :at => [167,157],
+        #image "./public/asset/images/military/#{card.registration}.jpg", :at => [167,157],
+        text_box "photo", :at => [167,157],
               :position => :center,
               :valign => :center,
               :width => 71,
               :height => 82.5
 
-        #Register box
+        #Identification box
         text_box "#{card.identification}", :at => [167, 70],
                  :align => :center,
                  :valign => :center,
@@ -161,7 +161,7 @@ class CardsPdf < Prawn::Document
                  :size => 8
 
         #FD
-        text_box "#{card.fd}", :at => [116.5,84],
+        text_box "#{card.digital_factor}", :at => [116.5,84],
                  :align => :center,
                  :valign => :bottom,
                  :width => 42.5,

@@ -118,9 +118,9 @@ class CardsController < ApplicationController
     ids_requests.each do |ids_request|
       card = Card.new
       card.fill_by_request(ids_request.id)
-      @cards.push(card)
+      @cards.push(card)      
     end
-    
+    @pdf = CardsPdf.new(@cards)    
     #  case params[:commit]
     #    when 'full'
     #      pdf = CardPdf.new(@cards)
@@ -129,7 +129,7 @@ class CardsController < ApplicationController
     #    when 'bot'
     #      pdf = CardsBotPdf.new(@cards)
     #  end      
-    render :cards_full
+    redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:printed, %i[activerecord success]) }
   end
 
   private

@@ -4,6 +4,13 @@
 	border: 0.1mm solid;
 }*/
 
+@page {
+    margin-top: 10mm;
+    margin-bottom: 10mm;
+    margin-left: 10mm;
+    margin-right: 10mm;    
+}
+
 div.area_util_A4{
 	margin-top: 19mm;
 	margin-left: 8mm; /*Margem correta seria 11 mas há distorções*/

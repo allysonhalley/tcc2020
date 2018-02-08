@@ -34,7 +34,7 @@ class CardsController < ApplicationController
     ActiveRecord::Base.transaction do
       @card = Card.new(card_params)
       if @card.save
-        pdf = CardPdf.new(@card)        
+        #pdf = CardPdf.new(@card)        
         #pdf.render_file, filename: "#{@card.registration}-#{@card.name}-#{@card.print_date}", type: "application/pdf"
         #filename = File.join(Rails.root, "public/pdfs", "#{@card.registration}-#{@card.name}-#{@card.print_date}.pdf")
         #pdf.render_file
@@ -120,7 +120,7 @@ class CardsController < ApplicationController
       card.fill_by_request(ids_request.id)
       @cards.push(card)      
     end
-    @pdf = CardsPdf.new(@cards)    
+    #@pdf = CardsPdf.new(@cards)    
     #  case params[:commit]
     #    when 'full'
     #      pdf = CardPdf.new(@cards)
@@ -128,8 +128,9 @@ class CardsController < ApplicationController
     #      pdf = CardsBotPdf.new(@cards)
     #    when 'bot'
     #      pdf = CardsBotPdf.new(@cards)
-    #  end      
-    redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:printed, %i[activerecord success]) }
+    #  end
+    render pdf, :cards_ful_url, encoding: 'utf8',page_size: 'A4', print_media_type: true      
+    #render :cards_full, flash: { success: StrHelper.system_i18n_upper(:printed, %i[activerecord success]) }
   end
 
   private

@@ -3,6 +3,11 @@
 </h3>
 <div class="box">
   <!-- /.box-header -->
+  <div class="box-body"><h3 class="box-title">
+  <%= StrHelper.model_i18n(:other, [:card])%>
+</h3>
+<div class="box">
+  <!-- /.box-header -->
   <div class="box-body">
     <%= search_form_for @q, html: {class: "form-horizontal", role: "search"} do |f| %>
       <%= f.search_field :registration_or_name_cont, class: "form-control", placeholder: StrHelper.system_i18n(:search, [:helpers, :layouts]) %>

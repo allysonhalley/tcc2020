@@ -66,6 +66,8 @@ group :development do
   # Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Kill rails process
+  gem 'shutup', '~> 0.1.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -73,9 +75,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # This is an opninionated toaster asset gem. It sets some defaults,
 # adds support for flash messages and assumes you have a navbar.
-
-# Kill rails process
-gem 'shutup', '~> 0.1.2'
 
 # Prawn, pdf gen
 gem 'prawn', '~> 2.2', '>= 2.2.2'

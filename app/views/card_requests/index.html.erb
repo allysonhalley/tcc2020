@@ -1,7 +1,7 @@
 <h3>
   <%= StrHelper.model_i18n(:other, [:card_request])%>
   <div class="box-tools pull-right">
-    <%= link_to "", print_cards_path, class: 'btn btn-success btn-xs fa fa-print', title: StrHelper.tooltip_params_i18n(:print_4, :card, :other), 'data-toggle' => 'tooltip', 'data-placement' => 'left' %>
+    <%= link_to "", print_cards_path, class: 'btn btn-success btn-xs fa fa-print', title: StrHelper.tooltip_params_i18n(:print_4, :card, :other), 'data-toggle' => 'tooltip', 'data-placement' => 'left', :onclick => 'window.print(<%= PdfsHelper.gen_pdfs %>);' %>
   </div>
 </h3>
 <p id="notice">

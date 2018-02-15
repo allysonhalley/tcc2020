@@ -108,6 +108,7 @@ pt-BR:
       cancel: Cancelado com sucesso.
       given: Carteira entregue.
       returned: Carteira retornada.
+      cards_printed: Carteiras impressas.
       discard_ok: Discartada com sucesso.
   date:
     abbr_day_names:
@@ -244,6 +245,7 @@ pt-BR:
       request_exist: Solicitação de carteira já existe
       card_number_exist: Número da cédula já existe
       card_printed_exist: Carteira impressa
+      cards_printed_exist: Carteiras impressas
     template:
       body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:

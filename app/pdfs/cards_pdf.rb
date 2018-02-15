@@ -1,7 +1,8 @@
 class CardsPdf < Prawn::Document
   def initialize(cards)
     super(:page_size => 'A4')
-    mount_print(cards)    
+    mount_print(cards)
+    #render_file "./public/pdfs/#{DateTime.now.strftime('%d/%m/%Y')}.pdf"
   end
 
   def mount_print(cards)

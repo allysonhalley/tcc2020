@@ -1,0 +1,168 @@
+<div class="box box-info">
+  <%= form_with(model: card, local: true, class: 'form-horizontal') do |form| %>
+    <div class="box-body">
+      <div class="form-group">
+        <%= form.label(:name, StrHelper.attribute_i18n_upper(:name, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :name, id: :card_name, value: card.name, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :cpf, StrHelper.attribute_i18n_upper(:cpf, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :cpf, id: :card_cpf, data:{ inputmask:'"mask": "999.999.999-99"', mask:""}, class: "form-control", readonly: true )%>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label(:identification, StrHelper.attribute_i18n_upper(:identification, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :identification, id: :card_identification, data:{ inputmask:'"mask": "9999999-9"', mask:""}, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label(:hierarchy, StrHelper.model_i18n_upper(:one, [:hierarchy]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :hierarchy, id: :card_hierarchy, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label(:father_name, StrHelper.attribute_i18n_upper(:father_name, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :father_name, id: :card_father_name, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label(:mother_name, StrHelper.attribute_i18n_upper(:mother_name, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :mother_name, id: :card_mother_name, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :born_date, StrHelper.attribute_i18n_upper(:born_date, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <div class="input-group date">
+            <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <%= form.text_field(:born_date, id: :card_born_date, value: card.born_date, type:"date", class: "form-control pull-right", readonly: true)%>
+            </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <%= form.label( :registration, StrHelper.attribute_i18n_upper(:registration, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :registration, id: :card_registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :naturalness, StrHelper.attribute_i18n_upper(:naturalness, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :naturalness, id: :card_naturalness, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :vote_number, StrHelper.attribute_i18n_upper(:vote_number, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :vote_number, id: :card_vote_number, data:{ inputmask:'"mask": "999999999999"', mask:""}, class: "form-control", readonly: true) %>            
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :vote_zone, StrHelper.attribute_i18n_upper(:vote_zone, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :vote_zone, id: :card_vote_zone, data:{ inputmask:'"mask": "999"', mask:""}, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :vote_section, StrHelper.attribute_i18n_upper(:vote_section, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :vote_section, id: :card_vote_section, data:{ inputmask:'"mask": "999"', mask:""}, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :digital_factor, StrHelper.attribute_i18n_upper(:digital_factor, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :digital_factor, id: :card_digital_factor, data:{ inputmask:'"mask": "A-9999/A-9999"', mask:""}, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :blood_type, StrHelper.attribute_i18n_upper(:blood_type, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+            <%= form.text_field( :blood_type, id: :card_blood_type, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :blood_factor,StrHelper.attribute_i18n_upper(:blood_factor, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+            <%= form.text_field( :blood_factor, id: :card_blood_factor, class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :carry_weapon, StrHelper.attribute_i18n_upper(:carry_weapon, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field( :carry_weapon, id: :card_carry_weapon, value: MilitariesHelper.fit_carry_weapon(card.carry_weapon), class: "form-control", readonly: true) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :print_locale, StrHelper.attribute_i18n_upper(:print_locale, [:card]), class: 'col-sm-3 control-label') %>                  
+        <div class="col-sm-6">
+            <%= form.text_field :print_locale, id: :card_print_locale, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :print_date, StrHelper.attribute_i18n_upper(:print_date, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <div class="input-group date">
+            <div class="input-group-addon">
+              <i class="fa fa-calendar"></i>
+            </div>
+            <%= form.text_field(:print_date, id: :card_print_date, value: card.print_date, type:"date", class: "form-control pull-right", readonly: true)%>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :expire_date, StrHelper.attribute_i18n_upper(:expire_date, [:card]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <div class="input-group date">
+            <div class="input-group-addon">
+              <i class="fa fa-calendar"></i>
+            </div>
+            <%= form.text_field( :expire_date, id: :card_expire_date, value:card.expire_date, type: "date", class: "form-control pull-right", readonly: true) %>
+          </div>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <%= form.label( :card_request, StrHelper.attribute_i18n_upper(:document_reference, [:card_request]), class: 'col-sm-3 control-label') %>                  
+        <div class="col-sm-6">
+          <%= form.hidden_field(:card_request_id, id: :card_card_request_id, value: card.card_request.id) %>
+          <%= text_field_tag( :document_reference, card.document_reference_request, class: "form-control", readonly: true) %>
+        </div>          
+      </div>
+        
+      <div class="actions">
+        <%= link_to(StrHelper.system_i18n(:back, [:helpers, :layouts]), cards_path, class:"btn btn-default btn-sm") %>
+        <div class="box-tools pull-right">
+          <%= form.submit( StrHelper.system_i18n(:print, [:helpers, :layouts]), class:"btn btn-success btn-sm" )%>
+        </div>
+      </div>
+      <%= form.hidden_field(:card_status_id, id: :card_card_status_id, value: card.card_status.id) %>      
+    </div>
+  <% end %>
+</div>

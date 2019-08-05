@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  card_number: MyString
+  card_request: one
+  reason_discard: MyText
+
+two:
+  card_number: MyString
+  card_request: two
+  reason_discard: MyText

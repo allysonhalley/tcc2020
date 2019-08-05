@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  military_registration: MyString
+  document_reference: MyString
+  reason_request: 1
+  canceled: false
+
+two:
+  military_registration: MyString
+  document_reference: MyString
+  reason_request: 1
+  canceled: false

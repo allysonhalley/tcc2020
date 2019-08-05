@@ -1,0 +1,13 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h1 class="page-header"><%= I18n.t 'buttons.list_militaries' %></h1>
+    <div class="col-md-12">
+      <%= form_tag(militaries_listed_path, method: :get) do %>
+          <%= select_tag(:registration_list, options_from_collection_for_select(@users, :registration, :register_and_name), :multiple => true, :class => "searchable") %>
+          <div style="float: right">
+            <%= submit_tag "Listar", class: "form_submit btn btn-default" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

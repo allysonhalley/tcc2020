@@ -1,0 +1,121 @@
+.border-full{
+	/*border-top: 0.1mm solid;*/
+	/*border-left: 0.1mm solid;*/
+	/*border-right: 0.1mm solid;*/
+	/*border-bottom: 0.1mm solid;*/
+ 	border: 0.1mm solid; 		
+}
+
+.no-border-top{
+	/*border-top: 0.1mm solid;*/
+	border-left: 0.1mm solid;
+	border-right: 0.1mm solid;
+	border-bottom: 0.1mm solid;
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.no-border-bottom{
+	border-top: 0.1mm solid;
+	border-left: 0.1mm solid;
+	border-right: 0.1mm solid;
+	/*border-bottom: 0.1mm solid;*/
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.no-border-left{
+	border-top: 0.1mm solid;
+	/*border-left: 0.1mm solid;*/
+	border-right: 0.1mm solid;
+	border-bottom: 0.1mm solid;
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.no-border-right{
+	border-top: 0.1mm solid;
+	border-left: 0.1mm solid;
+	/*border-right: 0.1mm solid;*/
+	border-bottom: 0.1mm solid;
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.border-top{
+	border-top: 0.1mm solid;
+	/*border-left: 0.1mm solid;*/
+	/*border-right: 0.1mm solid;*/
+	/*border-bottom: 0.1mm solid;*/
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.border-left{
+	/*border-top: 0.1mm solid;*/
+	border-left: 0.1mm solid;
+	/*border-right: 0.1mm solid;*/
+	/*border-bottom: 0.1mm solid;*/
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.border-right{
+	/*border-top: 0.1mm solid;*/
+	/*border-left: 0.1mm solid;*/
+	border-right: 0.1mm solid;
+	/*border-bottom: 0.1mm solid;*/
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.border-bottom{
+	/*border-top: 0.1mm solid;*/
+	/*border-left: 0.1mm solid;*/
+	/*border-right: 0.1mm solid;*/
+	border-bottom: 0.1mm solid;
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.border-top-bottom{
+	border-top: 0.1mm solid;
+	/*border-left: 0.1mm solid;*/
+	/*border-right: 0.1mm solid;*/
+	border-bottom: 0.1mm solid;
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.border-left-right{
+	/*border-top: 0.1mm solid;*/
+	border-left: 0.1mm solid;
+	border-right: 0.1mm solid;
+	/*border-bottom: 0.1mm solid;*/
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.border-top-left{
+	border-top: 0.1mm solid;
+	border-left: 0.1mm solid;
+	/*border-right: 0.1mm solid;*/
+	/*border-bottom: 0.1mm solid;*/
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.border-left-bottom{
+	/*border-top: 0.1mm solid;*/
+	border-left: 0.1mm solid;
+	/*border-right: 0.1mm solid;*/
+	border-bottom: 0.1mm solid;
+ 	/*border: 0.1mm solid; 		*/
+}
+
+.border-bottom-right{
+	/*border-top: 0.1mm solid;*/
+	/*border-left: 0.1mm solid;*/
+	border-right: 0.1mm solid;
+	border-bottom: 0.1mm solid;
+ 	/*border: 0.1mm solid; 		*/
+}
+
+
+.border-card-face{
+	/*border-top: 0.1mm solid;*/
+	/*border-left: 0.1mm solid;*/
+	border-right: 0.1mm solid;
+	border-bottom: 0.1mm solid;
+	border: 4.5mm solid; 
+}
+

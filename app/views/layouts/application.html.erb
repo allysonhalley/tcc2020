@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html style="height: auto; min-height: 100%;">
   <head>
     <title>SGId</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true %>
   </head>
-
-  <body class="skin-blue sidebar-mini" style="height: auto;">
-  <div class="wrapper" style="height: auto;">
-    <%= render 'shared/menu/top' %>
-    <%= render 'shared/menu/left' %>
-    <div class="content-wrapper" style="min-height: 946px;">
-      <section class="content">
-        <%= yield %>
-      </section>
+  <body class="skin-blue fixed sidebar-mini sidebar-mini-expand-feature" style="height: auto; min-height: 100%;">
+    <div class="wrapper" style="height: auto; min-height: 100%;">
+      <%= render 'layouts/menu/top' %>
+      <%= render 'layouts/menu/left' %>
+      <div class="content-wrapper" style="min-height: 285px;">
+        <section class="content">
+          <%= yield %>
+        </section>
+      </div>
+      <%= render 'layouts/footer' %>
     </div>
-    <%= render 'shared/footer' %>
-  </div>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'helpers/toastr' %>
+  </script>
   </body>
+  
 </html>

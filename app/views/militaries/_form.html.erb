@@ -1,0 +1,131 @@
+<div class="box box-info">
+  <%= form_with(model: military, local: true, class: 'form-horizontal') do |form| %>
+    <div class="box-body">
+      <div class="form-group">
+        <%= form.label(:name, StrHelper.attribute_i18n_upper(:name, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field( :name, id: :military_name, class: "form-control") %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :cpf, StrHelper.attribute_i18n_upper(:cpf, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field :cpf, id: :military_cpf, data:{ inputmask:'"mask": "999.999.999-99"', mask:""}, class: "form-control" %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label(:identification, StrHelper.attribute_i18n_upper(:identification, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field :identification, id: :military_identification, data:{ inputmask:'"mask": "9999999-9"', mask:""}, class: "form-control" %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label(:hierarchy, StrHelper.model_i18n_upper(:one, [:hierarchy]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.select(:hierarchy_id, Hierarchy.all.order(:rank).map {|hierarchy| [hierarchy.name, hierarchy.id]}, {}, {class: "form-control"}) %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label(:father_name, StrHelper.attribute_i18n_upper(:father_name, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field :father_name, id: :military_father_name, class: "form-control" %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label(:mother_name, StrHelper.attribute_i18n_upper(:mother_name, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field :mother_name, id: :military_mother_name, class: "form-control" %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :born_date, StrHelper.attribute_i18n_upper(:born_date, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <div class="input-group date">
+              <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <%= form.text_field :born_date, id: :military_born_date, type: "date", class: "form-control pull-right" %>
+            </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <%= form.label( :registration, StrHelper.attribute_i18n_upper(:registration, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field :registration, id: :military_registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control" %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :naturalness, StrHelper.attribute_i18n_upper(:naturalness, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.select(:naturalness, City.all.order(:name).map {|city| [city.city_and_state, city.city_and_state]}, {}, {class: "form-control"}) %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :vote_number, StrHelper.attribute_i18n_upper(:vote_number, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field :vote_number, id: :military_vote_number, data:{ inputmask:'"mask": "999999999999"', mask:""}, class: "form-control" %>            
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :vote_zone, StrHelper.attribute_i18n_upper(:vote_zone, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field :vote_zone, id: :military_vote_zone, data:{ inputmask:'"mask": "999"', mask:""}, class: "form-control" %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :vote_section, StrHelper.attribute_i18n_upper(:vote_section, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field :vote_section, id: :military_vote_section, data:{ inputmask:'"mask": "999"', mask:""}, class: "form-control" %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :digital_factor, StrHelper.attribute_i18n_upper(:digital_factor, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.text_field :digital_factor, id: :military_digital_factor, data:{ inputmask:'"mask": "A-9999/A-9999"', mask:""}, class: "form-control" %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :blood_type, StrHelper.attribute_i18n_upper(:blood_type, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.select(:blood_type, options_for_select(Military.i18n_upper_blood_types, @military.blood_type), {}, {class: "form-control"}) %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :blood_factor,StrHelper.attribute_i18n_upper(:blood_factor, [:military]), class: 'col-sm-2 control-label') %>
+          <div class="col-sm-6">
+            <%= form.select(:blood_factor, options_for_select(Military.i18n_upper_blood_factors, @military.blood_factor), {}, {class: "form-control"}) %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label( :carry_weapon, StrHelper.attribute_i18n_upper(:carry_weapon, [:military]), class: 'col-sm-2 control-label') %>                  
+        <div class="col-sm-6">
+          <%= form.radio_button( :carry_weapon, true, id: :military_carry_weapon, class: "col-sm-1") %>  
+          <%= form.label( :carry_weapon, StrHelper.system_i18n(:fit, [:helpers, :select]), class: "col-sm-3")  %>
+          <%= form.radio_button( :carry_weapon, false, id: :military_carry_weapon, class: "col-sm-1") %>  
+          <%= form.label( :carry_weapon, StrHelper.system_i18n(:unfit, [:helpers, :select]), class: "col-sm-3")  %>
+        </div>          
+      </div>
+      
+      <div class="actions">
+        <%= link_to(StrHelper.system_i18n(:back, [:helpers, :layouts]), militaries_path, class:"btn btn-default btn-sm") %>
+        <div class="box-tools pull-right">
+          <%= form.submit( StrHelper.system_i18n(:save, [:helpers, :layouts]), class:"btn btn-success btn-sm" )%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

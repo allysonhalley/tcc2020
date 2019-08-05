@@ -18,6 +18,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap/variables";
+@import "bootstrap-datepicker";
+@import "toastr_rails";
 @import "font-awesome";
 @import "ionicons";
-@import "adminlte";
+@import "adminlte.min";
+@import 'icheck/square/blue';
+@import 'card_template/borders';
+@import 'card_template/fields';
+@import 'card_template/font_default';
+@import 'card_template/positions';

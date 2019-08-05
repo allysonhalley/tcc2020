@@ -1,0 +1,16 @@
+<h3 class="box-title">
+        <%= StrHelper.model_i18n(:other, [:card])%>
+    </h3>
+    <div class="box">
+        <!-- /.box-header -->
+        <div class="box-body">            
+            <div class="area_util_A4">
+                <% @cards.each_with_index do |card, index| %>
+                    <div class="card_position_0<%= index+1 %>">
+                        <%= render 'cards/card_base/front', card: card %>
+                        <%= render 'cards/card_base/back', card: card %>
+                    </div>
+                <% end %>
+            </div>            
+        </div>
+    </div>

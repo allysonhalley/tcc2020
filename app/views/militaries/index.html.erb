@@ -1,0 +1,48 @@
+<h3 class="box-title">
+  <%= StrHelper.model_i18n(:other, [:military])%>
+  <div class="box-tools pull-right">
+    <%= link_to "", new_military_path, class: 'btn btn-success btn-xs fa fa-plus', title: StrHelper.tooltip_params_i18n(:add, :military, :one), 'data-toggle' => 'tooltip', 'data-placement' => 'left' %>
+  </div>  
+</h3>
+<div class="box">
+  <!-- /.box-header -->
+  <div class="box-body">
+    <%= search_form_for @q, html: {class: "form-horizontal", role: "search"} do |f| %>
+      <%= f.search_field :name_or_identification_or_registration_or_cpf_cont, class: "form-control", placeholder: StrHelper.system_i18n(:search, [:helpers, :layouts]) %>
+    <% end %>
+    <table class="table table-responsive table-hover">
+      <thead>
+        <tr>
+          <th><%= sort_link(@q, :name, StrHelper.attribute_i18n_upper(:name, [:military])) %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :identification, StrHelper.attribute_i18n_upper(:identification, [:military])) %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :registration, StrHelper.attribute_i18n_upper(:registration, [:military])) %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :cpf, StrHelper.attribute_i18n_upper(:cpf,[:military])) %></th>          
+          <th class="col-sm-2 text-center"><%= StrHelper.system_i18n_upper(:action, [:helpers, :layouts]) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @militaries.each do |military| %>
+          <tr>
+            <td><%= military.name %></td>
+            <td align="center"><%= military.identification %></td>
+            <td align="center"><%= military.registration %></td>
+            <td align="center"><%= military.cpf %></td>
+            <td align="center">
+              <%= hidden_field(@military, military) %>
+              <%= link_to("", military, class:"btn btn-default btn-xs fa fa-file-text-o", title: StrHelper.system_i18n(:show, [:helpers, :layouts]), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
+              <%= link_to("", edit_military_path(military.id), class: 'btn btn-info btn-xs fa fa-edit', title: StrHelper.system_i18n(:edit, [:helpers, :layouts]), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
+              <button type="button" class="btn btn-danger btn-xs fa " data-toggle="modal" data-target='<%="#modal-destroy-#{military.id}"%>'>
+                <a class="btn-danger fa fa-trash" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:destroy, [:helpers, :layouts]) %>'></a>
+              </button>
+              <%= render 'helpers/modal/destroy', object_destroy: military %>            
+              <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-request-#{military.id}"%>'>
+                <a class="btn-success fa fa-send-o" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:card_request, [:helpers, :layouts])%>'></a>
+              </button>
+              <%= render 'helpers/modal/card_request', object_request: military %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>    
+  </div>
+</div>

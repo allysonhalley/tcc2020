@@ -1,0 +1,85 @@
+# CardRequestsController controla link com view
+class CardRequestsController < ApplicationController
+  before_action :set_card_request, only: %i[show edit update destroy]
+
+  # GET /card_requests
+  # GET /card_requests.json
+  def index
+    collection = CardRequest.joins("LEFT JOIN cards ON card_requests.id = cards.card_request_id").where(cards: {card_request_id: nil}).where(card_requests: {canceled: false})
+    @q = collection.ransack(params[:q])
+    @card_requests = @q.result(distinct: true).order(created_at: :desc)
+    
+  end
+  # GET /card_requests/1
+  # GET /card_requests/1.json
+  def show; end
+
+  # GET /card_requests/new
+  def new
+    @card_request = CardRequest.new
+  end
+
+  # GET /card_requests/1/edit
+  def edit; end
+
+  # POST /card_requests
+  # POST /card_requests.json
+  def create
+    @card_request = CardRequest.new(card_request_params)    
+    if CardsHelper.card_printed_exist(@card_request.military_registration)
+      redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:card_printed_exist, %i[errors messages]) }
+    elsif CardRequestsHelper.request_exist(@card_request.document_reference, @card_request.military_registration)
+      redirect_to militaries_url, flash: { error: StrHelper.system_i18n_upper(:request_exist, %i[errors messages]) }
+    elsif @card_request.save
+      redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
+    else
+      flash.now[:error] = @card_request.errors.full_messages.first
+      redirect_to militaries_url, flash: { error: @card_request.errors.full_messages.first }
+    end
+  end
+
+  # PATCH/PUT /card_requests/1
+  # PATCH/PUT /card_requests/1.json
+  def update
+    if @card_request.update(card_request_params)
+      redirect_to @card_request, flash: { success: StrHelper.system_i18n_upper(:update, %i[activerecord success]) }
+    else
+      flash.now[:error] = @card_request.errors.full_messages.first
+      render :edit
+    end
+  end
+
+  # DELETE /card_requests/1
+  # DELETE /card_requests/1.json
+  def destroy
+    if @card_request.destroy
+      redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:destroy, %i[activerecord success]) }
+    else
+      redirect_to card_requests_url, flash: { error: @card_request.errors.full_messages.first }
+    end
+  end
+
+  # CANCEL /card_requests/1
+  # CANCEL /card_requests/1.json
+  def cancel
+    card_request = CardRequest.find_by_id(params[:id])
+    card_request.canceled = true
+    if card_request.save
+      redirect_to card_requests_url, flash: { success: StrHelper.system_i18n_upper(:cancel, %i[activerecord success]) }
+    else
+      redirect_to card_requests_url, flash: { error: card_request.errors.full_messages.first }
+    end
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_card_request
+    @card_request = CardRequest.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def card_request_params
+    params.require(:card_request).permit(:military_registration, :document_reference, :reason_request, :canceled)
+  end
+end

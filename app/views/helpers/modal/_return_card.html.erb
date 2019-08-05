@@ -1,0 +1,40 @@
+<div class="modal fade" id='<%="modal-return-#{return_card.id}"%>' role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                  <%= StrHelper.system_i18n(:sure, [:helpers, :submit])%>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="box box-danger">
+                    <div class="form-horizontal">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <%= label_tag( :name, StrHelper.attribute_i18n_upper(:name, [:military]), class: 'col-sm-5 control-label') %>
+                                <div class="col-sm-6">
+                                    <%= text_field_tag(:name, return_card.name, {class: "form-control", readonly: true})%>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <%= label_tag( :registration, StrHelper.attribute_i18n_upper(:registration, [:military]), class: 'col-sm-5 control-label') %>
+                                <div class="col-sm-6">
+                                    <%= text_field_tag(:registration, return_card.registration, data:{ inputmask:'"mask": "999999-9"', mask:""}, class: "form-control", readonly: true) %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-xs pull-left" data-dismiss="modal">
+                  <%= StrHelper.system_i18n(:back, [:helpers, :layouts])%>
+                </button>
+                <%= button_to(StrHelper.system_i18n(:return, [:helpers, :layouts]), return_card, method: :delete, class: 'btn btn-danger btn-xs') %>
+            </div>
+        </div>
+    </div>
+</div>

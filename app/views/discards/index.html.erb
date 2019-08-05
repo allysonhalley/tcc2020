@@ -1,0 +1,47 @@
+<h3>
+    <%= StrHelper.model_i18n(:other, [:discard])%>
+  </h3>
+  <p id="notice">
+    <%= notice %>
+  </p>
+  <div class="box">
+    <div class="box-body">
+      <%= search_form_for @q, html: {class: "form-horizontal", role: "search"} do |f| %>
+        <%= f.search_field :card_number_or_card_request_id_or_reason_discard_cont, class: "form-control", placeholder: StrHelper.system_i18n(:search, [:helpers, :layouts]) %>
+      <% end %>
+      <table class="table table-responsive table-hover">
+        <thead>
+          <tr>
+            <th class="col-sm-3 text-center"><%= sort_link(@q, :card_request, StrHelper.attribute_i18n_upper(:registration_name, [:military])) %></th>
+            <th class="col-sm-3 text-center"><%= sort_link(@q, :card_request, StrHelper.attribute_i18n_upper(:document_reference, [:card_request])) %></th>
+            <th class="col-sm-2 text-center"><%= sort_link(@q, :card_number, StrHelper.attribute_i18n_upper(:card_number, [:card])) %></th>
+            <th class="col-sm-3 text-center"><%= sort_link(@q, :reason_discard, StrHelper.attribute_i18n_upper(:reason_discard, [:discard])) %></th>          
+            <th class="col-sm-2 text-center"><%= StrHelper.system_i18n_upper(:action, [:helpers, :layouts]) %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @discards.each do |discard| %>
+            <tr>
+              <td align="center">
+                <%= discard.register_and_name %>
+              </td>
+              <td align="center">
+                <%= discard.document_request_reference %>
+              </td>
+              <td align="center">
+                <%= discard.card_number %>
+              </td>
+              <td align="center">
+                <%= discard.reason_discard %>
+              </td>
+              <td align="center">
+                <%= hidden_field(@discard, discard) %>
+                <%= link_to( "", edit_discard_path(discard.id), class: 'btn btn-info btn-xs fa fa-edit', title: StrHelper.system_i18n(:edit, [:helpers, :layouts]), 'data-toggle' => 'tooltip', 'data-placement' => 'left')%>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

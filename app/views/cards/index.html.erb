@@ -1,0 +1,57 @@
+<h3 class="box-title">
+  <%= StrHelper.model_i18n(:other, [:card])%>
+</h3>
+<div class="box">
+  <!-- /.box-header -->
+  <div class="box-body"><h3 class="box-title">
+  <%= StrHelper.model_i18n(:other, [:card])%>
+</h3>
+<div class="box">
+  <!-- /.box-header -->
+  <div class="box-body">
+    <%= search_form_for @q, html: {class: "form-horizontal", role: "search"} do |f| %>
+      <%= f.search_field :registration_or_name_cont, class: "form-control", placeholder: StrHelper.system_i18n(:search, [:helpers, :layouts]) %>
+    <% end %>
+    <table class="table table-responsive table-hover">
+      <thead>
+        <tr>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :registration, StrHelper.attribute_i18n_upper(:registration, [:card])) %></th>
+          <th><%= sort_link(@q, :name, StrHelper.attribute_i18n_upper(:name, [:card])) %></th>
+          <th class="col-sm-3 text-center"><%= sort_link(@q, :card_request, StrHelper.attribute_i18n_upper(:document_reference, [:card_request])) %></th>
+          <th class="col-sm-1 text-center"><%= sort_link(@q, :card_status, StrHelper.attribute_i18n_upper(:card_status,[:card])) %></th>          
+          <th class="col-sm-2 text-center"><%= StrHelper.system_i18n_upper(:action, [:helpers, :layouts]) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cards.each do |card| %>
+          <tr>
+            <td align="center"><%= card.registration %></td>
+            <td><%= card.name %></td>            
+            <td align="center"><%= card.card_request.document_reference %></td>
+            <td align="center"><%= card.card_status.describe %></td>
+            <td align="center">
+              <%= hidden_field(@card, card) %>
+              <%= link_to("", card, class:"btn btn-default btn-xs fa fa-file-text-o", title: StrHelper.system_i18n(:show, [:helpers, :layouts]), 'data-toggle' => 'tooltip', 'data-placement' => 'left') %>
+              
+              <button type="button" class="btn btn-success btn-xs fa" data-toggle="modal" data-target='<%="#modal-giving-#{card.id}"%>' <%= card.abled_to_give_discard %>>
+                <a class="btn-success fa fa-check" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:giving_card, [:helpers, :layouts])%>'></a>
+              </button>
+              <%= render 'helpers/modal/giving_card', giving_card: card %>
+
+              <button type="button" class="btn btn-danger btn-xs fa" data-toggle="modal" data-target='<%="#modal-return-#{card.id}"%>' <%= card.abled_to_return %>>
+                <a class="btn-danger fa fa-recycle" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:return_card, [:helpers, :layouts])%>'></a>
+              </button>
+              <%= render 'helpers/modal/return_card', return_card: card %>
+
+              <button type="button" class="btn btn-danger btn-xs fa" data-toggle="modal" data-target='<%="#modal-discard-#{card.id}"%>' <%= card.abled_to_give_discard %>>
+                <a class="btn-danger fa fa-close" title="" data-toggle="tooltip" data-placement="left" href="" data-original-title='<%= StrHelper.system_i18n(:discard_card, [:helpers, :layouts])%>'></a>
+              </button>
+              <%= render 'helpers/modal/discard_card', discard_card: card %>
+
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>    
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="box box-info">
+  <%= form_with(model: card_request, local: true, class: 'form-horizontal') do |form| %>
+    <div class="box-body">
+      <div class="form-group">
+        <%= form.label( :military_registration, StrHelper.attribute_i18n_upper(:military_registration, [:card_request]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field :military_registration, id: :card_request_military_registration, class: "form-control", readonly: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label( :document_reference, StrHelper.attribute_i18n_upper(:document_reference, [:card_request]), class: 'col-sm-3 control-label') %>
+        <div class="col-sm-6">
+          <%= form.text_field :document_reference, id: :card_request_document_reference, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= form.label( :reason_request, StrHelper.attribute_i18n_upper(:reason_request, [:card_request]), class: 'col-sm-3 control-label') %>
+          <div class="col-sm-6">
+            <%= form.select(:reason_request, options_for_select(CardRequest.i18n_reason_requests, @card_request.reason_request), {}, {class: "form-control"}) %>
+          </div>
+      </div>
+      <div class="actions">
+        <%= link_to(StrHelper.system_i18n(:back, [:helpers, :layouts]), card_requests_path, class:"btn btn-default btn-sm") %>
+        <div class="box-tools pull-right">
+          <%= form.submit( StrHelper.system_i18n(:save, [:helpers, :layouts]), class:"btn btn-success btn-sm" )%>
+        </div>
+      </div>
+    </div>    
+  <% end %>
+</div>

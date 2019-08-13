@@ -11,9 +11,8 @@ class CardsController < ApplicationController
   def index
     # collection = CardRequest.joins("LEFT JOIN cards ON card_requests.id = cards.card_request_id")
     #   .where(cards: {card_request_id: nil})
-    #   .where(card_requests: {canceled: false})
-    # @q = Card.ransack(params[:q])
-    
+    #   .where(card_requests: {canceled: false})    
+    @q = Card.ransack(params[:q])    
     @cards = @q.result(distinct: true).joins(:card_status).joins(:card_request).order(registration: :asc)
     #abort @cards.to_sql
   end
@@ -23,7 +22,7 @@ class CardsController < ApplicationController
   def show; end
 
   # GET /cards/new
-  def new
+  def new    
     @card = Card.new
     object_request_id = params[:object_request_id]
     @card.fill_by_request(object_request_id)
@@ -35,10 +34,17 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
+    flag_one_card = params[:card][:one_card]
     ActiveRecord::Base.transaction do
       @card = Card.new(card_params)
-      if @card.save        
-        redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
+      if @card.save
+        if flag_one_card
+          print_a_card
+          redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
+        else
+          print_cards
+          redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
+        end        
       else
         redirect_to card_requests_url, flash: { error: @card.errors.full_messages.first }
       end
@@ -106,19 +112,14 @@ class CardsController < ApplicationController
     @military = Military.find(@card_request.military_registration)
   end
 
-  def print_a_card
-    # @card = Card.new(card_params)
-    # pdf = CardPdf.new(@card)        
-    # pdf.render_file,
-    #   filename: "#{@card.registration}-#{@card.name}-#{@card.print_date}",
-    #   type: "application/pdf"
-    # filename = File.join(Rails.root, "public/pdfs",
-    #   "#{@card.registration}-#{@card.name}-#{@card.print_date}.pdf")
-    # pdf.render_file
-    #   filename: "#{@card.registration}-#{@card.name}-#{@card.print_date}",
-    #   type: 'application/pdf',
-    #   disposition: 'inline',
-    #   flash: { success: StrHelper.system_i18n_upper(:create, %i[activerecord success]) }
+  def print_a_card    
+    ActiveRecord::Base.transaction do
+      @card = Card.new(card_params)      
+      pdf = CardPdf.new(@card)        
+      pdf.render_file "#{@card.registration}-#{@card.name}-#{@card.print_date}"
+      filename = File.join(Rails.root, "public/pdfs",
+        "#{@card.registration}-#{@card.name}-#{@card.print_date}.pdf")      
+    end
   end
 
   #Print /4full, 2top, 2bot cards
@@ -141,9 +142,7 @@ class CardsController < ApplicationController
     #    when 'bot'
     #      pdf = CardsBotPdf.new(@cards)
     #  end
-    #render pdf, :cards_ful_url, encoding: 'utf8',page_size: 'A4', print_media_type: true
-    
-    redirect_to cards_url, flash: { success: StrHelper.system_i18n_upper(:cards_printed, %i[activerecord success]) }
+    #render pdf, :cards_ful_url, encoding: 'utf8',page_size: 'A4', print_media_type: true    
   end
 
   private

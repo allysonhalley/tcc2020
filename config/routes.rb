@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   patch 'giving_card', to:'cards#giving', as: :giving_card
   patch 'returning_card', to:'cards#returning', as: :returning_card
 
+  #Print one card
+  post 'print_a_card', to: 'cards#print_a_card', as: :print_a_card
   #Print 4 first cards
   get 'print_cards', to: 'cards#print_cards', as: :print_cards
   post 'create_cards', to: 'cards#create_cards', as: :create_cards

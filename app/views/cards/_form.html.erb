@@ -159,10 +159,11 @@
       <div class="actions">
         <%= link_to(StrHelper.system_i18n(:back, [:helpers, :layouts]), cards_path, class:"btn btn-default btn-sm") %>
         <div class="box-tools pull-right">
-          <%= form.submit( StrHelper.system_i18n(:print, [:helpers, :layouts]), class:"btn btn-success btn-sm" )%>
+          <%= form.submit( StrHelper.system_i18n(:print, [:helpers, :layouts]),name: :print_a_card, class:"btn btn-success btn-sm" )%>
         </div>
       </div>
-      <%= form.hidden_field(:card_status_id, id: :card_card_status_id, value: card.card_status.id) %>      
+      <%= form.hidden_field(:one_card, id: :one_card, value: true) %>
+      <%= form.hidden_field(:card_status_id, id: :card_card_status_id, value: card.card_status.id) %>
     </div>
   <% end %>
 </div>

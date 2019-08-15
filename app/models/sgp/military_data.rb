@@ -1,15 +1,23 @@
 class Sgp::MilitaryData < ApplicationRecord
-	establish_connection(:portal_sistemas)
+	establish_connection(:db_portal_sistemas_prod)
 	self.table_name = 'ovrsgp.tb_pess'
 
 	alias_attribute :id, :id_pess
 	alias_attribute :name, :nm_pess
 	alias_attribute :war_name, :nm_guerr
 	alias_attribute :registration, :nr_matr_pess
-	
-	has_many :promotions, class_name: 'Sgp::Promotion', 
-		primary_key: 'id_pess', foreign_key: 'id_pess_fk'
-
+	alias_attribute :born_date, :dt_nasc
+	alias_attribute :identification, :nr_rg_milit
+	alias_attribute :father_name, :nm_gntr
+	alias_attribute :mother_name, :nm_gntra
+	alias_attribute :vote_number, :nr_titu_eleit
+	alias_attribute :vote_section, :ds_secao_titu_eleit
+	alias_attribute :vote_zone, :ds_zone_titu_eleit	
+	alias_attribute :cpf, :nr_cpf_pess
+	alias_attribute :naturalness, :ds_natur_pess   
+	alias_attribute :blood_type
+	alias_attribute :blood_factor
+    
 	# Cached function
 	def self.fetch_all
 		Rails.cache.fetch(["military_datas", __method__], expires_in: 2.hours) do
@@ -30,10 +38,4 @@ class Sgp::MilitaryData < ApplicationRecord
 			SQL
 		end
 	end
-
-	def patent
-		promotion = promotions.order('dt_promv DESC').first
-		promotion.patent
-	end
-
 end

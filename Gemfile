@@ -82,3 +82,6 @@ gem 'prawn', '~> 2.2', '>= 2.2.2'
 gem 'prawn_rails', '~> 0.0.11'
 # Auto print prawn pdfs
 gem 'prawn-print'
+
+# Salvar imagens/arquivos
+gem 'active_store', '~> 1.0'

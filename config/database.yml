@@ -92,11 +92,12 @@ production:
 ########### acessando o banco da SGP ovrsgp ###########
 #######################################################
 
-#ovrsgp:
-#  adapter: postgresql
-#  encoding: unicode
-#  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#  database: ovrsgp
-#  schema: ovrsgp
-#  username: postgres
-#  password: root
+ovrsgp:
+ adapter: postgresql
+ encoding: unicode
+ pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+ host: 10.193.0.16
+ database: db_portal_sistemas_prod
+ schema: ovrsgp
+ username: ctic
+ password: @cticcbmpe#
